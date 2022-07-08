@@ -7,6 +7,6 @@
 
 
  const Footer = (props) => {
- return <></>;
+ return <footer>Steve footer</footer>;
  }
  export default Footer

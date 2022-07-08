@@ -3,10 +3,13 @@
  * Infinisoft Inc.
  * www.infini-soft.com
  */
-import React from 'react';
-
+import React from "react";
 
 const Header = (props) => {
-return <></>;
-}
-export default Header
+  return (
+    <>
+      <h1>Steeeve</h1>
+    </>
+  );
+};
+export default Header;

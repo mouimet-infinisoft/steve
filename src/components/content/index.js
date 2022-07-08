@@ -7,6 +7,6 @@
 
 
  const Content = (props) => {
- return <></>;
+ return <main>Main stever</main>;
  }
  export default Content

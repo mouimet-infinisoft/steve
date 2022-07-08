@@ -1,18 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import logo from "./logo.svg";
+import "./App.css";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Layout from "./layout";
 
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
-  },
+    mode: "dark"
+  }
 });
 
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-    <main>This app is using the dark mode</main>
-  </ThemeProvider>
+      <Layout />
+    </ThemeProvider>
   );
 }
 

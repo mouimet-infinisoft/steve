@@ -6,7 +6,7 @@
  import React from 'react';
 
 
- const Footer = (props) => {
+ const Content = (props) => {
  return <></>;
  }
- export default Footer
+ export default Content

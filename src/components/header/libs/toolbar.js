@@ -16,7 +16,7 @@ export const Tool = () => {
         component="div"
         sx={{ display: { xs: "none", sm: "block" } }}
       >
-        STEEEEEEEEEVE
+        Infinisoft
       </Typography>
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ display: { xs: "none", md: "flex" } }}>

@@ -4,14 +4,10 @@ header {
   background-color: pink;
 }
 
+main, footer, section {
+  padding: 24px;
+}
+
 section {
-  margin-top: 4rem;
-}
-
-main {
-  padding: 24px;
-}
-
-footer {
-  padding: 24px;
+  padding: 48px;
 }

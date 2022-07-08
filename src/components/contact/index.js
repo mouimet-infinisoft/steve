@@ -1,8 +1,10 @@
+import Jumbotron from "../jumbotron";
+
 const Contact = () => {
   return (
-    <section>
-      <h1>Contact Dog</h1>
-    </section>
+    <>
+      <Jumbotron title="Contact" />
+    </>
   );
 };
 

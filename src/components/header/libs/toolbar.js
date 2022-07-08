@@ -10,15 +10,6 @@ import Typography from "@mui/material/Typography";
 export const Tool = () => {
   return (
     <>
-      <IconButton
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="open drawer"
-        sx={{ mr: 2 }}
-      >
-        <MenuIcon />
-      </IconButton>
       <Typography
         variant="h6"
         noWrap

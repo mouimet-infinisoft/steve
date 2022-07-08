@@ -1,6 +1,7 @@
 import "./App.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Layout from "./layout";
+import Layout from "./components/layout";
+import { MemoryRouter } from "react-router-dom";
 
 const darkTheme = createTheme({
   palette: {
@@ -11,7 +12,9 @@ const darkTheme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <Layout />
+      <MemoryRouter>
+        <Layout />
+      </MemoryRouter>
     </ThemeProvider>
   );
 }

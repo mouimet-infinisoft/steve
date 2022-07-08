@@ -4,6 +4,9 @@ header {
   background-color: pink;
 }
 
+section {
+  margin-top: 4rem;
+}
 
 main {
   padding: 24px;

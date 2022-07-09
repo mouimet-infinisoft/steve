@@ -1,9 +1,13 @@
+import Typography from "@mui/material/Typography";
+
 const Jumbotron = ({ title }) => {
   return (
     <div>
-      <h1>{title}</h1>
+      <Typography variant="h1" gutterBottom component="div">
+        {title}
+      </Typography>
     </div>
   );
 };
 
-export default Jumbotron
+export default Jumbotron;

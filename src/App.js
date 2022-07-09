@@ -1,6 +1,5 @@
 import "./App.css";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Layout from "./components/layout";
 import { MemoryRouter } from "react-router-dom";
 import Router from "./components/router";
 

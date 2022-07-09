@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Contact from "../contact";
+import Contacts from "../contacts";
+import Cases from "../cases";
+import Messages from "../messages";
 import Home from "../home";
 import Organization from "../organization";
 import Community from "../community";
@@ -10,7 +12,9 @@ const Router = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="contacts" element={<Contacts />} />
+        <Route path="cases" element={<Cases />} />
+        <Route path="messages" element={<Messages />} />
         <Route path="organization" element={<Organization />} />
         <Route path="community" element={<Community />} />
       </Route>

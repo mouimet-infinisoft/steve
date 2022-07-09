@@ -1,6 +1,6 @@
 import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 
-export const themeOptions = {
+export const themeOptions = ThemeOptions ( {
   palette: {
     type: 'dark',
     primary: {
@@ -115,4 +115,4 @@ export const themeOptions = {
     borderRadius: 4,
   },
   spacing: 8,
-};
+});

@@ -1,4 +1,6 @@
-export const themeOptions = {
+import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
+
+export const themeOptions = ThemeOptions({
   palette: {
     type: 'light',
     primary: {
@@ -113,4 +115,4 @@ export const themeOptions = {
     borderRadius: 4,
   },
   spacing: 8,
-};
+});

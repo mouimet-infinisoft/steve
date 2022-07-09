@@ -1,13 +1,8 @@
 import "./App.css";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { MemoryRouter } from "react-router-dom";
 import Router from "./components/router";
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark"
-  }
-});
+import {darkTheme} from './theme'
 
 function App() {
   return (

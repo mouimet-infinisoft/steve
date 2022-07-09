@@ -1,9 +1,12 @@
 import Box from "@mui/material/Box";
 import ActionTile from "../action-tile";
-import { Paper, Typography } from "@mui/material";
+import { Typography, Divider } from "@mui/material";
 import IconList from "../icon-list";
 import { items } from "./mock/news";
 import { actions } from "./mock/actions";
+import AppCalendar from "../calendar";
+import Checklist from "../checklist";
+import {checklist} from './mock/checklist'
 
 const ActionList = ({ actions }) =>
   actions.map((props) => <HomeActionTile {...props} />);
@@ -35,11 +38,17 @@ const HomeLayout = () => {
           height: "calc(100vh - 400px)"
         }}
       >
-        <Paper sx={{ height: "calc(100vh - 400px)" }}>
+        <Box sx={{ height: "calc(100vh - 400px)" }}>
           <Typography variant="h2" gutterBottom component="div">
             Calendar
           </Typography>
-        </Paper>
+          <AppCalendar />
+          <Box sx={{ display: "flex" }}>
+            <Divider sx={{width: '350px', margin: '1rem'}} />
+          </Box>
+
+          <Checklist list={checklist}/>
+        </Box>
       </Box>
 
       <Box
@@ -51,7 +60,7 @@ const HomeLayout = () => {
           flexBasis: 60
         }}
       >
-        <ActionList actions={actions}/>
+        <ActionList actions={actions} />
       </Box>
 
       <Box

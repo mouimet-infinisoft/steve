@@ -1,11 +1,18 @@
-import Jumbotron from "../../components/jumbotron";
 
-const Contacts = () => {
+import Layout from "./layout";
+import { Routes, Route } from "react-router-dom";
+import Contacts from './libs/lists'
+import contacts from './mock/contacts.json'
+
+
+const ContactFeature = () => {
   return (
-    <>
-      <Jumbotron title="Contacts" />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Contacts list={contacts}  />} />
+      </Route>
+    </Routes>
   );
 };
 
-export default Contacts;
+export default ContactFeature;

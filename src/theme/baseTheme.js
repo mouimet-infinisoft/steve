@@ -10,5 +10,8 @@ export const baseTheme = responsiveFontSizes(createTheme({
     secondary: {
       main: green[500],
     },
+    typography: {
+      fontFamily: 'Orbitron',
+    }
   }
 }));

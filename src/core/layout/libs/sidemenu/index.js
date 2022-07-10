@@ -10,8 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import { useNavigate } from "react-router-dom";
-import { Avatar } from "@mui/material";
-import Paper from '@mui/material/Paper';
+import Box from "@mui/material/Box";
 
 const drawerWidth = 240;
 
@@ -55,21 +54,22 @@ const Drawer = styled(MuiDrawer, {
   })
 }));
 
-const Sidemenu = ({open, handleClose}) => {
+const Sidemenu = ({ open, handleClose }) => {
   const navigate = useNavigate();
 
-  return      <Drawer variant="permanent" open={open}>
+  return (
+    <Drawer variant="permanent" open={open}>
       <Divider />
-
-      <List sx={{borderRight: 0}}>
-        <ListItem sx={{ justifyContent: "center" }}>
+      <Box sx={{ paddingTop: "64px" }} />
+      <List sx={{ borderRight: 0 }}>
+        {/* <ListItem sx={{ justifyContent: "center" }}>
           <ListItemIcon>
             <Avatar
               sx={{ width: 92, height: 92 }}
               src="https://c.tenor.com/XjnZVoMpvfoAAAAM/kawaii-cat.gif"
             />
           </ListItemIcon>
-        </ListItem>
+        </ListItem> */}
 
         <ListItem key={"home"} disablePadding sx={{ display: "block" }}>
           <ListItemButton
@@ -147,6 +147,7 @@ const Sidemenu = ({open, handleClose}) => {
         ))}
       </List>
     </Drawer>
+  );
 };
 
 export default Sidemenu;

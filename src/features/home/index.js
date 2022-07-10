@@ -1,14 +1,18 @@
-import Jumbotron from "../../components/jumbotron";
-import Title from "../../components/title";
+
 import HomeLayout from "./home.layout";
-import Paper from '@mui/material/Paper'
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./libs/dashboard";
+import Settings from "./libs/settings";
 
 const Home = () => {
   return (
-    <Paper>
-      <Title title="Home" />
-      <HomeLayout />
-    </Paper>
+    <Routes>
+      <Route element={<HomeLayout />}>
+        <Route path='dashboard' element={<Dashboard />} />
+        <Route path='settings' element={<Settings />} />
+        <Route index element={<Dashboard />} />
+      </Route>
+    </Routes>
   );
 };
 

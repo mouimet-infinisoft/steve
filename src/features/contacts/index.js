@@ -1,4 +1,4 @@
-import Jumbotron from "../jumbotron";
+import Jumbotron from "../../components/jumbotron";
 
 const Contacts = () => {
   return (

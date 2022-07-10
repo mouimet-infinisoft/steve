@@ -5,7 +5,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Typography from "@mui/material/Typography";
 
-export const Tools = () => {
+const Tools = () => {
   return (
     <>
       <Typography
@@ -63,3 +63,5 @@ export const Tools = () => {
     </>
   );
 };
+
+export default Tools

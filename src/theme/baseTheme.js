@@ -10,5 +10,18 @@ export const baseTheme = responsiveFontSizes(createTheme({
     secondary: {
       main: green[500],
     },
+    
+  },
+  shape: {
+    borderRadius: 15
+  },
+  components: {
+    MuiAppBar: {
+      styleOverrides:{
+        root: {
+          backgroundColor: '#121212'
+        }
+      }
+    }
   }
 }));

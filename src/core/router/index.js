@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import Contacts from "../contacts";
-import Cases from "../cases";
-import Messages from "../messages";
-import Home from "../home";
-import Organization from "../organization";
-import Community from "../community";
-import Layout from "../layout";
+import Contacts from "../../components/contacts";
+import Cases from "../../components/cases";
+import Messages from "../../components/messages";
+import Home from "../../components/home";
+import Organization from "../../components/organization";
+import Community from "../../components/community";
+import Layout from "../../components/layout";
 
 const Router = () => {
   return (

@@ -7,8 +7,8 @@ const ActionTile = ({ title, description, to, icon }) => {
   return (
     <Card sx={{ width: 400, height: 250 }} onClick={() => navigate(to)}>
       <CardActionArea sx={{ width: 400, height: 250, display:'flex', gap: 2, }}>
-        <Box sx={{width: 125, backgroundColor: 'yellow', height: 250, overflow: 'hidden'}}>
-         <AccountBoxOutlinedIcon sx={{color: 'rgba(145,145,145,0.5)', width: '10em', height: '10em'}}/>
+        <Box sx={(theme) => ({width: 125, backgroundColor: theme.palette.primary.main, height: 250, overflow: 'hidden'})}>
+         <AccountBoxOutlinedIcon sx={(theme)=>({color: theme.palette.primary.contrastText, opacity: 0.7, width: '10em', height: '10em'})}/>
         </Box>
         <Box>
           <Typography gutterBottom variant="h5" component="div">

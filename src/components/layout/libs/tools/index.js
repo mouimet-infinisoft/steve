@@ -5,16 +5,24 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Typography from "@mui/material/Typography";
 
-export const Tool = () => {
+export const Tools = () => {
   return (
     <>
       <Typography
         variant="h6"
         noWrap
-        component="div"
-        sx={{ display: { xs: "none", sm: "block" } }}
+        component="span"
+        sx={{ marginRight: 1, display: { xs: "none", sm: "block" } }}
       >
-        Infinisoft
+        Infini
+      </Typography>
+      <Typography
+        variant="h6"
+        noWrap
+        component="span"
+        sx={(theme)=>({ color: theme.palette.primary.main, display: { xs: "none", sm: "block" } })}
+      >
+        soft
       </Typography>
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ display: { xs: "none", md: "flex" } }}>

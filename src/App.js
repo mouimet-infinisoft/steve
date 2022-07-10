@@ -1,7 +1,7 @@
 import "./App.css";
 import { ThemeProvider } from "@mui/material/styles";
 import { MemoryRouter } from "react-router-dom";
-import Router from "./components/router";
+import Router from "./core/router";
 import {darkTheme} from './theme'
 
 function App() {

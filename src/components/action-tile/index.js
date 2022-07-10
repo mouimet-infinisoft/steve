@@ -1,4 +1,4 @@
-import { Card, CardActionArea, Typography, Box, Avatar } from "@mui/material";
+import { Card, CardActionArea, Typography, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 

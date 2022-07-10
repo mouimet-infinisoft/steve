@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
-import ContactDetails from "./libs/lists/details";
+import ContactDetails from "./libs/details/details";
 
 const Layout = () => {
   return (

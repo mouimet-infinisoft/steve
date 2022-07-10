@@ -15,7 +15,7 @@ import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import { useMicroContext, useMicroState } from "@/core/state";
 
-export default function ContactCards({ list }) {
+export default function ContactCards() {
   const listMap = useMicroState((state) => state.contacts.list);
 
   return Object.values(listMap)?.map((contact) => (

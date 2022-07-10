@@ -1,16 +1,13 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-// import CardMedia from '@mui/material/CardMedia';
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { CardActionArea, Chip, Divider } from "@mui/material";
+import {  Chip, Divider } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import Drawer from "@mui/material/Drawer";
@@ -22,10 +19,11 @@ export default function ContactDetails() {
 
   const [visible, setVisible] = React.useState();
   const selectedId = useMicroState((s) => s.contacts.selectedId);
-  const contact = useMicroState(
-    (s) => s.contacts.list[selectedId]
+  const contact = useMicroState((s) => s.contacts.list[selectedId]);
+  const { name, email, avatar, address, telephones } = React.useMemo(
+    () => contact ?? {},
+    [contact]
   );
-  const { name, email, avatar, address, telephones }  = React.useMemo(()=>contact ?? {},[contact])
 
   useSubscribe({
     event: "contact.click",
@@ -37,55 +35,76 @@ export default function ContactDetails() {
   });
 
   return (
-    <Drawer anchor={anchor} open={visible} onClose={() => setVisible(false)}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardActionArea>
+    <Drawer
+      anchor={anchor}
+      open={visible}
+      onClose={() => setVisible(false)}
+      sx={{
+        ".MuiBackdrop-root": {
+          backgroundColor: "rgba(0, 0, 0, 0.8)"
+        }
+      }}
+      PaperProps={{
+        style: {
+          backgroundImage: "none",
+          backgroundColor: "transparent",
+          display: "flex",
+          justifyContent: "center"
+        }
+      }}
+    >
+      <Card sx={{ width: '500px', height: 600, padding: "1rem" }}>
           <CardHeader
             avatar={
               <Avatar
-                sx={{ width: 64, height: 64 }}
+                sx={{ width: 96, height: 96 }}
                 src={avatar}
                 aria-label="contact"
               />
             }
-            action={
-              <IconButton aria-label="settings">
-                <MoreVertIcon />
-              </IconButton>
-            }
-            title={<Typography variant="subtitle1">{name}</Typography>}
+            // action={
+            //   <IconButton aria-label="settings">
+            //     <MoreVertIcon />
+            //   </IconButton>
+            // }
+            title={<Typography variant="h3">{name}</Typography>}
             subheader={
               email && (
-                <Typography variant="body1" color="text.secondary">
+                <Typography variant="h5" color="text.secondary">
                   <a href={`mailto:${email}`}>{email}</a>
                 </Typography>
               )
             }
+          />
+          <CardActions
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "1rem"
+            }}
           >
-            <Divider />
+            <Button
+              sx={{ width: "150px", margin: "0 0.5rem" }}
+              startIcon={<PhoneAndroidTwoToneIcon />}
+              aria-label="call"
+              color="secondary"
+              size="small"
+              variant="outlined"
+            >
+              Call
+            </Button>
+            <Button
+              sx={{ width: "150px", margin: "0 0.5rem" }}
+              startIcon={<MessageTwoToneIcon />}
+              aria-label="message"
+              size="small"
+              variant="outlined"
+            >
+              Message
+            </Button>
+          </CardActions>
 
-            <CardActions disableSpacing>
-              <Button
-                sx={{ width: "150px", margin: "0 0.5rem" }}
-                startIcon={<PhoneAndroidTwoToneIcon />}
-                aria-label="call"
-                color="secondary"
-                size="small"
-                variant="outlined"
-              >
-                Call
-              </Button>
-              <Button
-                sx={{ width: "150px", margin: "0 0.5rem" }}
-                startIcon={<MessageTwoToneIcon />}
-                aria-label="message"
-                size="small"
-                variant="outlined"
-              >
-                Message
-              </Button>
-            </CardActions>
-          </CardHeader>
+          <Divider />
 
           <CardContent>
             <Box sx={{ marginBottom: "0.5rem" }}>
@@ -136,7 +155,6 @@ export default function ContactDetails() {
             Message
           </Button>
         </CardActions> */}
-        </CardActionArea>
       </Card>
     </Drawer>
   );

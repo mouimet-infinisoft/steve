@@ -51,7 +51,7 @@ const HomeLayout = () => {
       <Box
         sx={(theme) => ({
           display: "flex",
-          gap: 2,
+          gap: 4,
           backgroundColor: theme.palette.background.default,
           borderRadius: "15px",
           marginBottom: "2rem"
@@ -78,7 +78,7 @@ const HomeLayout = () => {
         <Box
           sx={{
             display: "flex",
-            gap: 2,
+            gap: 4,
             flexWrap: "wrap",
             flexGrow: 2,
             flexBasis: 60
@@ -95,7 +95,7 @@ const HomeLayout = () => {
           }}
         >
           <Box sx={{ height: "calc(100vh - 400px)" }}>
-            <Typography variant="h2" gutterBottom component="div">
+            <Typography variant="h2" gutterBottom>
               News
             </Typography>
             <IconList items={items} />

@@ -15,28 +15,29 @@ import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import Drawer from "@mui/material/Drawer";
 import { useSubscribe } from "@/core/hooks";
+import { useMicroState } from "@/core/state";
 
-export default function ContactDetails({
-  name,
-  email,
-  avatar,
-  address,
-  telephones,
-}) {
+export default function ContactDetails() {
   const anchor = "right";
-  const [visible, setVisible] = React.useState();
-  useSubscribe({event:'contact.click', handler: (e,s,p)=>{
-    React.startTransition(()=>{setVisible(true)})
-  }})
 
+  const [visible, setVisible] = React.useState();
+  const selectedId = useMicroState((s) => s.contacts.selectedId);
+  const contact = useMicroState(
+    (s) => s.contacts.list[selectedId]
+  );
+  const { name, email, avatar, address, telephones }  = React.useMemo(()=>contact ?? {},[contact])
+
+  useSubscribe({
+    event: "contact.click",
+    handler: () => {
+      React.startTransition(() => {
+        setVisible(true);
+      });
+    }
+  });
 
   return (
-    <Drawer
-
-      anchor={anchor}
-      open={visible}
-        onClose={()=>setVisible(false)}
-    >
+    <Drawer anchor={anchor} open={visible} onClose={() => setVisible(false)}>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardHeader

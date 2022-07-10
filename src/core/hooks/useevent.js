@@ -17,6 +17,6 @@ export const useEvent = (
   useEffect(() => {
     window.addEventListener(name, handler);
     return () => window.removeEventListener(name, handler);
-  }, []);
+  }, [handler, name]);
 };
 

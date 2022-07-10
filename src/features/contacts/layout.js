@@ -2,6 +2,7 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
+import ContactDetails from "./libs/lists/details";
 
 const Layout = () => {
   return (
@@ -31,6 +32,7 @@ const Layout = () => {
           })}
         >
           <Outlet />
+          <ContactDetails visible={false} />
         </Box>
       </Box>
     </Paper>

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 // import CardMedia from '@mui/material/CardMedia';
@@ -14,15 +13,23 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CardActionArea, Chip } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
+import { useMicroContext, useMicroState } from "@/core/state";
 
 export default function ContactCards({ list }) {
-  return list?.map((contact) => <ContactCard {...contact} key={contact?.id} />);
+  const listMap = useMicroState(state=>state.contacts.list)
+
+  return Object.values(listMap)?.map((contact) => <ContactCard {...contact} key={contact?.id} />);
 }
 
-function ContactCard({ name, email, avatar, address, telephones }) {
+function ContactCard({ id, name, email, avatar, address, telephones }) {
+  const {store} = useMicroContext()
+
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea>
+    <Card
+      sx={{ maxWidth: 345, display: { xs: "none", sm: "none", md: "block" } }}
+    >
+      <CardActionArea onClick={()=>store.emit('contact.click', {id})}>
         <CardHeader
           avatar={
             <Avatar
@@ -90,7 +97,7 @@ function ContactCard({ name, email, avatar, address, telephones }) {
             startIcon={<MessageTwoToneIcon />}
             aria-label="message"
             size="small"
-            variant="contained"
+            variant="outlined"
           >
             Message
           </Button>

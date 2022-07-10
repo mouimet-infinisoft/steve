@@ -1,6 +1,13 @@
 const { default: ContactCards } = require("./card");
 const { default: ContactList } = require("./list");
 
-const Contacts = (props) => false ? <ContactList {...props}/> : <ContactCards {...props}/>
+const Contacts = (props) => {
+  return (
+    <>
+      <ContactList {...props} />
+      <ContactCards {...props} />
+    </>
+  );
+};
 
-export default Contacts
+export default Contacts;

@@ -8,18 +8,21 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useMicroState } from "@/core/state";
 
 /**
  * Small screen list
  * @param {*} param0 
  * @returns 
  */
-export default function ContactList({ list }) {
+export default function ContactList() {
+  const listMap = useMicroState(state=>state.contacts.list)
+
   return (
-    <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+    <Box sx={{ flexGrow: 1, maxWidth: 752, display: { xs: 'block', md: 'none' } }}>
       <Grid item xs={12} md={6}>
         <List>
-          {list?.map(
+          {Object.values(listMap)?.map(
             ({
               id,
               avatar,

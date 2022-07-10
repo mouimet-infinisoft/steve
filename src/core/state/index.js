@@ -1,2 +1,2 @@
 export * from './context'
-export * from './usestore'
+export * from './usemicrostate'

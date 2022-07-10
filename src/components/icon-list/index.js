@@ -11,7 +11,8 @@ const IconListItem = ({
   avatar = <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />,
   title,
   subtitle,
-  description
+  description,
+  ...props
 }) => {
   return (
     <ListItem alignItems="flex-start">
@@ -36,7 +37,6 @@ const IconListItem = ({
     </ListItem>
   );
 };
-
 
 export default function IconList({ items }) {
   return (

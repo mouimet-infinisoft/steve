@@ -1,11 +1,16 @@
 import configuration from "@/config/config.json";
 import { Store } from "@infini-soft/store";
-import React from "react";
+import React, { startTransition, useCallback, useEffect } from "react";
 import { CssBaseline } from "@mui/material";
-import { darkTheme } from "@/theme";
-import { ThemeProvider } from "@mui/material/styles";
+import AppThemeProvider from "@/theme/components/provider";
 
-const initializeStore = () => Promise.resolve(["coiucou"]);
+const initialStore = {
+  theme: {
+    mode: "dark"
+  }
+};
+
+const initializeStore = () => Promise.resolve(initialStore);
 
 const initialContext = {
   store: new Store(initializeStore, { devtool: configuration.devtools }),
@@ -15,14 +20,44 @@ const initialContext = {
 
 const MicroContext = React.createContext(initialContext);
 
-const MicroContextProvider = ({ children, context = initialContext }) => (
-  <MicroContext.Provider value={{ ...context }}>
-    <ThemeProvider theme={darkTheme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
-  </MicroContext.Provider>
-);
+const MicroContextProvider = ({ children, context = initialContext }) => {
+  const [mode, setMode] = React.useState("dark");
+
+  const handleToggle = useCallback(
+    () =>
+      context?.store?.mutate((prev) => {
+        const newMode = prev.theme.mode === "dark" ? "light" : "dark";
+        startTransition(() => {
+          setMode(newMode);
+        });
+        return {
+          ...prev,
+          theme: {
+            ...prev.theme,
+            mode: newMode
+          }
+        };
+      }),
+    [context?.store]
+  );
+
+  useEffect(
+    () =>
+      context.store.subscribe(handleToggle, {
+        filter: new RegExp("theme.toggle.mode.click")
+      }),
+    [context.store, handleToggle]
+  );
+
+  return (
+    <MicroContext.Provider value={{ ...context }}>
+      <AppThemeProvider mode={mode}>
+        <CssBaseline />
+        {children}
+      </AppThemeProvider>
+    </MicroContext.Provider>
+  );
+};
 
 export const useMicroContext = () => React.useContext(MicroContext);
 export default MicroContextProvider;

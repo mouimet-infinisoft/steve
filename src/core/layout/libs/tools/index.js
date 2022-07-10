@@ -4,6 +4,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Typography from "@mui/material/Typography";
+import ThemeToggleSwitch from "@/theme/components/toggle";
 
 const Tools = () => {
   return (
@@ -26,6 +27,7 @@ const Tools = () => {
       </Typography>
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ display: { xs: "none", md: "flex" } }}>
+      <ThemeToggleSwitch />
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
             <MailIcon />
@@ -60,6 +62,7 @@ const Tools = () => {
           <MoreIcon />
         </IconButton>
       </Box>
+ 
     </>
   );
 };

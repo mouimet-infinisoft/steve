@@ -1,10 +1,10 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { green, purple } from "@mui/material/colors";
 
-export const baseTheme = responsiveFontSizes(
+export const baseTheme = mode => responsiveFontSizes(
   createTheme({
     palette: {
-      mode: "dark",
+      mode,
       primary: {
         main: purple[500]
       },

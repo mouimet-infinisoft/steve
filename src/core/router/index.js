@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import Contacts from "@/features/contacts";
-import Cases from "../../features/cases";
-import Messages from "../../features/messages";
-import Home from "../../features/home";
-import Organization from "../../features/organization";
-import Community from "../../features/community";
+import Cases from "@/features/cases";
+import Messages from "@/features/messages";
+import Home from "@/features/home";
+import Organization from "@/features/organization";
+import Community from "@/features/community";
 import Layout from "../layout";
 
 const Router = () => {

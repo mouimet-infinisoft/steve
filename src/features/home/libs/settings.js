@@ -1,12 +1,4 @@
 import Box from "@mui/material/Box";
-import ActionTile from "../../../components/action-tile";
-import { Typography, Divider } from "@mui/material";
-import IconList from "../../../components/icon-list";
-import { items } from "../mock/news";
-import { actions } from "../mock/actions";
-import AppCalendar from "../../../components/calendar";
-import Checklist from "../../../components/checklist";
-import { checklist } from "../mock/checklist";
 
 const Settings = () => {
   return (

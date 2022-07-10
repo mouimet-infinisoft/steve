@@ -1,8 +1,8 @@
 import Box from "@mui/material/Box";
-import BasicTabs from "../../components/tabs/basic";
+import BasicTabs from "@/components/tabs/basic";
 import { tabs } from "./mock/tabs";
 import { Outlet } from "react-router-dom";
-import Title from "../../components/title";
+import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
 
 const HomeLayout = () => {

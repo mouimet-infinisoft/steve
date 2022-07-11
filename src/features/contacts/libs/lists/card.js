@@ -72,7 +72,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
 
           <div>
             <Typography variant="subtitle2">Telephones</Typography>
-            <Box sx={{ display: "flex", gap: 2 }} component="span">
+            <Box sx={{ display: "flex", gap: 2, flexWrap: 'wrap' }} component="span">
               {telephones?.map(({ key, label, tag }) => (
                 <Box key={key} component="span">
                   <Typography

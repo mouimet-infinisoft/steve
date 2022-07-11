@@ -41,11 +41,11 @@ export const ContactFields = () => {
       <Box
         sx={{
           display: "flex",
-          alignItems: "flex-start",
-          marginBottom: "0.65rem"
+          alignItems: "flex-end",
+          marginBottom: '1rem'
         }}
       >
-        <HomeTwoToneIcon sx={{ color: "action.active", mr: "1rem" }} />
+        <HomeTwoToneIcon sx={{ color: "action.active", mr: "1rem", marginBottom: "0.5rem"}} />
         <TextField
           id="input-with-sx"
           fullWidth
@@ -64,8 +64,14 @@ export const ContactFields = () => {
         />
       </Box>
 
-      <Box sx={{ display: "flex", alignItems: "flex-start" }}>
-        <PhoneAndroidTwoToneIcon sx={{ color: "action.active", mr: "1rem" }} />
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "flex-end",
+          marginBottom: '1rem'
+        }}
+      >
+        <PhoneAndroidTwoToneIcon sx={{ color: "action.active", mr: "1rem",        marginBottom: "0.5rem" }} />
         <CrudChipList
           key={item.telephones.length}
           list={telephones}

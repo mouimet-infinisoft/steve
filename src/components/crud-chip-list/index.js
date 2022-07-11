@@ -41,7 +41,6 @@ export default function Tags({ list, onAdd, onRemove }) {
             variant="standard"
             label="Telephones"
             placeholder=" Add phone number"
-            // sx={{paddingBottom: '1rem'}}
             value={state ?? ""}
             onChange={(e) => setState(e?.target?.value ?? "")}
             onKeyUp={(e) => {
@@ -60,29 +59,3 @@ export default function Tags({ list, onAdd, onRemove }) {
     </Stack>
   );
 }
-
-// {
-//     key: number;
-//     className: string;
-//     disabled: boolean;
-//     'data-tag-index': number;
-//     tabIndex: -1;
-//     onDelete: (event: any) => void;
-// }
-
-// const list = [
-//   {
-//     key: 111,
-//     disabled: true,
-//     onDelete: console.log,
-//     label: "514-777-5555",
-//     tag: "work"
-//   },
-//   {
-//     key: 222,
-//     disabled: false,
-//     onDelete: console.log,
-//     label: "540-789-2121",
-//     tag: "mobile"
-//   }
-// ];

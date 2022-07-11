@@ -6,7 +6,7 @@ import Contacts from './libs/lists'
 const ContactFeature = () => {
   return (
     <Routes>
-      <Route element={<Layout />}>
+      <Route path="/*" element={<Layout />}>
         <Route index element={<Contacts />} />
       </Route>
     </Routes>

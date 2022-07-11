@@ -3,38 +3,63 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import BasicTabs from "@/components/tabs/basic-tabs";
 import { detailsCardtabs } from "../../mock/details.card.tabs";
+import { TextField } from "@mui/material";
+import { useItem } from "@/core/hooks";
+import { useMicroState } from "@/core/state";
+import { useTheme } from "@emotion/react";
+import AvatarUpload from "@/components/avatar-upload";
 
-export default function DetailsCard({
-  name,
-  email,
-  avatar,
-  address,
-  telephones,
-  id
-}) {
+export default function DetailsCard() {
+  const selectedId = useMicroState((s) => s.contacts.selectedId);
+  const { item, mutation, onMutation } = useItem({
+    id: selectedId,
+    feature: "contacts"
+  });
+  const { name, email, avatar } = React.useMemo(() => item ?? {}, [item]);
+  const theme = useTheme();
+
   return (
     <Card sx={{ width: "500px", height: 600, padding: "1rem" }}>
       <CardHeader
         avatar={
-          <Avatar
-            sx={{ width: 96, height: 96 }}
-            src={avatar}
-            aria-label="contact"
+          <AvatarUpload src={avatar} save={onMutation("avatar")} />
+        }
+        title={
+          <TextField
+            fullWidth
+            placeholder="Full name"
+            variant="standard"
+            inputProps={{ style: { fontSize: theme.typography.h3.fontSize } }}
+            sx={(theme) => ({
+              "MuiInput-root:before": {
+                borderBottom: "1px solid rgb(255 255 255 / 0%)"
+              }
+            })}
+            value={name}
+            onChange={(e) => {
+              mutation("name", e.target.value);
+            }}
           />
         }
-        title={<Typography variant="h3">{name}</Typography>}
         subheader={
-          email && (
-            <Typography variant="h5" color="text.secondary">
-              {email}
-            </Typography>
-          )
+          <TextField
+            fullWidth
+            placeholder="Add email name@site.com"
+            variant="standard"
+            sx={{
+              "MuiInput-root:before": {
+                borderBottom: "1px solid rgb(255 255 255 / 0%)"
+              }
+            }}
+            value={email}
+            onChange={(e) => {
+              mutation("email", e.target.value);
+            }}
+          />
         }
       ></CardHeader>
       <CardActions
@@ -44,14 +69,10 @@ export default function DetailsCard({
           marginBottom: "1rem"
         }}
       >
-         <BasicTabs tabs={detailsCardtabs} />
-    
+        <BasicTabs tabs={detailsCardtabs} />
       </CardActions>
 
-      <CardContent>
-       
-    
-      </CardContent>
+      <CardContent></CardContent>
     </Card>
   );
 }

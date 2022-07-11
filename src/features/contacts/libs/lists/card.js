@@ -15,6 +15,7 @@ import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import { useMicroContext, useMicroState } from "@/core/state";
 
+
 export default function ContactCards() {
   const listMap = useMicroState((state) => state.contacts.list);
 
@@ -28,7 +29,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
 
   return (
     <Card
-      sx={{ maxWidth: 345, display: { xs: "none", sm: "none", md: "block" } }}
+      sx={{ maxWidth: 345, height: 325, display: { xs: "none", sm: "none", md: "block" } }}
     >
       <CardActionArea
         onClick={() => {
@@ -40,6 +41,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
         }}
       >
         <CardHeader
+        sx={{height: 100}}
           avatar={
             <Avatar
               sx={{ width: 64, height: 64 }}
@@ -62,7 +64,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
           }
         />
 
-        <CardContent>
+        <CardContent         sx={{height: 160}}>
           <Box sx={{ marginBottom: "0.5rem" }}>
             <Typography variant="subtitle2">Address</Typography>
             <Typography variant="body2" color="text.secondary">
@@ -90,7 +92,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
           </div>
         </CardContent>
 
-        <CardActions disableSpacing>
+        <CardActions disableSpacing         sx={{height: 60}}>
           <Button
             sx={{ width: "150px", margin: "0 0.5rem" }}
             startIcon={<PhoneAndroidTwoToneIcon />}

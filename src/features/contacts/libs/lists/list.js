@@ -18,8 +18,7 @@ import { useMicroContext, useMicroState } from "@/core/state";
  */
 export default function ContactList() {
   const listMap = useMicroState((state) => state.contacts?.list);
-  const {store} = useMicroContext();
-  
+  const { store } = useMicroContext();
 
   return (
     <Box
@@ -27,16 +26,17 @@ export default function ContactList() {
     >
       <Grid item xs={12} md={6}>
         <List>
-          {Object.values(listMap)?.filter(i=>i?.state === 'active')?.map(
-            ({ id, avatar, name, address, email, ...props }) => (
+          {Object.values(listMap)
+            ?.filter((i) => i?.state === "active")
+            ?.map(({ id, avatar, name, address, email, ...props }) => (
               <ListItem
-              onClick={() => {
-                store.mutate((s) => ({
-                  ...s,
-                  contacts: { ...s.contacts, selectedId: id }
-                }));
-                store.emit("contact.click", { id });
-              }}
+                onClick={() => {
+                  store.mutate((s) => ({
+                    ...s,
+                    contacts: { ...s.contacts, selectedId: id }
+                  }));
+                  store.emit("contact.click", { id });
+                }}
                 key={id}
                 secondaryAction={
                   <Box sx={{ display: { xs: "none", sm: "inline" } }}>
@@ -52,10 +52,12 @@ export default function ContactList() {
                 <ListItemAvatar>
                   <Avatar src={avatar} />
                 </ListItemAvatar>
-                <ListItemText primary={name} secondary={address} />
+                <ListItemText
+                  primary={name ?? "Add a name"}
+                  secondary={address ?? "Add an address"}
+                />
               </ListItem>
-            )
-          )}
+            ))}
         </List>
       </Grid>
     </Box>

@@ -5,8 +5,8 @@ export const contactlist = () => ({
     avatar: "https://i.pravatar.cc/48?" + Math.random(),
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
-      { id: "111", number: "514-777-5555", tag: "work" },
-      { id: "222", number: "540-789-2121", tag: "mobile" }
+      { key: 111976, label: "514-777-5555", tag: "WORK" },
+      { key: 567222, label: "540-789-2121", tag: "mobile" }
     ],
     email: "dog@pound.net",
     tags: ["client"],
@@ -30,8 +30,8 @@ export const contactlist = () => ({
     avatar: "https://i.pravatar.cc/48?" + Math.random(),
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
-      { id: "111", number: "5554445552", tag: "work" },
-      { id: "222", number: "4508965454", tag: "mobile" }
+      { key: 1141976, label: "514-777-5555", tag: "work" },
+      { key: 56745222, label: "540-789-2121", tag: "mkkobile" }
     ],
     email: "dog@pound.net",
     tags: ["client"],
@@ -55,8 +55,8 @@ export const contactlist = () => ({
     avatar: "https://i.pravatar.cc/48?" + Math.random(),
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
-      { id: "111", number: "5554445552", tag: "work" },
-      { id: "222", number: "4508965454", tag: "mobile" }
+      { key: 1446, label: "514-777-5555", tag: "work" },
+      { key: 565652, label: "540-789-2121", tag: "mobile" }
     ],
     email: "dog@pound.net",
     tags: ["client"],
@@ -80,8 +80,8 @@ export const contactlist = () => ({
     avatar: "https://i.pravatar.cc/48?" + Math.random(),
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
-      { id: "111", number: "5554445552", tag: "work" },
-      { id: "222", number: "4508965454", tag: "mobile" }
+      { key: 11343, label: "514-777-5555", tag: "work" },
+      { key: 534562, label: "540-789-2121", tag: "mobile" }
     ],
     email: "dog@pound.net",
     tags: ["client"],

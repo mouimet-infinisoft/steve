@@ -32,7 +32,7 @@ export default function DetailsCard({
         subheader={
           email && (
             <Typography variant="h5" color="text.secondary">
-              <a href={`mailto:${email}`}>{email}</a>
+              {email}
             </Typography>
           )
         }

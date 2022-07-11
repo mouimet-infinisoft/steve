@@ -54,7 +54,7 @@ export const useItem = ({ id, feature }) => {
    */
   const remove = () => {
     store.mutate((prev) => {
-      let copy = Object.assign({}, prev?.list);
+      let copy = Object.assign({}, prev?.[feature]?.list);
       delete copy[id];
       return {
         ...prev,

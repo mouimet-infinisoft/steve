@@ -56,7 +56,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
           subheader={
             email && (
               <Typography variant="body1" color="text.secondary">
-                <a href={`mailto:${email}`}>{email}</a>
+                {email}
               </Typography>
             )
           }
@@ -73,15 +73,15 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
           <div>
             <Typography variant="subtitle2">Telephones</Typography>
             <Box sx={{ display: "flex", gap: 2 }} component="span">
-              {telephones?.map(({ id, number, tag }) => (
-                <Box key={id} component="span">
+              {telephones?.map(({ key, label, tag }) => (
+                <Box key={key} component="span">
                   <Typography
                     variant="body2"
                     color="text.secondary"
                     component="span"
                     mr={0.35}
                   >
-                    {number}{" "}
+                    {label}{" "}
                   </Typography>
                   <Chip label={tag} size="small" />
                 </Box>

@@ -10,6 +10,6 @@
 .detailCardAvatarUpload {
   opacity: var(--mouse-over);
   position: absolute;
-  color: #9c27b0;
+  color: #4caf50;
   z-index: 9999999;
 }

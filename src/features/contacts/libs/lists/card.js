@@ -18,8 +18,7 @@ import { useMicroContext, useMicroState } from "@/core/state";
 
 export default function ContactCards() {
   const listMap = useMicroState((state) => state.contacts.list);
-
-  return Object.values(listMap)?.map((contact) => (
+  return Object.values(listMap)?.filter(i=>i?.state === 'active')?.map((contact) => (
     <ContactCard {...contact} key={contact?.id} />
   ));
 }
@@ -54,11 +53,11 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
               <MoreVertIcon />
             </IconButton>
           }
-          title={<Typography variant="subtitle1">{name}</Typography>}
+          title={<Typography variant="subtitle1">{name ?? "Full name"}</Typography>}
           subheader={
-            email && (
+         (
               <Typography variant="body1" color="text.secondary">
-                {email}
+                {email ?? "Add en email"}
               </Typography>
             )
           }
@@ -68,7 +67,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
           <Box sx={{ marginBottom: "0.5rem" }}>
             <Typography variant="subtitle2">Address</Typography>
             <Typography variant="body2" color="text.secondary">
-              {address}
+              {address ?? "Add an address"}
             </Typography>
           </Box>
 
@@ -83,7 +82,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
                     component="span"
                     mr={0.35}
                   >
-                    {label}{" "}
+                    {label}
                   </Typography>
                   <Chip label={tag} size="small" />
                 </Box>

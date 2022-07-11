@@ -57,8 +57,8 @@ export const ContactFields = () => {
       <FieldContainer>
         <PhoneAndroidTwoToneIcon sx={iconCss} />
         <CrudChipList
-          key={item.telephones.length}
-          list={telephones}
+          key={item?.telephones?.length}
+          list={telephones ?? []}
           onRemove={listMutatorsFactory("telephones").remove}
           onAdd={listMutatorsFactory("telephones").add}
         />

@@ -10,17 +10,21 @@ export default function ContactDetails() {
   const [visible, setVisible] = React.useState();
   const selectedId = useMicroState((s) => s.contacts.selectedId);
   const contact = useMicroState((s) => s.contacts.list[selectedId]);
-// remove below if memo not required anymopre
-  // const { name, email, avatar, address, telephones } = React.useMemo(
-  //   () => contact ?? {},
-  //   [contact]
-  // );
 
   useSubscribe({
-    event: "contact.click",
+    event: /(contact.click|contact.create.click)/,
     handler: () => {
       React.startTransition(() => {
         setVisible(true);
+      });
+    }
+  });
+
+  useSubscribe({
+    event: /(contact.archive.click)/,
+    handler: () => {
+      React.startTransition(() => {
+        setVisible(false);
       });
     }
   });

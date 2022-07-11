@@ -7,45 +7,52 @@ import ListItemText from "@mui/material/ListItemText";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { useMicroState } from "@/core/state";
+import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
+import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
+import { useMicroContext, useMicroState } from "@/core/state";
 
 /**
  * Small screen list
- * @param {*} param0 
- * @returns 
+ * @param {*} param0
+ * @returns
  */
 export default function ContactList() {
-  const listMap = useMicroState(state=>state.contacts.list)
+  const listMap = useMicroState((state) => state.contacts?.list);
+  const {store} = useMicroContext();
+  
 
   return (
-    <Box sx={{ flexGrow: 1, maxWidth: 752, display: { xs: 'block', md: 'none' } }}>
+    <Box
+      sx={{ flexGrow: 1, maxWidth: 752, display: { xs: "block", md: "none" } }}
+    >
       <Grid item xs={12} md={6}>
         <List>
-          {Object.values(listMap)?.map(
-            ({
-              id,
-              avatar,
-              name,
-              address,
-              email,
-              ...props
-            }) => (
+          {Object.values(listMap)?.filter(i=>i?.state === 'active')?.map(
+            ({ id, avatar, name, address, email, ...props }) => (
               <ListItem
+              onClick={() => {
+                store.mutate((s) => ({
+                  ...s,
+                  contacts: { ...s.contacts, selectedId: id }
+                }));
+                store.emit("contact.click", { id });
+              }}
                 key={id}
                 secondaryAction={
-                  <IconButton edge="end" aria-label="delete">
-                    <DeleteIcon />
-                  </IconButton>
+                  <Box sx={{ display: { xs: "none", sm: "inline" } }}>
+                    <IconButton edge="end" aria-label="call">
+                      <PhoneAndroidTwoToneIcon />
+                    </IconButton>
+                    <IconButton edge="end" aria-label="message">
+                      <MessageTwoToneIcon />
+                    </IconButton>
+                  </Box>
                 }
               >
                 <ListItemAvatar>
                   <Avatar src={avatar} />
                 </ListItemAvatar>
-                <ListItemText
-                  primary={name}
-                  secondary={address}
-                />
+                <ListItemText primary={name} secondary={address} />
               </ListItem>
             )
           )}

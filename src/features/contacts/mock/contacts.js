@@ -10,6 +10,7 @@ export const contactlist = () => ({
     ],
     email: "dog@pound.net",
     tags: ["client"],
+    state: "active",
     __meta__: {
       __relation__: [
         { id: "121313424", key: "employer", value: "pfizer" },
@@ -35,6 +36,7 @@ export const contactlist = () => ({
     ],
     email: "dog@pound.net",
     tags: ["client"],
+    state: "active",
     __meta__: {
       __relation__: [
         { id: "121313424", key: "employer", value: "pfizer" },
@@ -60,6 +62,7 @@ export const contactlist = () => ({
     ],
     email: "dog@pound.net",
     tags: ["client"],
+    state: "active",
     __meta__: {
       __relation__: [
         { id: "121313424", key: "employer", value: "pfizer" },
@@ -85,6 +88,7 @@ export const contactlist = () => ({
     ],
     email: "dog@pound.net",
     tags: ["client"],
+    state: "active",
     __meta__: {
       __relation__: [
         { id: "121313424", key: "employer", value: "pfizer" },

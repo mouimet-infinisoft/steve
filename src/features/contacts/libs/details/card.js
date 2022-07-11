@@ -3,17 +3,16 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
 import BasicTabs from "@/components/tabs/basic-tabs";
 import { detailsCardtabs } from "../../mock/details.card.tabs";
-import { TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import { useItem } from "@/core/hooks";
-import { useMicroState } from "@/core/state";
+import { useMicroContext, useMicroState } from "@/core/state";
 import { useTheme } from "@emotion/react";
 import AvatarUpload from "@/components/avatar-upload";
 
 export default function DetailsCard() {
+  const {store} = useMicroContext()
   const selectedId = useMicroState((s) => s.contacts.selectedId);
   const { item, mutation, onMutation } = useItem({
     id: selectedId,
@@ -25,9 +24,7 @@ export default function DetailsCard() {
   return (
     <Card sx={{ width: "500px", height: 600, padding: "1rem" }}>
       <CardHeader
-        avatar={
-          <AvatarUpload src={avatar} save={onMutation("avatar")} />
-        }
+        avatar={<AvatarUpload src={avatar} save={onMutation("avatar")} />}
         title={
           <TextField
             fullWidth
@@ -73,6 +70,22 @@ export default function DetailsCard() {
       </CardActions>
 
       <CardContent></CardContent>
+
+      <CardActions
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "1rem"
+        }}
+      >
+        <Button
+          variant="outlined"
+          color="warning"
+          onClick={() => {store.emit('contact.archive.click'); mutation("state", "archived")}}
+        >
+          Archive
+        </Button>
+      </CardActions>
     </Card>
   );
 }

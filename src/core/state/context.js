@@ -3,14 +3,14 @@ import { Store } from "@infini-soft/store";
 import React, { startTransition, useCallback, useEffect } from "react";
 import { CssBaseline } from "@mui/material";
 import AppThemeProvider from "@/theme/components/provider";
-import contactlist from "@/features/contacts/mock/contacts.json";
+import {contactlist} from "@/features/contacts/mock/contacts.js";
 
 const initialStore = {
   theme: {
     mode: "dark"
   },
   contacts: {
-    list: contactlist,
+    list: contactlist(),
     selectedId: ""
   }
 };

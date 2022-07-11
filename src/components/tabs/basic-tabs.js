@@ -2,7 +2,6 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
 
 function a11yProps(index) {
   return {
@@ -10,25 +9,26 @@ function a11yProps(index) {
     "aria-controls": `simple-tabpanel-${index}`
   };
 }
-const LinkTab = ({to='/', ...tab}) =>  <Link to={to}><Tab {...tab} /></Link>
 
 
 export default function BasicTabs({ tabs }) {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(Object.keys(tabs)?.[0]);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    React.startTransition(setValue(newValue))
   };
 
   return (
-    <Box sx={{ width: "100%", marginBottom: "2rem" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+    <Box sx={{ width: "100%" }}>
+      <Box sx={{ marginBottom: '2rem', borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange} aria-label="tabs">
-          {tabs?.map((tab, i) => (
-            <LinkTab key={`${tab?.label}-${i}`} {...tab} {...a11yProps(i)} />
+          {Object.entries(tabs)?.map(([k, {component, ...tab}], i) => (
+            <Tab key={`${tab?.label}-${i}`} {...tab} value={k} {...a11yProps(i)} />
           ))}
         </Tabs>
       </Box>
+
+      {React.cloneElement(tabs[value]?.component)}
     </Box>
   );
 }

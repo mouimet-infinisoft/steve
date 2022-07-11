@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import BasicTabs from "@/components/tabs/basic";
+import LinkTabs from "@/components/tabs/link-tabs";
 import { tabs } from "./mock/tabs";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
@@ -22,7 +22,7 @@ const HomeLayout = () => {
         })}
       >
         <Box>
-          <BasicTabs tabs={tabs} />
+          <LinkTabs tabs={tabs} />
         </Box>
 
         <Box

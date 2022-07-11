@@ -76,7 +76,7 @@ export const contactlist = () => ({
   },
   ngfhnfghnfghngh: {
     id: "ngfhnfghnfghngh",
-    name: "Dr Douguy",
+    name: "Dogue Ette",
     avatar: "https://i.pravatar.cc/48?" + Math.random(),
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [

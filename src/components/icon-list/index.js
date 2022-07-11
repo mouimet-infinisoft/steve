@@ -5,34 +5,20 @@ import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
 
 const IconListItem = ({
-  avatar = <Avatar alt="avatar" src="/static/images/avatar/1.jpg" />,
+  icon = <Avatar alt="avatar"/>,
   title,
   subtitle,
-  description,
+  key,
   ...props
 }) => {
   return (
-    <ListItem alignItems="flex-start">
-      <ListItemAvatar>{avatar}</ListItemAvatar>
+    <ListItem alignItems="flex-start" key={key}>
+      <ListItemAvatar>{icon}</ListItemAvatar>
       <ListItemText
         primary={title}
-        secondary={
-          <React.Fragment>
-            <Typography
-              sx={{ display: "inline" }}
-              component="span"
-              variant="body1"
-              color="text.primary"
-            >
-              {subtitle}
-            </Typography>
-            {" -- "}
-            {description}
-          </React.Fragment>
-        }
+        secondary={subtitle}
       />
     </ListItem>
   );
@@ -43,7 +29,7 @@ export default function IconList({ items }) {
     <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
       {items.map((props, index) => (
         <>
-          <IconListItem {...props} />
+          <IconListItem {...props} key={index} />
           {items.count < index && <Divider variant="inset" component="li" />}
         </>
       ))}

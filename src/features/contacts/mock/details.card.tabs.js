@@ -2,8 +2,8 @@ import ContactPhoneTwoToneIcon from "@mui/icons-material/ContactPhoneTwoTone";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import HistoryTwoToneIcon from "@mui/icons-material/HistoryTwoTone";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
+import { ContactFields } from "../libs/details/ContactFields";
 
-const ContactFields = ({ id }) => <>ContactFields {id}</>;
 const RelationFields = ({ id }) => <>RelationFields {id}</>;
 const HistoryFields = ({ id }) => <>HistoryFields {id}</>;
 const MiscFields = ({ id }) => <>MiscFields {id}</>;

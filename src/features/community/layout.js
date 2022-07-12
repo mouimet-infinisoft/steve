@@ -19,6 +19,7 @@ const Layout = () => {
         <Box>
           <TextField
             placeholder="Search ..."
+            type="search"
             variant="standard"
             sx={(theme) => ({
               padding: "0.25rem 1rem",

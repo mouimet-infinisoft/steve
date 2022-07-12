@@ -25,6 +25,7 @@ export const contactlist = () => ({
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   },
+
   kdfasdfsdafdsfsdghhoyo897y9: {
     id: "kdfasdfsdafdsfsdghhoyo897y9",
     name: "Jean Phil",
@@ -51,6 +52,7 @@ export const contactlist = () => ({
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   },
+
   kngfhnhfgngfhnfghngfhn9: {
     id: "kngfhnhfgngfhnfghngfhn9",
     name: "Doig Ette",
@@ -82,6 +84,7 @@ export const contactlist = () => ({
       { id: "hfgfhdfgh31", key: "Panties Color", value: "Transparent" }
     ]
   },
+
   ngfhnfghnfghngh: {
     id: "ngfhnfghnfghngh",
     name: "Jean Dog Associates",
@@ -107,18 +110,6 @@ export const contactlist = () => ({
       avatar: "https://i.pravatar.cc/48?" + Math.random()
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
-  },
-  ytsdgsjyteujtgverw: {
-    id: "ytsdgsjyteujtgverw",
-    name: "Jean Dog Associates",
-    avatar: "https://i.pravatar.cc/48?" + Math.random(),
-    address: "3649 rue Notre-Dame, Candiax, H72D92",
-    telephones: [
-      { key: 11343, label: "514-777-5555", tag: "work" },
-      { key: 534562, label: "540-789-2121", tag: "mobile" }
-    ],
-    email: "dog@pound.net",
-    tags: ["business"],
   },
 
   klhlojassasss22aso897y9: {
@@ -147,6 +138,7 @@ export const contactlist = () => ({
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   },
+
   jkgberbgergergbreu: {
     id: "jkgberbgergergbreu",
     name: "Jean Dog Associates",
@@ -183,10 +175,8 @@ export const contactlist = () => ({
       avatar: "https://i.pravatar.cc/48?" + Math.random()
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
-  },
-  lkdskjnhfeuebfbw: {
-    id: "lkdskjnhfeuebfbw",
-=
+  }},
+
   kngfhnhf4444gngfhnfghngfhn9: {
     id: "kngfhnhfgngfhnfghngfhn9",
     name: "Doig Ette",
@@ -218,6 +208,7 @@ export const contactlist = () => ({
       { id: "hfgfhdfgh31", key: "Panties Color", value: "Transparent" }
     ]
   },
+
   ngfhnfghnf44444ghngh: {
     id: "ngfhnfghnfghngh",
     name: "Jean Dog Associates",
@@ -244,6 +235,7 @@ export const contactlist = () => ({
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   },
+
   lsjnsdycnsgsdkdofd: {
     id: "lsjnsdycnsgsdkdofd",
     name: "Jean Dog Associates",
@@ -283,6 +275,7 @@ export const contactlist = () => ({
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   },
+
   kdfasdrweqrewfsdafdsfsdghhoyo897y9: {
     id: "kdfasdfsdafdsfsdghhoyo897y9",
     name: "Jean Phil",
@@ -309,6 +302,7 @@ export const contactlist = () => ({
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   },
+
   kngfhnhfgngfhrwerweqnfghngfhn9: {
     id: "kngfhnhfgngfhnfghngfhn9",
     name: "Doig Ette",
@@ -340,6 +334,7 @@ export const contactlist = () => ({
       { id: "hfgfhdfgh31", key: "Panties Color", value: "Transparent" }
     ]
   },
+
   ngfhnfghnrewwqfghngh: {
     id: "ngfhnfghnfghngh",
     name: "Jean Dog Associates",
@@ -366,4 +361,6 @@ export const contactlist = () => ({
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   }
-});
+}
+)
+

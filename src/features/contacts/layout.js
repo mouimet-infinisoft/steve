@@ -3,10 +3,11 @@ import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
 import ContactDetails from "./libs/details/details";
-import { Fab } from "@mui/material";
+import { Fab, InputAdornment, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
 import { generateId } from "@/helpers";
+import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 
 const Layout = () => {
   const { store } = useMicroContext();
@@ -17,7 +18,10 @@ const Layout = () => {
       contacts: {
         ...s.contacts,
         selectedId: id,
-        list: { ...s.contacts.list, [id]: { id, telephones: [], state: 'active', tags:[''] } }
+        list: {
+          [id]: { id, telephones: [], state: "active", tags: [""] },
+          ...s.contacts.list
+        }
       }
     }));
     store.emit("contact.create.click", { id });
@@ -25,7 +29,36 @@ const Layout = () => {
 
   return (
     <Paper>
-      <Title title="Contacts" />
+      <Title title="Contacts">
+        <Box>
+          <TextField
+            placeholder="Search ..."
+            variant="standard"
+            InputProps={{
+              style: { fontSize: "2rem" },
+              startAdornment: (
+                <InputAdornment sx={{ mr: "0.5rem" }}>
+                  <SearchTwoToneIcon sx={{ width: "2rem", height: "2rem" }} />
+                </InputAdornment>
+              )
+            }}
+            onChange={(e) =>
+              store.emit("contacts.search", { term: e.target.value })
+            }
+          />
+        </Box>
+        <Fab
+          variant="extended"
+          onClick={onCreate}
+          color="primary"
+          sx={{
+            display: { xs: "none", md: "inherit" }
+          }}
+        >
+          <AddIcon sx={{ mr: 1 }} />
+          Create
+        </Fab>
+      </Title>
 
       <Box
         sx={(theme) => ({
@@ -52,26 +85,10 @@ const Layout = () => {
           <AddIcon />
         </Fab>
 
-        <Fab
-          variant="extended"
-          onClick={onCreate}
-          color="primary"
-          sx={{
-            position: "absolute",
-            right: "2rem",
-            top: "-1rem",
-            display: { xs: "none", md: "inherit" }
-          }}
-        >
-          <AddIcon sx={{ mr: 1 }} />
-          Create
-        </Fab>
-
-        <Box>Search box</Box>
-
         <Box
           sx={(theme) => ({
             display: "flex",
+            justifyContent: "space-evenly",
             flexWrap: "wrap",
             gap: 4,
             backgroundColor: theme.palette.background.default,

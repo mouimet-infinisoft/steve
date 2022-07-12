@@ -35,7 +35,7 @@ export default function ContactList({list}) {
                   }));
                   store.emit("contact.click", { id });
                 }}
-                key={id}
+                key={`card-${id}`}
                 secondaryAction={
                   <Box sx={{ display: { xs: "none", sm: "inline" } }}>
                     <IconButton edge="end" aria-label="call">

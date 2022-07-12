@@ -13,9 +13,11 @@ import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import { useMicroContext, useMicroState } from "@/core/state";
 
-export default function ContactCards() {
-  const listMap = useMicroState((state) => state.contacts.list);
-  return Object.values(listMap)
+export default function ContactCards({ list=[] }) {
+  // const listMap = useMicroState((state) => state.contacts.list);
+  // return Object.values(listMap)
+  //     ///Object.values(listMap)
+  return list
     ?.filter((i) => i?.state === "active")
     ?.map((contact) => <ContactCard {...contact} key={contact?.id} />);
 }
@@ -49,7 +51,11 @@ function ContactCard({ id, name, email, avatar, address, telephones, tags }) {
               aria-label="contact"
             />
           }
-          action={tags?.[0] && <Chip color="primary" variant="outlined" label={tags[0]} />}
+          action={
+            tags?.[0] && (
+              <Chip color="primary" variant="outlined" label={tags[0]} />
+            )
+          }
           title={
             <Typography variant="subtitle1">{name ?? "Full name"}</Typography>
           }

@@ -16,8 +16,8 @@ import { useMicroContext, useMicroState } from "@/core/state";
  * @param {*} param0
  * @returns
  */
-export default function ContactList() {
-  const listMap = useMicroState((state) => state.contacts?.list);
+export default function ContactList({list}) {
+  // const listMap = useMicroState((state) => state.contacts?.list);
   const { store } = useMicroContext();
 
   return (
@@ -26,9 +26,9 @@ export default function ContactList() {
     >
       <Grid item xs={12} md={6}>
         <List>
-          {Object.values(listMap)
-            ?.filter((i) => i?.state === "active")
-            ?.map(({ id, avatar, name, address, email, ...props }) => (
+          {
+          ///Object.values(listMap)
+          list?.filter?.((i) => i?.state === "active")?.map(({ id, avatar, name, address, email, ...props }) => (
               <ListItem
                 onClick={() => {
                   store.mutate((s) => ({

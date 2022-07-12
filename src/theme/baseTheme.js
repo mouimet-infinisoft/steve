@@ -17,7 +17,7 @@ export const baseTheme = (mode) =>
         fontFamily: "'Roboto Flex', sans-serif"
       },
       shape: {
-        borderRadius: 15
+        borderRadius: 10
       },
       components: {
         MuiAppBar: {

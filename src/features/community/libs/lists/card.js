@@ -7,12 +7,12 @@ import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, Chip } from "@mui/material";
+import { CardActionArea, Chip, Divider } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import { useMicroContext } from "@/core/state";
 import { defaultAvatar } from "@/components/avatar-upload/assets";
-import {config} from '../../config'
+import { config } from "../../config";
 
 export default function Cards({ list = [] }) {
   return list
@@ -27,11 +27,13 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
     <Card
       sx={{
         maxWidth: 345,
-        height: 325,
         display: { xs: "none", sm: "none", md: "block" }
       }}
     >
       <CardActionArea
+        sx={{
+          padding: "1.5rem"
+        }}
         onClick={() => {
           store.mutate((s) => ({
             ...s,
@@ -65,7 +67,11 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
         />
 
         <CardContent sx={{ height: 160 }}>
-          <Box sx={{ marginBottom: "0.5rem" }}>
+          <Box sx={{ marginBottom: '1rem' }}>
+            <Divider variant="middle" />
+          </Box>
+
+          <Box sx={{ marginBottom: "0.75rem" }}>
             <Typography variant="subtitle2">Address</Typography>
             <Typography variant="body2" color="text.secondary">
               {address ?? "Add an address"}
@@ -75,7 +81,11 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
           <div>
             <Typography variant="subtitle2">Telephones</Typography>
             <Box
-              sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                flexDirection: "column"
+              }}
               component="span"
             >
               {telephones?.map(({ key, label, tag }) => (
@@ -84,11 +94,18 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
                     variant="body2"
                     color="text.secondary"
                     component="span"
-                    mr={0.35}
+                    mr={1}
                   >
                     {label}
                   </Typography>
-                  <Chip label={tag} size="small" />
+                  <Typography
+                    variant="caption"
+                    color="text.secondary.light"
+                    component="span"
+                    mr={1}
+                  >
+                    {tag}
+                  </Typography>
                 </Box>
               ))}
             </Box>
@@ -97,7 +114,7 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
 
         <CardActions disableSpacing sx={{ height: 60 }}>
           <Button
-            sx={{ width: "150px", margin: "0 0.5rem" }}
+            sx={{ width: "150px", margin: "0 0.5rem", paddingY: "0.5rem" }}
             startIcon={<PhoneAndroidTwoToneIcon />}
             aria-label="call"
             color="secondary"
@@ -107,7 +124,7 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
             Call
           </Button>
           <Button
-            sx={{ width: "150px", margin: "0 0.5rem" }}
+            sx={{ width: "150px", margin: "0 0.5rem", paddingY: "0.5rem" }}
             startIcon={<MessageTwoToneIcon />}
             aria-label="message"
             size="small"

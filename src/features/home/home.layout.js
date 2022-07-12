@@ -4,6 +4,7 @@ import { tabs } from "./mock/tabs";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
+import { generateId } from "@/helpers";
 
 const HomeLayout = () => {
   return (
@@ -22,7 +23,7 @@ const HomeLayout = () => {
         })}
       >
         <Box>
-          <LinkTabs tabs={tabs} />
+          <LinkTabs tabs={tabs} key={generateId(Math.random())}/>
         </Box>
 
         <Box

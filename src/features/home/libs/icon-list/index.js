@@ -6,6 +6,7 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
+import { generateId } from "@/helpers";
 
 const IconListItem = ({
   avatar = <Avatar alt="avatar" src="/static/images/avatar/1.jpg" />,
@@ -15,9 +16,10 @@ const IconListItem = ({
   ...props
 }) => {
   return (
-    <ListItem alignItems="flex-start">
-      <ListItemAvatar>{avatar}</ListItemAvatar>
+    <ListItem alignItems="flex-start" key={generateId(Math.random())}>
+      <ListItemAvatar key={generateId(Math.random())}>{avatar}</ListItemAvatar>
       <ListItemText
+        key={generateId(Math.random())}
         primary={title}
         secondary={
           <React.Fragment>
@@ -40,11 +42,20 @@ const IconListItem = ({
 
 export default function IconList({ items }) {
   return (
-    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+    <List
+      sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+      key={generateId(Math.random())}
+    >
       {items.map((props, index) => (
         <>
-          <IconListItem {...props} />
-          {items.count < index && <Divider variant="inset" component="li" />}
+          <IconListItem {...props} key={generateId(Math.random())} />
+          {items.count < index && (
+            <Divider
+              variant="inset"
+              component="li"
+              key={generateId(Math.random())}
+            />
+          )}
         </>
       ))}
     </List>

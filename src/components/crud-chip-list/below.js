@@ -2,6 +2,7 @@ import * as React from "react";
 import Chip from "@mui/material/Chip";
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
+import { generateId } from "@/helpers";
 
 /**
  * Chips below input controls
@@ -55,6 +56,7 @@ export default function Below({ list, onAdd, onRemove, labelProps, tagProps }) {
       <div style={{ marginTop: 0 }}>
         {list?.map(({ label, tag }, index) => (
           <Chip
+            key={generateId(label + tag + index)}
             sx={{ margin: "0.25rem", border: "none" }}
             label={`${tag} ${label}`}
             onDelete={() => onRemove(index)}

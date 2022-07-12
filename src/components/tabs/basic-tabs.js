@@ -15,7 +15,7 @@ export default function BasicTabs({ tabs }) {
   const [value, setValue] = React.useState(Object.keys(tabs)?.[0]);
 
   const handleChange = (event, newValue) => {
-    React.startTransition(setValue(newValue))
+    React.startTransition(()=>setValue(newValue))
   };
 
   return (

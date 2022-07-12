@@ -3,10 +3,10 @@ import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithout
 import HistoryTwoToneIcon from "@mui/icons-material/HistoryTwoTone";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
 import { ContactFields } from "../libs/details/ContactFields";
+import { ExtraFields } from "../libs/details/ExtraFields";
 
 const RelationFields = ({ id }) => <>RelationFields {id}</>;
 const HistoryFields = ({ id }) => <>HistoryFields {id}</>;
-const MiscFields = ({ id }) => <>MiscFields {id}</>;
 
 export const detailsCardtabs = {
   Contact: {
@@ -33,7 +33,7 @@ export const detailsCardtabs = {
   "Misc": {
     to: "/home/settings",
     icon: <MoreHorizTwoToneIcon />,
-    component: <MiscFields />,
+    component: <ExtraFields />,
     iconPosition: "start"
   }
 };

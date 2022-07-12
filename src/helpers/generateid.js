@@ -4,7 +4,7 @@
  * www.infini-soft.com
  */
 
-export const generateId = () => {
-    return new Date().getTime().toFixed(0);
+export const generateId = (salt) => {
+    return new Date().getTime().toFixed(0) + salt;
   };
   

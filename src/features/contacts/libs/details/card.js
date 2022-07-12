@@ -12,7 +12,7 @@ import { useTheme } from "@emotion/react";
 import AvatarUpload from "@/components/avatar-upload";
 
 export default function DetailsCard() {
-  const {store} = useMicroContext()
+  const { store } = useMicroContext();
   const selectedId = useMicroState((s) => s.contacts.selectedId);
   const { item, mutation, onMutation } = useItem({
     id: selectedId,
@@ -22,7 +22,14 @@ export default function DetailsCard() {
   const theme = useTheme();
 
   return (
-    <Card sx={{ width: "500px", height: 600, padding: "1rem" }}>
+    <Card
+      sx={{
+        width: "500px",
+        height: 600,
+        padding: "1rem",
+        position: "relative"
+      }}
+    >
       <CardHeader
         avatar={<AvatarUpload src={avatar} save={onMutation("avatar")} />}
         title={
@@ -76,13 +83,19 @@ export default function DetailsCard() {
         sx={{
           display: "flex",
           justifyContent: "center",
-          marginBottom: "1rem"
+          marginBottom: "1rem",
+          position: "absolute",
+          bottom: 0,
+          width: "calc(100% - 2rem)",
         }}
       >
         <Button
           variant="outlined"
           color="warning"
-          onClick={() => {store.emit('contact.archive.click'); mutation("state", "archived")}}
+          onClick={() => {
+            store.emit("contact.archive.click");
+            mutation("state", "archived");
+          }}
         >
           Archive
         </Button>

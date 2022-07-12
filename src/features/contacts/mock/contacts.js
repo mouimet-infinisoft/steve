@@ -75,7 +75,12 @@ export const contactlist = () => ({
       email: "jena@dupuis.com",
       avatar: "https://i.pravatar.cc/48?" + Math.random()
     },
-    __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
+    __extra__: [
+      { id: "@212131", key: "Allergy", value: "Peannuts" },
+      { id: "fasdf", key: "NAS", value: "5453435" },
+      { id: "fasdfgh31", key: "Job", value: "CEO Amazon" },
+      { id: "hfgfhdfgh31", key: "Panties Color", value: "Transparent" },
+    ]
   },
   ngfhnfghnfghngh: {
     id: "ngfhnfghnfghngh",

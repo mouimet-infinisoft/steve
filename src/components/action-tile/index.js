@@ -28,9 +28,6 @@ const ActionTile = ({ title, description, to, icon }) => {
           <Typography gutterBottom variant="h5">
             {title}
           </Typography>
-          {/* <Typography variant="body2" color="text.secondary">
-            {description}
-          </Typography> */}
         </Box>
       </CardActionArea>
     </Card>

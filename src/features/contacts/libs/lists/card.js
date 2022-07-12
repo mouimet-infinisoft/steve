@@ -10,9 +10,10 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Chip } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
-import { useMicroContext  } from "@/core/state";
+import { useMicroContext } from "@/core/state";
+import { defaultAvatar } from "@/components/avatar-upload/assets";
 
-export default function ContactCards({ list=[] }) {
+export default function ContactCards({ list = [] }) {
   return list
     ?.filter((i) => i?.state === "active")
     ?.map((contact) => <ContactCard {...contact} key={contact?.id} />);
@@ -43,7 +44,7 @@ function ContactCard({ id, name, email, avatar, address, telephones, tags }) {
           avatar={
             <Avatar
               sx={{ width: 64, height: 64 }}
-              src={avatar}
+              src={avatar ?? defaultAvatar}
               aria-label="contact"
             />
           }

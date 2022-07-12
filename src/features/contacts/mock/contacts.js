@@ -1,8 +1,12 @@
+import cat1 from "./assets/cat1.gif";
+import cat2 from "./assets/cat2.gif";
+import cat3 from "./assets/cat3.gif";
+
 export const contactlist = () => ({
   klhlojassasssaso897y9: {
     id: "klhlojassasssaso897y9",
     name: "Martin Ouimet",
-    avatar: "https://i.pravatar.cc/48?" + Math.random(),
+    avatar: cat1,
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
       { key: 111976, label: "514-777-5555", tag: "WORK" },
@@ -28,7 +32,7 @@ export const contactlist = () => ({
   kdfasdfsdafdsfsdghhoyo897y9: {
     id: "kdfasdfsdafdsfsdghhoyo897y9",
     name: "Jean Phil",
-    avatar: "https://i.pravatar.cc/48?" + Math.random(),
+    avatar: cat2,
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
       { key: 1141976, label: "514-777-5555", tag: "work" },
@@ -54,7 +58,7 @@ export const contactlist = () => ({
   kngfhnhfgngfhnfghngfhn9: {
     id: "kngfhnhfgngfhnfghngfhn9",
     name: "Doig Ette",
-    avatar: "https://i.pravatar.cc/48?" + Math.random(),
+    avatar: cat3,
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
       { key: 1446, label: "514-777-5555", tag: "work" },

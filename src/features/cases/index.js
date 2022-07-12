@@ -1,11 +1,16 @@
-import Jumbotron from "../../components/jumbotron";
 
-const Cases = () => {
+import Layout from "./layout";
+import { Routes, Route } from "react-router-dom";
+import List from './libs/lists'
+
+const Feature = () => {
   return (
-    <>
-      <Jumbotron title="Cases" />
-    </>
+    <Routes>
+      <Route path="/*" element={<Layout />}>
+        <Route index element={<List />} />
+      </Route>
+    </Routes>
   );
 };
 
-export default Cases;
+export default Feature;

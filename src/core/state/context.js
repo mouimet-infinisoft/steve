@@ -3,7 +3,8 @@ import { Store } from "@infini-soft/store";
 import React, { startTransition, useCallback, useEffect } from "react";
 import { CssBaseline } from "@mui/material";
 import AppThemeProvider from "@/theme/components/provider";
-import {contactlist} from "@/features/contacts/mock/contacts.js";
+import { contactlist } from "@/features/contacts/mock/contacts.js";
+import caselist from "@/features/cases/mock/featurelist";
 
 const initialStore = {
   theme: {
@@ -11,6 +12,10 @@ const initialStore = {
   },
   contacts: {
     list: contactlist(),
+    selectedId: ""
+  },
+  Cases: {
+    list: caselist(),
     selectedId: ""
   }
 };

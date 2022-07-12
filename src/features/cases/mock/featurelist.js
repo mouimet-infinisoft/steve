@@ -2,7 +2,7 @@ import cat1 from "./assets/cat1.gif";
 import cat2 from "./assets/cat2.gif";
 import cat3 from "./assets/cat3.gif";
 
-export const contactlist = () => ({
+const featurelist = () => ({
   klhlojassasssaso897y9: {
     id: "klhlojassasssaso897y9",
     name: "Martin Ouimet",
@@ -115,3 +115,7 @@ export const contactlist = () => ({
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
   }
 });
+
+
+
+export default featurelist

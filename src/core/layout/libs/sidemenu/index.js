@@ -84,7 +84,7 @@ const Sidemenu = ({ open, handleClose }) => {
           </ListItemButton>
         </ListItem>
 
-        {["Contacts", "Messages", "Organization", "Cases", "Community"].map(
+        {["Contacts", "Messages", "Organizations", "Cases", "Community"].map(
           (text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton

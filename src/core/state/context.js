@@ -7,6 +7,7 @@ import contactlist from "@/features/contacts/mock/featurelist";
 import caselist from "@/features/cases/mock/featurelist";
 import communitylist from "@/features/community/mock/featurelist";
 import messageslist from "@/features/messages/mock/featurelist";
+import organizationslist from "@/features/organizations/mock/featurelist";
 
 const initialStore = {
   theme: {
@@ -26,6 +27,10 @@ const initialStore = {
   },
   Messages: {
     list: messageslist(),
+    selectedId: ""
+  },
+  Organizations: {
+    list: organizationslist(),
     selectedId: ""
   }
 };

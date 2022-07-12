@@ -3,7 +3,7 @@ import Contacts from "@/features/contacts";
 import Cases from "@/features/cases";
 import Messages from "@/features/messages";
 import Home from "@/features/home";
-import Organization from "@/features/organization";
+import Organizations from "@/features/organizations";
 import Community from "@/features/community";
 import Layout from "../layout";
 
@@ -15,7 +15,7 @@ const Router = () => {
         <Route path="contacts/*" element={<Contacts />} />
         <Route path="cases/*" element={<Cases />} />
         <Route path="messages/*" element={<Messages />} />
-        <Route path="organization/*" element={<Organization />} />
+        <Route path="organizations/*" element={<Organizations />} />
         <Route path="community/*" element={<Community />} />
         <Route index element={<Home />} />
       </Route>

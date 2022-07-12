@@ -29,7 +29,7 @@ export default function DetailsCard() {
         height: 600,
         padding: "1rem",
         position: "relative",
-        overflow: "visible",
+        overflow: "visible"
       }}
     >
       <CardHeader
@@ -40,7 +40,6 @@ export default function DetailsCard() {
             variant="standard"
             inputProps={{
               style: {
-                border: `1px ${theme.palette.primary.main} solid`,
                 padding: "0.5rem 1rem",
                 borderRadius: theme.shape.borderRadius,
                 textAlign: "center"
@@ -49,6 +48,9 @@ export default function DetailsCard() {
             sx={(theme) => ({
               "MuiInput-root:*": {
                 borderBottom: "none"
+              },
+              "*:before, *:after": {
+                borderBottom: "0 !important"
               },
               background: theme.palette.primary.main,
               borderRadius: theme.shape.borderRadius,

@@ -9,7 +9,7 @@ export const contactlist = () => ({
       { key: 567222, label: "540-789-2121", tag: "mobile" }
     ],
     email: "dog@pound.net",
-    tags: ["client"],
+    tags: ["person"],
     state: "active",
     __meta__: {
       __relation__: [
@@ -35,7 +35,7 @@ export const contactlist = () => ({
       { key: 56745222, label: "540-789-2121", tag: "mkkobile" }
     ],
     email: "dog@pound.net",
-    tags: ["client"],
+    tags: ["person"],
     state: "active",
     __meta__: {
       __relation__: [
@@ -61,7 +61,7 @@ export const contactlist = () => ({
       { key: 565652, label: "540-789-2121", tag: "mobile" }
     ],
     email: "dog@pound.net",
-    tags: ["client"],
+    tags: ["person"],
     state: "active",
     __meta__: {
       __relation__: [
@@ -79,12 +79,12 @@ export const contactlist = () => ({
       { id: "@212131", key: "Allergy", value: "Peannuts" },
       { id: "fasdf", key: "NAS", value: "5453435" },
       { id: "fasdfgh31", key: "Job", value: "CEO Amazon" },
-      { id: "hfgfhdfgh31", key: "Panties Color", value: "Transparent" },
+      { id: "hfgfhdfgh31", key: "Panties Color", value: "Transparent" }
     ]
   },
   ngfhnfghnfghngh: {
     id: "ngfhnfghnfghngh",
-    name: "Dogue Ette",
+    name: "Jean Dog Associates",
     avatar: "https://i.pravatar.cc/48?" + Math.random(),
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
@@ -92,7 +92,7 @@ export const contactlist = () => ({
       { key: 534562, label: "540-789-2121", tag: "mobile" }
     ],
     email: "dog@pound.net",
-    tags: ["client"],
+    tags: ["business"],
     state: "active",
     __meta__: {
       __relation__: [

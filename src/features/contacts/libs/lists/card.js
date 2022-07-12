@@ -6,29 +6,30 @@ import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Box from "@mui/material/Box";
 import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { CardActionArea, Chip } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import { useMicroContext, useMicroState } from "@/core/state";
 
-
 export default function ContactCards() {
   const listMap = useMicroState((state) => state.contacts.list);
-  return Object.values(listMap)?.filter(i=>i?.state === 'active')?.map((contact) => (
-    <ContactCard {...contact} key={contact?.id} />
-  ));
+  return Object.values(listMap)
+    ?.filter((i) => i?.state === "active")
+    ?.map((contact) => <ContactCard {...contact} key={contact?.id} />);
 }
 
-function ContactCard({ id, name, email, avatar, address, telephones }) {
+function ContactCard({ id, name, email, avatar, address, telephones, tags }) {
   const { store } = useMicroContext();
 
   return (
     <Card
-      sx={{ maxWidth: 345, height: 325, display: { xs: "none", sm: "none", md: "block" } }}
+      sx={{
+        maxWidth: 345,
+        height: 325,
+        display: { xs: "none", sm: "none", md: "block" }
+      }}
     >
       <CardActionArea
         onClick={() => {
@@ -40,7 +41,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
         }}
       >
         <CardHeader
-        sx={{height: 100}}
+          sx={{ height: 100 }}
           avatar={
             <Avatar
               sx={{ width: 64, height: 64 }}
@@ -48,22 +49,18 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
               aria-label="contact"
             />
           }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
+          action={tags?.[0] && <Chip color="primary" variant="outlined" label={tags[0]} />}
+          title={
+            <Typography variant="subtitle1">{name ?? "Full name"}</Typography>
           }
-          title={<Typography variant="subtitle1">{name ?? "Full name"}</Typography>}
           subheader={
-         (
-              <Typography variant="body1" color="text.secondary">
-                {email ?? "Add en email"}
-              </Typography>
-            )
+            <Typography variant="body1" color="text.secondary">
+              {email ?? "Add en email"}
+            </Typography>
           }
         />
 
-        <CardContent         sx={{height: 160}}>
+        <CardContent sx={{ height: 160 }}>
           <Box sx={{ marginBottom: "0.5rem" }}>
             <Typography variant="subtitle2">Address</Typography>
             <Typography variant="body2" color="text.secondary">
@@ -73,7 +70,10 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
 
           <div>
             <Typography variant="subtitle2">Telephones</Typography>
-            <Box sx={{ display: "flex", gap: 2, flexWrap: 'wrap' }} component="span">
+            <Box
+              sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}
+              component="span"
+            >
               {telephones?.map(({ key, label, tag }) => (
                 <Box key={key} component="span">
                   <Typography
@@ -91,7 +91,7 @@ function ContactCard({ id, name, email, avatar, address, telephones }) {
           </div>
         </CardContent>
 
-        <CardActions disableSpacing         sx={{height: 60}}>
+        <CardActions disableSpacing sx={{ height: 60 }}>
           <Button
             sx={{ width: "150px", margin: "0 0.5rem" }}
             startIcon={<PhoneAndroidTwoToneIcon />}

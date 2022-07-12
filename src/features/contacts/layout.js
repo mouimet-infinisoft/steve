@@ -17,7 +17,7 @@ const Layout = () => {
       contacts: {
         ...s.contacts,
         selectedId: id,
-        list: { ...s.contacts.list, [id]: { id, telephones: [], state: 'active' } }
+        list: { ...s.contacts.list, [id]: { id, telephones: [], state: 'active', tags:[''] } }
       }
     }));
     store.emit("contact.create.click", { id });

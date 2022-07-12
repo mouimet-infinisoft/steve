@@ -18,7 +18,7 @@ const initialStore = {
 const initializeStore = () => Promise.resolve(initialStore);
 
 const initialContext = {
-  store: new Store(initializeStore, { devtool: configuration.devtools }),
+  store: new Store(initializeStore, { devtools: configuration.devtools }),
   config: configuration,
   log: console.log
 };

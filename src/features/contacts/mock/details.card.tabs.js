@@ -4,9 +4,7 @@ import HistoryTwoToneIcon from "@mui/icons-material/HistoryTwoTone";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
 import { ContactFields } from "../libs/details/ContactFields";
 import { ExtraFields } from "../libs/details/ExtraFields";
-
-const RelationFields = ({ id }) => <>RelationFields {id}</>;
-const HistoryFields = ({ id }) => <>HistoryFields {id}</>;
+import NotImplemented from "@/components/not-implemented";
 
 export const detailsCardtabs = {
   Contact: {
@@ -20,17 +18,17 @@ export const detailsCardtabs = {
     to: "/home/settings",
     label: "Relations",
     icon: <ConnectWithoutContactTwoToneIcon />,
-    component: <RelationFields />,
+    component: <NotImplemented />,
     iconPosition: "start"
   },
   History: {
     to: "/home/settings",
     label: "History",
     icon: <HistoryTwoToneIcon />,
-    component: <HistoryFields />,
+    component: <NotImplemented />,
     iconPosition: "start"
   },
-  "Misc": {
+  Misc: {
     to: "/home/settings",
     icon: <MoreHorizTwoToneIcon />,
     component: <ExtraFields />,

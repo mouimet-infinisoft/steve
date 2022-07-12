@@ -14,11 +14,11 @@ import AvatarUpload from "@/components/avatar-upload";
 export default function DetailsCard() {
   const { store } = useMicroContext();
   const selectedId = useMicroState((s) => s.contacts.selectedId);
-  const { item, mutation, onMutation } = useItem({
+  const { item, mutation, onMutation, listMutatorsFactory } = useItem({
     id: selectedId,
     feature: "contacts"
   });
-  const { name, email, avatar } = React.useMemo(() => item ?? {}, [item]);
+  const { name, email, avatar, tags } = React.useMemo(() => item ?? {}, [item]);
   const theme = useTheme();
 
   return (
@@ -27,11 +27,41 @@ export default function DetailsCard() {
         width: "500px",
         height: 600,
         padding: "1rem",
-        position: "relative"
+        position: "relative",
+        overflow: "visible",
       }}
     >
       <CardHeader
         avatar={<AvatarUpload src={avatar} save={onMutation("avatar")} />}
+        action={
+          <TextField
+            placeholder="Person"
+            variant="standard"
+            inputProps={{
+              style: {
+                border: `1px ${theme.palette.primary.main} solid`,
+                padding: "0.5rem 1rem",
+                borderRadius: theme.shape.borderRadius,
+                textAlign: "center"
+              }
+            }}
+            sx={(theme) => ({
+              "MuiInput-root:*": {
+                borderBottom: "none"
+              },
+              background: theme.palette.primary.main,
+              borderRadius: theme.shape.borderRadius,
+              position: "absolute",
+              right: "2rem",
+              top: "-1rem",
+              maxWidth: "100px"
+            })}
+            value={tags?.[0]}
+            onChange={(e) => {
+              listMutatorsFactory("tags").update(0, e.target.value);
+            }}
+          />
+        }
         title={
           <TextField
             fullWidth
@@ -86,7 +116,7 @@ export default function DetailsCard() {
           marginBottom: "1rem",
           position: "absolute",
           bottom: 0,
-          width: "calc(100% - 2rem)",
+          width: "calc(100% - 2rem)"
         }}
       >
         <Button

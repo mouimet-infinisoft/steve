@@ -4,7 +4,7 @@ import { generateId } from "@/helpers";
 import FiberNewTwoToneIcon from "@mui/icons-material/FiberNewTwoTone";
 import HighlightOffTwoToneIcon from "@mui/icons-material/HighlightOffTwoTone";
 import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
-import { TextField, Box, IconButton } from "@mui/material";
+import { TextField, Box} from "@mui/material";
 import React, { startTransition } from "react";
 
 const FieldContainer = ({ children, ...props }) => (

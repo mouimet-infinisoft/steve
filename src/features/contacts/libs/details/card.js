@@ -58,7 +58,8 @@ export default function DetailsCard() {
             }}
           />
         }
-      ></CardHeader>
+      />
+
       <CardActions
         sx={{
           display: "flex",

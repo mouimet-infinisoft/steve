@@ -10,7 +10,7 @@ const FieldContainer = ({ children }) => (
   <Box
     sx={{
       display: "flex",
-      alignItems: "flex-end",
+      alignItems: "strench",
       marginBottom: "1rem"
     }}
   >
@@ -21,6 +21,7 @@ const FieldContainer = ({ children }) => (
 const iconCss = {
   color: "action.active",
   mr: "1rem",
+  marginTop: "1rem",
   marginBottom: "0.5rem"
 };
 const txtfieldCss = {
@@ -45,6 +46,7 @@ export const ContactFields = () => {
           fullWidth
           placeholder="55 Dog Road, Kentucky, USA 87687"
           label="Address"
+          InputLabelProps={{ shrink: true }}
           variant="standard"
           sx={txtfieldCss}
           value={address}
@@ -57,6 +59,19 @@ export const ContactFields = () => {
       <FieldContainer>
         <PhoneAndroidTwoToneIcon sx={iconCss} />
         <CrudChipList
+          labelProps={{
+            variant: "standard",
+            label: "Telephones",
+            placeholder: " Add phone number",
+            InputLabelProps: { shrink: true }
+          }}
+          tagProps={{
+            variant: "standard",
+            label: "Tag",
+            placeholder: " Home",
+            InputLabelProps: { shrink: true }
+          }}
+          variant="below"
           key={item?.telephones?.length}
           list={telephones ?? []}
           onRemove={listMutatorsFactory("telephones").remove}

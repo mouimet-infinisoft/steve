@@ -1,7 +1,6 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
-// import CardMedia from '@mui/material/CardMedia';
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import Box from "@mui/material/Box";
@@ -11,12 +10,9 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Chip } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
-import { useMicroContext, useMicroState } from "@/core/state";
+import { useMicroContext  } from "@/core/state";
 
 export default function ContactCards({ list=[] }) {
-  // const listMap = useMicroState((state) => state.contacts.list);
-  // return Object.values(listMap)
-  //     ///Object.values(listMap)
   return list
     ?.filter((i) => i?.state === "active")
     ?.map((contact) => <ContactCard {...contact} key={contact?.id} />);

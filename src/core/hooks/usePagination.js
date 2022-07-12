@@ -2,12 +2,13 @@ import { Pagination } from "@mui/material";
 import React, { startTransition } from "react";
 import { useMicroState } from "../state";
 
+
 export const usePagination = ({ feature, itemPerPage }) => {
   const list = useMicroState((a) => a?.[feature]?.list);
   const [page, setPage] = React.useState(1);
 
   const pageCount = React.useMemo(
-    () => Math.max(1, (Object.keys(list)?.length ?? 1) / itemPerPage),
+    () => Math.max(1, Math.ceil((Object.keys(list)?.length ?? 1) / itemPerPage)),
     [itemPerPage, list]
   );
   const pageDataStartIndex = React.useMemo(
@@ -33,14 +34,14 @@ export const usePagination = ({ feature, itemPerPage }) => {
   const pageDataMap = React.useMemo(
     () =>
     Object.keys(list)?.slice?.(pageDataStartIndex, pageDataEndIndex)?.reduce(
-        (acc, key, _list) => ({ ...acc, [key]: list[key] }),
+        (acc, key) => ({ ...acc, [key]: list[key] }),
         {}
       ),
     [list, pageDataEndIndex, pageDataStartIndex]
   );
 
   const AppPagination = () => (
-    <Pagination
+    pageCount > 1 && <Pagination
       sx={{ display: "block", width: "100%" }}
       count={pageCount}
       page={page}

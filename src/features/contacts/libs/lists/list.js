@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Grid from "@mui/material/Grid";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
-import { useMicroContext, useMicroState } from "@/core/state";
+import { useMicroContext } from "@/core/state";
 
 /**
  * Small screen list
@@ -17,7 +17,6 @@ import { useMicroContext, useMicroState } from "@/core/state";
  * @returns
  */
 export default function ContactList({list}) {
-  // const listMap = useMicroState((state) => state.contacts?.list);
   const { store } = useMicroContext();
 
   return (
@@ -27,7 +26,6 @@ export default function ContactList({list}) {
       <Grid item xs={12} md={6}>
         <List>
           {
-          ///Object.values(listMap)
           list?.filter?.((i) => i?.state === "active")?.map(({ id, avatar, name, address, email, ...props }) => (
               <ListItem
                 onClick={() => {

@@ -150,6 +150,21 @@ export const contactlist = () => ({
     ],
     email: "dog@pound.net",
     tags: ["business"],
+    state: "active",
+    __meta__: {
+      __relation__: [
+        { id: "121313424", key: "employer", value: "pfizer" },
+        { id: "fdas54ff54", key: "father", value: "case32423" }
+      ],
+      timestamp: "1657479142",
+      createdAt: "1657479142",
+      updatedAt: "1657479142",
+      username: "Jean Dupuis",
+      email: "jena@dupuis.com",
+      avatar: "https://i.pravatar.cc/48?" + Math.random()
+    },
+    __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
+  },
   kdfasdfsdafdsfs333dghhoyo897y9: {
     id: "kdfasdfsdafdsfsdghhoyo897y9",
     name: "Jean Phil",
@@ -175,7 +190,7 @@ export const contactlist = () => ({
       avatar: "https://i.pravatar.cc/48?" + Math.random()
     },
     __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
-  }},
+  },
 
   kngfhnhf4444gngfhnfghngfhn9: {
     id: "kngfhnhfgngfhnfghngfhn9",

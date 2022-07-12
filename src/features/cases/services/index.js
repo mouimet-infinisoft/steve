@@ -9,7 +9,15 @@ export const onCreate = (store) => () => {
       ...s[config.feature.name],
       selectedId: id,
       list: {
-        [id]: { id, telephones: [], state: "active", tags: [""] },
+        [id]: {
+          id,
+          telephones: [],
+          state: "active",
+          tags: [""],
+          __extra__: [],
+          __meta__: {},
+          __relations__: []
+        },
         ...s[config.feature.name].list
       }
     }

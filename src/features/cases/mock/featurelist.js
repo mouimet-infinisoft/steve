@@ -9,8 +9,8 @@ const featurelist = () => ({
     avatar: cat1,
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
-      { key: 111976, label: "514-777-5555", tag: "WORK" },
-      { key: 567222, label: "540-789-2121", tag: "mobile" }
+      { key: 111976, label: "514-777-5555", tag: "Work" },
+      { key: 567222, label: "540-789-2121", tag: "Mobile" }
     ],
     email: "dog@pound.net",
     tags: ["person"],
@@ -42,7 +42,6 @@ const featurelist = () => ({
     tags: ["person"],
     state: "active",
     __meta__: {
- 
       timestamp: "1657479142",
       createdAt: "1657479142",
       updatedAt: "1657479142",
@@ -100,7 +99,6 @@ const featurelist = () => ({
     tags: ["business"],
     state: "active",
     __meta__: {
-
       timestamp: "1657479142",
       createdAt: "1657479142",
       updatedAt: "1657479142",
@@ -116,6 +114,4 @@ const featurelist = () => ({
   }
 });
 
-
-
-export default featurelist
+export default featurelist;

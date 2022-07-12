@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Chip, Divider } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
-import { useMicroContext } from "@/core/state";
+import { useMicroContext, useMicroState } from "@/core/state";
 import { defaultAvatar } from "@/components/avatar-upload/assets";
 import { config } from "../../config";
 
@@ -22,13 +22,15 @@ export default function Cards({ list = [] }) {
 
 function AppCard({ id, name, email, avatar, address, telephones, tags }) {
   const { store } = useMicroContext();
+  const selectedId = useMicroState(s=>s[config.feature.name].selectedId)
 
   return (
     <Card
-      sx={{
+      sx={theme=>({
         maxWidth: 345,
-        display: { xs: "none", sm: "none", md: "block" }
-      }}
+        display: { xs: "none", sm: "none", md: "block" },
+        border: selectedId === id ? `2px ${theme.palette.secondary.light} solid`: "0"
+      })}
     >
       <CardActionArea
         sx={{
@@ -51,6 +53,11 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
               aria-label="contact"
             />
           }
+          // action={
+          //   tags?.[0] && (
+          //     <Chip color="primary" variant="outlined" label={tags[0]} />
+          //   )
+          // }
           title={
             <Typography variant="subtitle1">{name ?? "Full name"}</Typography>
           }
@@ -113,7 +120,6 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
                     variant="caption"
                     color="text.secondary.light"
                     component="span"
-                    sx={{textTransform: 'capitalize !important'}}
                     mr={1}
                   >
                     {tag}

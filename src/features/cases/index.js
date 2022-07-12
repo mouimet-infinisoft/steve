@@ -1,7 +1,6 @@
-
 import Layout from "./layout";
 import { Routes, Route } from "react-router-dom";
-import List from './libs/lists'
+import List from "./libs/lists";
 
 const Feature = () => {
   return (

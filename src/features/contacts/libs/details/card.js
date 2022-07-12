@@ -43,8 +43,7 @@ export default function DetailsCard() {
                 border: `1px ${theme.palette.primary.main} solid`,
                 padding: "0.5rem 1rem",
                 borderRadius: theme.shape.borderRadius,
-                textAlign: "center",
-                textTransform: 'capitalize'
+                textAlign: "center"
               }
             }}
             sx={(theme) => ({

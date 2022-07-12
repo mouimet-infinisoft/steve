@@ -18,15 +18,15 @@ const DashboardActionTile = ({ title, description, to }) => (
   <ActionTile
     key={generateId(Math.random())}
     title={
-      <Typography variant="h3" gutterBottom component="div">
+      <Typography variant="h3" component="div">
         {title}
       </Typography>
     }
-    description={
-      <Typography variant="subtitle1" gutterBottom component="div">
-        {description}
-      </Typography>
-    }
+    // description={
+    //   <Typography variant="subtitle1" gutterBottom component="div">
+    //     {description}
+    //   </Typography>
+    // }
     to={to}
   />
 );

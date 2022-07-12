@@ -5,8 +5,8 @@ import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 const ActionTile = ({ title, description, to, icon }) => {
   const navigate = useNavigate();
   return (
-    <Card sx={{ width: 380, height: 125 }} onClick={() => navigate(to)}>
-      <CardActionArea sx={{ width: 380, height: 125, display: "flex", gap: 2 }}>
+    <Card sx={{ width: 350, height: 125 }} onClick={() => navigate(to)}>
+      <CardActionArea sx={{ width: 350, height: 125, display: "flex", gap: 2 }}>
         <Box
           sx={(theme) => ({
             width: '7em',
@@ -25,7 +25,7 @@ const ActionTile = ({ title, description, to, icon }) => {
           />
         </Box>
         <Box flex={1}>
-          <Typography gutterBottom variant="h5">
+          <Typography variant="h5">
             {title}
           </Typography>
         </Box>

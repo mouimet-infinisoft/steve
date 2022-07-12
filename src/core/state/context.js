@@ -5,6 +5,8 @@ import { CssBaseline } from "@mui/material";
 import AppThemeProvider from "@/theme/components/provider";
 import { contactlist } from "@/features/contacts/mock/contacts.js";
 import caselist from "@/features/cases/mock/featurelist";
+import communitylist from "@/features/community/mock/featurelist";
+import messageslist from "@/features/messages/mock/featurelist";
 
 const initialStore = {
   theme: {
@@ -16,6 +18,14 @@ const initialStore = {
   },
   Cases: {
     list: caselist(),
+    selectedId: ""
+  },
+  Community: {
+    list: communitylist(),
+    selectedId: ""
+  },
+  Messages: {
+    list: messageslist(),
     selectedId: ""
   }
 };

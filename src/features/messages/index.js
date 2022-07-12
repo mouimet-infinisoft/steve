@@ -1,11 +1,16 @@
-import Jumbotron from "../../components/jumbotron";
 
-const Messages = () => {
+import Layout from "./layout";
+import { Routes, Route } from "react-router-dom";
+import List from './libs/lists'
+
+const Feature = () => {
   return (
-    <>
-      <Jumbotron title="Messages" />
-    </>
+    <Routes>
+      <Route path="/*" element={<Layout />}>
+        <Route index element={<List />} />
+      </Route>
+    </Routes>
   );
 };
 
-export default Messages;
+export default Feature;

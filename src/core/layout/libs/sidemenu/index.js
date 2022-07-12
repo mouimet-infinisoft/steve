@@ -62,15 +62,6 @@ const Sidemenu = ({ open, handleClose }) => {
       <Divider />
       <Box sx={{ paddingTop: "64px" }} />
       <List sx={{ borderRight: 0 }}>
-        {/* <ListItem sx={{ justifyContent: "center" }}>
-          <ListItemIcon>
-            <Avatar
-              sx={{ width: 92, height: 92 }}
-              src="https://c.tenor.com/XjnZVoMpvfoAAAAM/kawaii-cat.gif"
-            />
-          </ListItemIcon>
-        </ListItem> */}
-
         <ListItem key={"home"} disablePadding sx={{ display: "block" }}>
           <ListItemButton
             sx={{
@@ -93,7 +84,7 @@ const Sidemenu = ({ open, handleClose }) => {
           </ListItemButton>
         </ListItem>
 
-        {["Contacts", "Messages", "Organization", "Cases"].map(
+        {["Contacts", "Messages", "Organization", "Cases", "Community"].map(
           (text, index) => (
             <ListItem key={text} disablePadding sx={{ display: "block" }}>
               <ListItemButton

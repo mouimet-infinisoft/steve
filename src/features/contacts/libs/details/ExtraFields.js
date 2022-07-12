@@ -6,6 +6,7 @@ import HighlightOffTwoToneIcon from "@mui/icons-material/HighlightOffTwoTone";
 import InfoTwoToneIcon from "@mui/icons-material/InfoTwoTone";
 import { TextField, Box} from "@mui/material";
 import React, { startTransition } from "react";
+import {config} from '../../config'
 
 const FieldContainer = ({ children, ...props }) => (
   <Box
@@ -33,11 +34,11 @@ const txtfieldCss = {
   }
 };
 
-export const ExtraFields = () => {
-  const selectedId = useMicroState((s) => s.contacts.selectedId);
+const ExtraFields = () => {
+  const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
   const { item, listMutatorsFactory } = useItem({
     id: selectedId,
-    feature: "contacts"
+    feature: config.feature.name
   });
   const { __extra__ } = React.useMemo(() => item ?? {}, [item]);
 
@@ -121,3 +122,5 @@ export const ExtraFields = () => {
     </>
   );
 };
+
+export default ExtraFields

@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Chip, Divider } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
-import { useMicroContext } from "@/core/state";
+import { useMicroContext, useMicroState } from "@/core/state";
 import { defaultAvatar } from "@/components/avatar-upload/assets";
 import { config } from "../../config";
 
@@ -22,13 +22,15 @@ export default function Cards({ list = [] }) {
 
 function AppCard({ id, name, email, avatar, address, telephones, tags }) {
   const { store } = useMicroContext();
+  const selectedId = useMicroState(s=>s[config.feature.name].selectedId)
 
   return (
     <Card
-      sx={{
+      sx={theme=>({
         maxWidth: 345,
-        display: { xs: "none", sm: "none", md: "block" }
-      }}
+        display: { xs: "none", sm: "none", md: "block" },
+        border: selectedId === id ? `2px ${theme.palette.secondary.light} solid`: "0"
+      })}
     >
       <CardActionArea
         sx={{
@@ -51,11 +53,11 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
               aria-label="contact"
             />
           }
-          action={
-            tags?.[0] && (
-              <Chip color="primary" variant="outlined" label={tags[0]} />
-            )
-          }
+          // action={
+          //   tags?.[0] && (
+          //     <Chip color="primary" variant="outlined" label={tags[0]} />
+          //   )
+          // }
           title={
             <Typography variant="subtitle1">{name ?? "Full name"}</Typography>
           }
@@ -66,9 +68,25 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
           }
         />
 
-        <CardContent sx={{ height: 160 }}>
-          <Box sx={{ marginBottom: '1rem' }}>
-            <Divider variant="middle" />
+        <CardContent sx={{ height: 160, paddingTop: 0 }}>
+          <Box sx={{ marginBottom: "1rem", position: "relative" }}>
+            {tags?.[0] && (
+              <Chip
+                color="primary"
+                variant="outlined"
+                label={tags[0]}
+                sx={(theme) => ({
+                  position: "absolute",
+                  background: theme.palette.primary.light,
+                  border: `2px ${theme.palette.primary.dark} solid`,
+                  color: theme.palette.primary.contrastText,
+                  textTransform: "capitalize",
+                  right: 0,
+                  top: -15
+                })}
+              />
+            )}
+            <Divider variant="fullWidth" />
           </Box>
 
           <Box sx={{ marginBottom: "0.75rem" }}>

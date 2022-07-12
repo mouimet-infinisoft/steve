@@ -10,13 +10,14 @@ import { useItem } from "@/core/hooks";
 import { useMicroContext, useMicroState } from "@/core/state";
 import { useTheme } from "@emotion/react";
 import AvatarUpload from "@/components/avatar-upload";
+import { config } from "../../config";
 
 export default function DetailsCard() {
   const { store } = useMicroContext();
-  const selectedId = useMicroState((s) => s.contacts.selectedId);
+  const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
   const { item, mutation, onMutation, listMutatorsFactory } = useItem({
     id: selectedId,
-    feature: "contacts"
+    feature: config.feature.name
   });
   const { name, email, avatar, tags } = React.useMemo(() => item ?? {}, [item]);
   const theme = useTheme();
@@ -42,7 +43,8 @@ export default function DetailsCard() {
                 border: `1px ${theme.palette.primary.main} solid`,
                 padding: "0.5rem 1rem",
                 borderRadius: theme.shape.borderRadius,
-                textAlign: "center"
+                textAlign: "center",
+                textTransform: 'capitalize'
               }
             }}
             sx={(theme) => ({
@@ -123,7 +125,7 @@ export default function DetailsCard() {
           variant="outlined"
           color="warning"
           onClick={() => {
-            store.emit("contact.archive.click");
+            store.emit(`${config.feature.name}.archive.click`);
             mutation("state", "archived");
           }}
         >

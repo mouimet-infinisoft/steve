@@ -6,6 +6,6 @@ export const config = {
     subscribe: /(Community.archive.click)/
   },
   create: {
-    subscribe: /(Community.click|Cases.create.click)/
+    subscribe: /(Community.click|Community.create.click)/
   }
 };

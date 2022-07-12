@@ -1,19 +1,21 @@
 import NoResult from "@/components/no-result";
 import { usePagination, useSubscribe } from "@/core/hooks";
 import React from "react";
-const { default: ContactCards } = require("./card");
-const { default: ContactList } = require("./list");
+import {config} from '../../config'
+const { default: Cards } = require("./card");
+const { default: List } = require("./list");
 
-const Contacts = (props) => {
+
+const Lists = (props) => {
   const { AppPagination, pageDataList = [] } = usePagination({
-    feature: "contacts",
+    feature: config.feature.name,
     itemPerPage: 8
   });
 
   const [term, setTerm] = React.useState();
 
   useSubscribe({
-    event: "contacts.search",
+    event: `${config.feature.name}.search`,
     handler: (e, s, p) => {
       setTerm(p?.term);
     }
@@ -22,19 +24,23 @@ const Contacts = (props) => {
   const list = React.useMemo(
     () =>
       pageDataList.filter((i) =>
-        term ? JSON.stringify(i).toLocaleLowerCase().includes(term.toLocaleLowerCase()) : i
+        term
+          ? JSON.stringify(i)
+              .toLocaleLowerCase()
+              .includes(term.toLocaleLowerCase())
+          : i
       ),
     [pageDataList, term]
   );
 
   return (
     <>
-    {term && list?.length <=0 && <NoResult />}
-      <ContactList {...props} list={list} />
-      <ContactCards {...props} list={list} />
+      {term && list?.length <= 0 && <NoResult />}
+      <List {...props} list={list} />
+      <Cards {...props} list={list} />
       <AppPagination />
     </>
   );
 };
 
-export default Contacts;
+export default Lists;

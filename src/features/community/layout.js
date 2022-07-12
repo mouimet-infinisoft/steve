@@ -20,21 +20,45 @@ const Layout = () => {
           <TextField
             placeholder="Search ..."
             variant="standard"
+            sx={(theme) => ({
+              padding: "0.25rem 1rem",
+              backgroundColor: theme.palette.primary.dark,
+              borderRadius: theme.shape.borderRadius,
+              outline: `1px ${theme.palette.primary.light} solid`,
+              ":hover, :active, :focus-within": {
+                outline: `3px ${theme.palette.primary.dark} solid !important`,
+                backgroundColor: theme.palette.primary.light
+              },
+              "*:before, *:after": {
+                borderBottom: "0 !important"
+              }
+            })}
             InputProps={{
-              style: { fontSize: "2rem" },
+              style: { fontSize: "1.5rem" },
+              sx: {
+                "MuiInput-root:hover:not(.Mui-disabled):before": {
+                  borderBottom: 0
+                }
+              },
               startAdornment: (
                 <InputAdornment sx={{ mr: "0.5rem" }}>
-                  <SearchTwoToneIcon sx={{ width: "2rem", height: "2rem" }} />
+                  <SearchTwoToneIcon
+                    color="primary"
+                    sx={{ width: "2rem", height: "2rem" }}
+                  />
                 </InputAdornment>
               )
             }}
             onChange={(e) =>
-              store.emit(`${config.feature.name}.search`, { term: e.target.value })
+              store.emit(`${config.feature.name}.search`, {
+                term: e.target.value
+              })
             }
           />
         </Box>
         <Fab
           variant="extended"
+          color="primary"
           onClick={onCreate(store)}
           sx={{
             display: { xs: "none", md: "inherit" }

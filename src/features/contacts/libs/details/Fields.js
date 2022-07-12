@@ -5,7 +5,7 @@ import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import { TextField, Box } from "@mui/material";
 import React from "react";
-
+import {config} from '../../config'
 const FieldContainer = ({ children }) => (
   <Box
     sx={{
@@ -30,11 +30,11 @@ const txtfieldCss = {
   }
 };
 
-export const ContactFields = () => {
-  const selectedId = useMicroState((s) => s.contacts.selectedId);
+const Fields = () => {
+  const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
   const { item, listMutatorsFactory, mutation } = useItem({
     id: selectedId,
-    feature: "contacts"
+    feature: config.feature.name
   });
   const { address, telephones } = React.useMemo(() => item ?? {}, [item]);
 
@@ -81,3 +81,5 @@ export const ContactFields = () => {
     </>
   );
 };
+
+export default Fields

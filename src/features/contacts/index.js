@@ -1,16 +1,15 @@
-
 import Layout from "./layout";
 import { Routes, Route } from "react-router-dom";
-import Contacts from './libs/lists'
+import List from "./libs/lists";
 
-const ContactFeature = () => {
+const Feature = () => {
   return (
     <Routes>
       <Route path="/*" element={<Layout />}>
-        <Route index element={<Contacts />} />
+        <Route index element={<List />} />
       </Route>
     </Routes>
   );
 };
 
-export default ContactFeature;
+export default Feature;

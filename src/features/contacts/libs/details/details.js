@@ -3,16 +3,17 @@ import Drawer from "@mui/material/Drawer";
 import { useSubscribe } from "@/core/hooks";
 import { useMicroState } from "@/core/state";
 import DetailsCard from "./card";
+import { config } from "../../config";
 
-export default function ContactDetails() {
+export default function Details() {
   const anchor = "right";
 
   const [visible, setVisible] = React.useState();
-  const selectedId = useMicroState((s) => s.contacts.selectedId);
-  const contact = useMicroState((s) => s.contacts.list[selectedId]);
+  const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
+  const item = useMicroState((s) => s[config.feature.name].list[selectedId]);
 
   useSubscribe({
-    event: /(contact.click|contact.create.click)/,
+    event: config.create.subscribe,
     handler: () => {
       React.startTransition(() => {
         setVisible(true);
@@ -21,7 +22,7 @@ export default function ContactDetails() {
   });
 
   useSubscribe({
-    event: /(contact.archive.click)/,
+    event: config.archive.subscribe,
     handler: () => {
       React.startTransition(() => {
         setVisible(false);
@@ -48,7 +49,7 @@ export default function ContactDetails() {
         }
       }}
     >
-      <DetailsCard {...contact} />
+      <DetailsCard {...item} />
     </Drawer>
   );
 }

@@ -10,13 +10,14 @@ import Grid from "@mui/material/Grid";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import { useMicroContext } from "@/core/state";
+import {config} from '../../config'
 
 /**
  * Small screen list
  * @param {*} param0
  * @returns
  */
-export default function ContactList({list}) {
+export default function AppList({list}) {
   const { store } = useMicroContext();
 
   return (
@@ -33,7 +34,7 @@ export default function ContactList({list}) {
                     ...s,
                     contacts: { ...s.contacts, selectedId: id }
                   }));
-                  store.emit("contact.click", { id });
+                  store.emit(`${config.feature.name}.click`, { id });
                 }}
                 key={`card-${id}`}
                 secondaryAction={

@@ -2,55 +2,64 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
-import ContactDetails from "./libs/details/details";
+import Details from "./libs/details/details";
 import { Fab, InputAdornment, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
-import { generateId } from "@/helpers";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
+import { config } from "./config";
+import { onCreate } from "./services";
 
 const Layout = () => {
   const { store } = useMicroContext();
-  const onCreate = () => {
-    const id = generateId();
-    store.mutate((s) => ({
-      ...s,
-      contacts: {
-        ...s.contacts,
-        selectedId: id,
-        list: {
-          [id]: { id, telephones: [], state: "active", tags: [""] },
-          ...s.contacts.list
-        }
-      }
-    }));
-    store.emit("contact.create.click", { id });
-  };
 
   return (
     <Paper>
-      <Title title="Contacts">
+      <Title title={config.feature.name}>
         <Box>
           <TextField
             placeholder="Search ..."
             variant="standard"
+            sx={(theme) => ({
+              padding: "0.25rem 1rem",
+              backgroundColor: theme.palette.primary.dark,
+              borderRadius: theme.shape.borderRadius,
+              outline: `1px ${theme.palette.primary.light} solid`,
+              ":hover, :active, :focus-within": {
+                outline: `3px ${theme.palette.primary.dark} solid !important`,
+                backgroundColor: theme.palette.primary.light
+              },
+              "*:before, *:after": {
+                borderBottom: "0 !important"
+              }
+            })}
             InputProps={{
-              style: { fontSize: "2rem" },
+              style: { fontSize: "1.5rem" },
+              sx: {
+                "MuiInput-root:hover:not(.Mui-disabled):before": {
+                  borderBottom: 0
+                }
+              },
               startAdornment: (
                 <InputAdornment sx={{ mr: "0.5rem" }}>
-                  <SearchTwoToneIcon sx={{ width: "2rem", height: "2rem" }} />
+                  <SearchTwoToneIcon
+                    color="primary"
+                    sx={{ width: "2rem", height: "2rem" }}
+                  />
                 </InputAdornment>
               )
             }}
             onChange={(e) =>
-              store.emit("contacts.search", { term: e.target.value })
+              store.emit(`${config.feature.name}.search`, {
+                term: e.target.value
+              })
             }
           />
         </Box>
         <Fab
           variant="extended"
-          onClick={onCreate}
           color="primary"
+          onClick={onCreate(store)}
           sx={{
             display: { xs: "none", md: "inherit" }
           }}
@@ -97,7 +106,7 @@ const Layout = () => {
           })}
         >
           <Outlet />
-          <ContactDetails visible={false} />
+          <Details visible={false} />
         </Box>
       </Box>
     </Paper>

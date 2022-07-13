@@ -17,7 +17,7 @@ const caseslist = () =>
       // General (Header)
       id: generateId(String(Math.random()).replace(".", "")),
       reference: "C-" + generateId(""),
-      state: "blocked", // todo - inprogress - blocked - waiting - suspended - complete
+      state: states[Math.round(Math.floor(Math.random() * states.length))], // todo - inprogress - blocked - waiting - suspended - complete
       step: "request", // request - case - service - closed
       tags: ["person"],
 

@@ -12,7 +12,7 @@ import { Avatar } from "@mui/material";
  * tagProps is password to second Textfield
  * @returns
  */
-export default function Tags({ list, onAdd, onRemove }) {
+export default function Tags({ list, onAdd, onRemove, inputComponentProps={}, }) {
   const [state, setState] = React.useState();
 
   return (
@@ -29,11 +29,6 @@ export default function Tags({ list, onAdd, onRemove }) {
           value.map((option, index) => {
             return (
               <Chip
-                icon={
-                  <Avatar sx={{ width: 24, height: 24 }}>
-                    {list?.[index]?.tag?.[0]}
-                  </Avatar>
-                }
                 sx={{ margin: "0.25rem" }}
                 variant="outlined"
                 label={option}
@@ -45,9 +40,8 @@ export default function Tags({ list, onAdd, onRemove }) {
         renderInput={(params) => (
           <TextField
             {...params}
-            variant="standard"
-            label="Telephones"
-            placeholder=" Add phone number"
+
+            {...inputComponentProps}
             value={state ?? ""}
             onChange={(e) => setState(e?.target?.value ?? "")}
             onKeyUp={(e) => {

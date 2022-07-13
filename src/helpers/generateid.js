@@ -5,6 +5,6 @@
  */
 
 export const generateId = (salt) => {
-    return new Date().getTime().toFixed(0) + salt;
+    return String(new Date().getTime().toFixed(0) + salt).replace('.','');
   };
   

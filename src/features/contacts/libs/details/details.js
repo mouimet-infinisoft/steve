@@ -1,40 +1,23 @@
 import * as React from "react";
 import Drawer from "@mui/material/Drawer";
-import { useSubscribe } from "@/core/hooks";
 import { useMicroState } from "@/core/state";
 import DetailsCard from "./card";
 import { config } from "../../config";
+import { matchPath, useLocation, useNavigate } from "react-router-dom";
 
 export default function Details() {
   const anchor = "right";
-
-  const [visible, setVisible] = React.useState();
-  const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
-  const item = useMicroState((s) => s[config.feature.name].list[selectedId]);
-
-  useSubscribe({
-    event: config.create.subscribe,
-    handler: () => {
-      React.startTransition(() => {
-        setVisible(true);
-      });
-    }
-  });
-
-  useSubscribe({
-    event: config.archive.subscribe,
-    handler: () => {
-      React.startTransition(() => {
-        setVisible(false);
-      });
-    }
-  });
+  const path = useLocation();
+  const routeMatch = matchPath(`/${config.feature.name}/:id`, path.pathname);
+  const visible = Boolean(routeMatch);
+  const item = useMicroState((s) => s[config.feature.name].list[routeMatch?.params?.id]);
+  const navigate = useNavigate();
 
   return (
     <Drawer
       anchor={anchor}
       open={visible}
-      onClose={() => setVisible(false)}
+      onClose={() => navigate(-1)}
       sx={{
         ".MuiBackdrop-root": {
           backgroundColor: "rgba(0, 0, 0, 0.8)"

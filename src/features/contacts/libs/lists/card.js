@@ -10,9 +10,10 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Chip, Divider } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
-import { useMicroContext, useMicroState } from "@/core/state";
+import { useMicroContext} from "@/core/state";
 import { defaultAvatar } from "@/components/avatar-upload/assets";
 import { config } from "../../config";
+import { Link, matchPath, useLocation } from "react-router-dom";
 
 export default function Cards({ list = [] }) {
   return list
@@ -22,14 +23,18 @@ export default function Cards({ list = [] }) {
 
 function AppCard({ id, name, email, avatar, address, telephones, tags }) {
   const { store } = useMicroContext();
-  const selectedId = useMicroState(s=>s[config.feature.name].selectedId)
+  const path = useLocation();
+  const selectedId = matchPath(`/${config.feature.name}/:id`, path.pathname)?.params?.id
 
   return (
     <Card
-      sx={theme=>({
+      component={Link}
+      to={`/${config.feature.name}/${id}`}
+      sx={(theme) => ({
         maxWidth: 345,
         display: { xs: "none", sm: "none", md: "block" },
-        border: selectedId === id ? `2px ${theme.palette.secondary.light} solid`: "0"
+        border:
+          selectedId === id ? `2px ${theme.palette.secondary.light} solid` : "0"
       })}
     >
       <CardActionArea
@@ -53,11 +58,6 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
               aria-label="contact"
             />
           }
-          // action={
-          //   tags?.[0] && (
-          //     <Chip color="primary" variant="outlined" label={tags[0]} />
-          //   )
-          // }
           title={
             <Typography variant="subtitle1">{name ?? "Full name"}</Typography>
           }

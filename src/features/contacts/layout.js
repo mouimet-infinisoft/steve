@@ -8,10 +8,11 @@ import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import { config } from "./config";
-import { onCreate } from "./services";
+import { useOnCreate } from "./services/index";
 
 const Layout = () => {
   const { store } = useMicroContext();
+  const {onCreate} = useOnCreate(store)
 
   return (
     <Paper>
@@ -60,7 +61,7 @@ const Layout = () => {
         <Fab
           variant="extended"
           color="primary"
-          onClick={onCreate(store)}
+          onClick={onCreate}
           sx={{
             display: { xs: "none", md: "inherit" }
           }}

@@ -10,63 +10,36 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, Chip, Divider } from "@mui/material";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
-import { useMicroContext, useMicroState } from "@/core/state";
 import { defaultAvatar } from "@/components/avatar-upload/assets";
-import { config } from "../../config";
 
-export default function Cards({ list = [] }) {
-  return list
-    ?.filter((i) => i?.state === "active")
-    ?.map((item) => <AppCard {...item} key={item?.id} />);
-}
-
-function AppCard({ id, name, email, avatar, address, telephones, tags }) {
-  const { store } = useMicroContext();
-  const selectedId = useMicroState(s=>s[config.feature.name].selectedId)
-
+export default function ContactCard({
+  id, name, email, avatar, address, telephones, tags, handleClick, isSelected
+}) {
   return (
     <Card
-      sx={theme=>({
+      key={id}
+      sx={(theme) => ({
         maxWidth: 345,
         display: { xs: "none", sm: "none", md: "block" },
-        border: selectedId === id ? `2px ${theme.palette.secondary.light} solid`: "0"
+        border: isSelected ? `2px ${theme.palette.secondary.light} solid` : "0"
       })}
     >
       <CardActionArea
         sx={{
           padding: "1.5rem"
         }}
-        onClick={() => {
-          store.mutate((s) => ({
-            ...s,
-            [config.feature.name]: { ...s[config.feature.name], selectedId: id }
-          }));
-          store.emit(`${config.feature.name}.click`, { id });
-        }}
+        onClick={handleClick}
       >
         <CardHeader
           sx={{ height: 100 }}
-          avatar={
-            <Avatar
-              sx={{ width: 64, height: 64 }}
-              src={avatar ?? defaultAvatar}
-              aria-label="contact"
-            />
-          }
-          // action={
-          //   tags?.[0] && (
-          //     <Chip color="primary" variant="outlined" label={tags[0]} />
-          //   )
-          // }
-          title={
-            <Typography variant="subtitle1">{name ?? "Full name"}</Typography>
-          }
-          subheader={
-            <Typography variant="body1" color="text.secondary">
-              {email ?? "Add en email"}
-            </Typography>
-          }
-        />
+          avatar={<Avatar
+            sx={{ width: 64, height: 64 }}
+            src={avatar ?? defaultAvatar}
+            aria-label="contact" />}
+          title={<Typography variant="subtitle1">{name ?? "Full name"}</Typography>}
+          subheader={<Typography variant="body1" color="text.secondary">
+            {email ?? "Add en email"}
+          </Typography>} />
 
         <CardContent sx={{ height: 160, paddingTop: 0 }}>
           <Box sx={{ marginBottom: "1rem", position: "relative" }}>
@@ -83,8 +56,7 @@ function AppCard({ id, name, email, avatar, address, telephones, tags }) {
                   textTransform: "capitalize",
                   right: 0,
                   top: -15
-                })}
-              />
+                })} />
             )}
             <Divider variant="fullWidth" />
           </Box>

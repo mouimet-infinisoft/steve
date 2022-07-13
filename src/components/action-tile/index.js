@@ -1,15 +1,14 @@
 import { Card, CardActionArea, Typography, Box } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 
 const ActionTile = ({ title, description, to, icon }) => {
-  const navigate = useNavigate();
   return (
-    <Card sx={{ width: 350, height: 125 }} onClick={() => navigate(to)}>
+    <Card sx={{ width: 350, height: 125 }} to={to} component={Link}>
       <CardActionArea sx={{ width: 350, height: 125, display: "flex", gap: 2 }}>
         <Box
           sx={(theme) => ({
-            width: '7em',
+            width: "7em",
             backgroundColor: theme.palette.primary.main,
             height: 125,
             overflow: "hidden"
@@ -25,9 +24,7 @@ const ActionTile = ({ title, description, to, icon }) => {
           />
         </Box>
         <Box flex={1}>
-          <Typography variant="h5">
-            {title}
-          </Typography>
+          <Typography variant="h5">{title}</Typography>
         </Box>
       </CardActionArea>
     </Card>

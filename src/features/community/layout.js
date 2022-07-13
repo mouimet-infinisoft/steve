@@ -42,7 +42,7 @@ const Layout = () => {
                 }
               },
               startAdornment: (
-                <InputAdornment sx={{ mr: "0.5rem" }}>
+                <InputAdornment sx={{ mr: "0.5rem" }}  position='start'>
                   <SearchTwoToneIcon
                     color="primary"
                     sx={{ width: "2rem", height: "2rem" }}

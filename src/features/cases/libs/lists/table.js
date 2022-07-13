@@ -1,43 +1,47 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import List from "@mui/material/List";
-import Grid from "@mui/material/Grid";
-import { useMicroContext } from "@/core/state";
-import { config } from "../../config";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import { Link } from "react-router-dom";
 
-const ContactListItem = React.lazy(() => import(/* webpackChunkName: 'ContactListItem' */ '@/components/contact-list/ContactListItem'))
-
-export default function Table({ list = [] }) {
-  const { store } = useMicroContext();
-
-  const handleClick = (id) => () => {
-    store.mutate((s) => ({
-      ...s,
-      [config.feature.name]: { ...s[config.feature.name], selectedId: id }
-    }));
-    store.emit(`${config.feature.name}.click`, { id });
-  };
-
+export default function BasicTable({ list }) {
   return (
-    <Box
-      sx={{ flexGrow: 1, maxWidth: 752, display: { xs: "block", md: "none" } }}
-    >
-      <Grid item xs={12} md={6}>
-        <List>
-          {list
-            ?.filter?.((i) => i?.state === "active")
-            ?.map((props) => (
-              <ContactListItem
-                key={props?.id}
-                {...props}
-                handleClick={handleClick(props?.id)}
-              />
-            ))}
-        </List>
-      </Grid>
-    </Box>
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Reference</TableCell>
+            <TableCell align="right">Step</TableCell>
+            <TableCell align="right">State</TableCell>
+            <TableCell align="right">Services</TableCell>
+            <TableCell align="right">CreatedAt</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {list?.map((row) => (
+            <TableRow
+              key={row?.id}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              to={row.id}
+              component={Link}
+            >
+              <TableCell component="th" scope="row">
+                {row.reference}
+              </TableCell>
+              <TableCell align="right">{row.step}</TableCell>
+              <TableCell align="right">{row.state}</TableCell>
+              <TableCell align="right">{row.service}</TableCell>
+              <TableCell align="right">
+                {new Date(row.createdAt * 1000).toLocaleDateString("en-US")}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
-
-
-

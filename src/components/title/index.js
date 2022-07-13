@@ -1,9 +1,10 @@
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
-const Title = ({ title, children }) => {
+const Title = ({ title, children, sx={}, ...props }) => {
   return (
     <Box
+      {...props}
       sx={(theme) => ({
         backgroundColor: theme.palette.background.default,
         display: "flex",
@@ -11,7 +12,8 @@ const Title = ({ title, children }) => {
         gap: 4,
         padding: "1rem 3rem",
         borderRadius: "15px",
-        marginBottom: "2rem"
+        marginBottom: "2rem",
+        ...sx,
       })}
     >
       <Typography variant="h2" sx={{ flex: 1 }}>

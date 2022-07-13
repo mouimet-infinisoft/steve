@@ -4,7 +4,7 @@ import React, { startTransition, useCallback, useEffect } from "react";
 import { CssBaseline } from "@mui/material";
 import AppThemeProvider from "@/theme/components/provider";
 import contactlist from "@/features/contacts/mock/featurelist";
-import caselist from "@/features/cases/mock/featurelist";
+import caseslist from "@/features/cases/mock/list";
 import communitylist from "@/features/community/mock/featurelist";
 import messageslist from "@/features/messages/mock/featurelist";
 import organizationslist from "@/features/organizations/mock/featurelist";
@@ -18,7 +18,7 @@ const initialStore = {
     selectedId: ""
   },
   Cases: {
-    list: caselist(),
+    list: caseslist(),
     selectedId: ""
   },
   Community: {

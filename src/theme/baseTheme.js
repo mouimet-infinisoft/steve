@@ -1,7 +1,7 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { presets } from "./presets";
 
-const selectedPreset = "blue";
+const selectedPreset = "purple";
 
 export const baseTheme = (mode) =>
   responsiveFontSizes(

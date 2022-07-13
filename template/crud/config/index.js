@@ -1,11 +1,11 @@
 export const config = {
   feature: {
-    name: "FEATURE_NAME"
+    name: "Cases"
   },
   archive: {
-    subscribe: /(FEATURE_NAME.archive.click)/
+    subscribe: /(Cases.archive.click)/
   },
   create: {
-    subscribe: /(FEATURE_NAME.click|FEATURE_NAME.create.click)/
+    subscribe: /(Cases.click|Cases.create.click)/
   }
 };

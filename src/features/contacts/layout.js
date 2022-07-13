@@ -2,17 +2,16 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
-import Details from "./libs/details/details";
+import Details from "./libs/details";
 import { Fab, InputAdornment, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import { config } from "./config";
-import { useOnCreate } from "./services/index";
+import { onCreate } from "./services";
 
 const Layout = () => {
   const { store } = useMicroContext();
-  const {onCreate} = useOnCreate(store)
 
   return (
     <Paper>
@@ -43,7 +42,7 @@ const Layout = () => {
                 }
               },
               startAdornment: (
-                <InputAdornment sx={{ mr: "0.5rem" }}  position='start'>
+                <InputAdornment sx={{ mr: "0.5rem" }} position='start'>
                   <SearchTwoToneIcon
                     color="primary"
                     sx={{ width: "2rem", height: "2rem" }}
@@ -61,7 +60,7 @@ const Layout = () => {
         <Fab
           variant="extended"
           color="primary"
-          onClick={onCreate}
+          onClick={onCreate(store)}
           sx={{
             display: { xs: "none", md: "inherit" }
           }}

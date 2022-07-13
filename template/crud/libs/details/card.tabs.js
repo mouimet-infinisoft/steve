@@ -2,8 +2,8 @@ import ContactPhoneTwoToneIcon from "@mui/icons-material/ContactPhoneTwoTone";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import HistoryTwoToneIcon from "@mui/icons-material/HistoryTwoTone";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
-import  Fields  from "../libs/details/Fields";
-import  ExtraFields  from "../libs/details/ExtraFields";
+import  Fields  from "./Fields";
+import  ExtraFields  from "./ExtraFields";
 import NotImplemented from "@/components/not-implemented";
 
 export const detailsCardtabs = {

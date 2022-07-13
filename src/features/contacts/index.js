@@ -6,7 +6,7 @@ const Feature = () => {
   return (
     <Routes>
       <Route path="/*" element={<Layout />}>
-        <Route path="*" element={<List />} />
+        <Route index element={<List />} />
       </Route>
     </Routes>
   );

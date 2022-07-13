@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Paper from "@mui/material/Paper";
-import Details from "./libs/details/details";
+import Details from "./libs/details";
 import { Fab, InputAdornment, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
@@ -42,7 +42,7 @@ const Layout = () => {
                 }
               },
               startAdornment: (
-                <InputAdornment sx={{ mr: "0.5rem" }}  position='start'>
+                <InputAdornment sx={{ mr: "0.5rem" }} position='start'>
                   <SearchTwoToneIcon
                     color="primary"
                     sx={{ width: "2rem", height: "2rem" }}

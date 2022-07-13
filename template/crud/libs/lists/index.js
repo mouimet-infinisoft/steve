@@ -2,8 +2,8 @@ import NoResult from "@/components/no-result";
 import { usePagination, useSubscribe } from "@/core/hooks";
 import React from "react";
 import {config} from '../../config'
-const { default: Cards } = require("./card");
-const { default: List } = require("./list");
+import Cards from "./cards";
+import Table from "./table";
 
 
 const Lists = (props) => {
@@ -36,7 +36,7 @@ const Lists = (props) => {
   return (
     <>
       {term && list?.length <= 0 && <NoResult />}
-      <List {...props} list={list} />
+      <Table {...props} list={list} />
       <Cards {...props} list={list} />
       <AppPagination />
     </>

@@ -1,15 +1,7 @@
-import Layout from "./layout";
-import { Routes, Route } from "react-router-dom";
-import List from "./libs/lists";
+import NotImplemented from "@/components/not-implemented";
 
 const Feature = () => {
-  return (
-    <Routes>
-      <Route path="/*" element={<Layout />}>
-        <Route index element={<List />} />
-      </Route>
-    </Routes>
-  );
+  return <NotImplemented />;
 };
 
 export default Feature;

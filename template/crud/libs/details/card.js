@@ -4,7 +4,7 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
 import BasicTabs from "@/components/tabs/basic-tabs";
-import { detailsCardtabs } from "../../mock/details.card.tabs";
+import { detailsCardtabs } from "./card.tabs";
 import { Button, TextField } from "@mui/material";
 import { useItem } from "@/core/hooks";
 import { useMicroContext, useMicroState } from "@/core/state";

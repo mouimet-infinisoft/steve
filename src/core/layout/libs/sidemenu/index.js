@@ -1,16 +1,22 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
+import ContactsTwoToneIcon from '@mui/icons-material/ContactsTwoTone';
+import CorporateFareTwoToneIcon from '@mui/icons-material/CorporateFareTwoTone';
+import FolderTwoToneIcon from '@mui/icons-material/FolderTwoTone';
+import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
+import MailIcon from "@mui/icons-material/Mail";
+import MessageTwoToneIcon from '@mui/icons-material/MessageTwoTone';
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import PeopleTwoToneIcon from '@mui/icons-material/PeopleTwoTone';
+import { Tooltip } from '@mui/material';
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
-import Box from "@mui/material/Box";
 
 const drawerWidth = 240;
 
@@ -54,6 +60,15 @@ const Drawer = styled(MuiDrawer, {
   })
 }));
 
+const lists = [
+  { label: "Home", icon: <HomeTwoToneIcon /> },
+  { label: "Contacts", icon: <ContactsTwoToneIcon /> },
+  { label: "Messages", icon: <MessageTwoToneIcon /> },
+  { label: "Organizations", icon: <CorporateFareTwoToneIcon /> },
+  { label: "Cases", icon: <FolderTwoToneIcon /> },
+  { label: "Community", icon: <PeopleTwoToneIcon /> }
+];
+
 const Sidemenu = ({ open, handleClose }) => {
   const navigate = useNavigate();
 
@@ -62,38 +77,16 @@ const Sidemenu = ({ open, handleClose }) => {
       <Divider />
       <Box sx={{ paddingTop: "64px" }} />
       <List sx={{ borderRight: 0 }}>
-        <ListItem key={"home"} disablePadding sx={{ display: "block" }}>
-          <ListItemButton
-            sx={{
-              minHeight: 48,
-              justifyContent: open ? "initial" : "center",
-              px: 2.5
-            }}
-            onClick={() => navigate("/")}
-          >
-            <ListItemIcon
-              sx={{
-                minWidth: 0,
-                mr: open ? 3 : "auto",
-                justifyContent: "center"
-              }}
-            >
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Home"} sx={{ opacity: open ? 1 : 0 }} />
-          </ListItemButton>
-        </ListItem>
-
-        {["Contacts", "Messages", "Organizations", "Cases", "Community"].map(
-          (text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: "block" }}>
+        {lists.map(({ label, icon }) => (
+            <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }}>
+              <Tooltip title={label} placement="right">
               <ListItemButton
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? "initial" : "center",
                   px: 2.5
                 }}
-                onClick={() => navigate(`/${text}`)}
+                onClick={() => navigate(`/${label}`)}
               >
                 <ListItemIcon
                   sx={{
@@ -102,10 +95,11 @@ const Sidemenu = ({ open, handleClose }) => {
                     justifyContent: "center"
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {icon}
                 </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText sx={{ opacity: open ? 1 : 0 }}>{label}</ListItemText>
               </ListItemButton>
+              </Tooltip>
             </ListItem>
           )
         )}

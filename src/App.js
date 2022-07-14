@@ -1,5 +1,5 @@
 import "./App.css";
-import { MemoryRouter, BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Router from "./core/router";
 import MicroContextProvider from "@/core/state/context";
 import { Suspense } from "react";

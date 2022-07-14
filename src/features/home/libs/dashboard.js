@@ -1,13 +1,12 @@
 import Box from "@mui/material/Box";
 import ActionTile from "@/components/action-tile";
 import { Typography, Divider } from "@mui/material";
-import IconList from "@/features/home/libs/icon-list";
-import { items } from "../mock/news";
 import { actions } from "../mock/actions";
 import AppCalendar from "@/components/calendar";
 import Checklist from "@/components/checklist";
 import { checklist } from "../mock/checklist";
 import { generateId } from "@/helpers";
+import Chat from "./chatpoc";
 
 const ActionList = ({ actions }) =>
   actions.map((props) => (
@@ -79,10 +78,11 @@ const Dashboard = () => {
         }}
       >
         <Box sx={{ height: "calc(100vh - 400px)" }}>
-          <Typography variant="h2" gutterBottom>
+          {/* <Typography variant="h2" gutterBottom>
             News
           </Typography>
-          <IconList items={items} key={generateId(Math.random())} />
+          <IconList items={items} key={generateId(Math.random())} /> */}
+          <Chat userId={"ostenguy"} displayName={"Ostin Guy"} />
         </Box>
       </Box>
     </>

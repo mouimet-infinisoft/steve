@@ -5,17 +5,10 @@ import cat3 from "./assets/cat3.gif";
 export const featurehistory = () => [
   {
     klhlojassasssaso897y9: {
-      id: "klhlojassasssaso897y9",
-      name: "Martin Ouimet",
-      avatar: cat1,
       address: "3649 rue Notre-Dame, Candiax, H72D92",
-      telephones: [
-        { key: 111976, label: "514-777-5555", tag: "Work" },
-        { key: 567222, label: "540-789-2121", tag: "Mobile" }
-      ],
-      email: "dog@pound.net",
-      tags: ["person"],
       state: "active",
+      name: "BBB Ouimet",
+      email: "dog@pound.net",
       __meta__: {
         action: 'creation',
         timestamp: Date.now(),
@@ -25,24 +18,13 @@ export const featurehistory = () => [
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       },
-      __relation__: [
-        { id: "121313424", key: "employer", value: "pfizer" },
-        { id: "fdas54ff54", key: "father", value: "case32423" }
-      ],
-      __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
     }
   },
   {
     klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       name: "Martin Ouimet",
-      avatar: cat1,
-      address: "3649 rue Notre-Dame, Candiax, H72D92",
-      telephones: [
-        { key: 111976, label: "514-777-5555", tag: "Work" },
-        { key: 567222, label: "540-789-2121", tag: "Mobile" }
-      ],
-      email: "dog@pound.net",
+      email: "cat@pound.net",
       tags: ["person"],
       state: "active",
       __meta__: {
@@ -54,24 +36,17 @@ export const featurehistory = () => [
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       },
-      __relation__: [
-        { id: "121313424", key: "employer", value: "pfizer" },
-        { id: "fdas54ff54", key: "father", value: "case32423" }
-      ],
-      __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
     }
   },
   {
     klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
-      name: "Martin Ouimet",
-      avatar: cat1,
-      address: "3649 rue Notre-Dame, Candiax, H72D92",
+      name: "CCC Ouimet",
+      email: "meow@pound.net",
       telephones: [
         { key: 111976, label: "514-777-5555", tag: "Work" },
         { key: 567222, label: "540-789-2121", tag: "Mobile" }
       ],
-      email: "dog@pound.net",
       tags: ["person"],
       state: "active",
       __meta__: {
@@ -83,24 +58,18 @@ export const featurehistory = () => [
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       },
-      __relation__: [
-        { id: "121313424", key: "employer", value: "pfizer" },
-        { id: "fdas54ff54", key: "father", value: "case32423" }
-      ],
-      __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
     }
   },
   {
     klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
-      name: "Martin Ouimet",
       avatar: cat1,
       address: "3649 rue Notre-Dame, Candiax, H72D92",
       telephones: [
         { key: 111976, label: "514-777-5555", tag: "Work" },
         { key: 567222, label: "540-789-2121", tag: "Mobile" }
       ],
-      email: "dog@pound.net",
+      email: "ant@pound.net",
       tags: ["person"],
       state: "active",
       __meta__: {
@@ -114,7 +83,6 @@ export const featurehistory = () => [
       },
       __relation__: [
         { id: "121313424", key: "employer", value: "pfizer" },
-        { id: "fdas54ff54", key: "father", value: "case32423" }
       ],
       __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
     }
@@ -122,6 +90,8 @@ export const featurehistory = () => [
   {
     kngfhnhfgngfhnfghngfhn9: {
       id: "kngfhnhfgngfhnfghngfhn9",
+      name: "Martin FFF",
+      email: "mad@pound.net",
       telephones: [
         { key: 111976, label: "514-444-5555", tag: "Work" },
       ],

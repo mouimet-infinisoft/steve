@@ -21,10 +21,7 @@ const Header = ({ title, sx = {}, ...props }) => {
   const item = useMicroState(
     (s) => s?.[config.feature.name]?.list?.[query?.params?.id]
   );
-  const { reference, state } = React.useMemo(
-    () => item ?? {},
-    [item]
-  );
+  const { reference, state } = React.useMemo(() => item ?? {}, [item]);
   return (
     // <Box
     //   {...props}
@@ -73,18 +70,12 @@ const Header = ({ title, sx = {}, ...props }) => {
             </Typography>
           </Box>
           <Box
-            height={"100%"}
             sx={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
-              alignContent: "center",
-              alignItems: "center"
+              justifyContent: "center"
             }}
           >
-            <Typography variant="subtitle1" sx={{ flex: 1 }} textAlign="center">
-              State
-            </Typography>
             <Chip
               label={state}
               color={statePresets[state]}

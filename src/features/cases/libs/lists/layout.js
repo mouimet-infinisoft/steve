@@ -18,7 +18,7 @@ const Layout = () => {
     });
 
   return (
-    <Paper>
+    <>
       <Title title={config.feature.name}>
         <SearchInput handleOnChange={handleOnChange} />
 
@@ -74,7 +74,7 @@ const Layout = () => {
           <Outlet />
         </Box>
       </Box>
-    </Paper>
+    </>
   );
 };
 

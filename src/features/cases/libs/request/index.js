@@ -6,9 +6,7 @@ import IconMenu from "./libs/menu";
 const Layout = () => {
   return (
     <Box>
-      <Header title={"Request"}>
-        <div>tokette</div>
-      </Header>
+      <Header title={"Request"} />
 
       <Box
         sx={(theme) => ({
@@ -20,7 +18,7 @@ const Layout = () => {
         <Box
           sx={(theme) => ({
             flex: 1,
-            padding: "1rem 3rem",
+            padding: "3rem 3rem",
             backgroundColor: theme.palette.background.default,
             borderRadius: "15px",
             height: "fit-content"
@@ -32,7 +30,7 @@ const Layout = () => {
         <Box
           sx={(theme) => ({
             flex: 3,
-            padding: "1rem 3rem",
+            padding: "3rem 3rem",
             backgroundColor: theme.palette.background.default,
             borderRadius: "15px"
           })}

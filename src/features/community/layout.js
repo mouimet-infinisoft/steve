@@ -14,7 +14,7 @@ const Layout = () => {
   const { store } = useMicroContext();
 
   return (
-    <Paper>
+    <>
       <Title title={config.feature.name}>
         <Box>
           <TextField
@@ -110,7 +110,7 @@ const Layout = () => {
           <Details visible={false} />
         </Box>
       </Box>
-    </Paper>
+    </>
   );
 };
 

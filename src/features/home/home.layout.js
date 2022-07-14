@@ -8,7 +8,7 @@ import { generateId } from "@/helpers";
 
 const HomeLayout = () => {
   return (
-    <Paper>
+    <>
       <Title title="Home" />
 
       <Box
@@ -23,7 +23,7 @@ const HomeLayout = () => {
         })}
       >
         <Box>
-          <LinkTabs tabs={tabs} key={generateId(Math.random())}/>
+          <LinkTabs tabs={tabs} key={generateId(Math.random())} />
         </Box>
 
         <Box
@@ -38,7 +38,7 @@ const HomeLayout = () => {
           <Outlet />
         </Box>
       </Box>
-    </Paper>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
 import  Fields  from "./Fields";
 import  ExtraFields  from "./ExtraFields";
 import NotImplemented from "@/components/not-implemented";
+import HistoryTimeLine from "@/features/contacts/libs/details/history";
 
 export const detailsCardtabs = {
   Contact: {
@@ -25,7 +26,7 @@ export const detailsCardtabs = {
     to: "/home/settings",
     label: "History",
     icon: <HistoryTwoToneIcon />,
-    component: <NotImplemented />,
+    component: <HistoryTimeLine />,
     iconPosition: "start"
   },
   Misc: {

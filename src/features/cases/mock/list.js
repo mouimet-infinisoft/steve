@@ -8,7 +8,6 @@ const states = [
   "suspended",
   "complete"
 ];
-const steps = ["request", "case", "service", "closed"];
 
 const caseslist = () =>
   new Array(10)

@@ -3,10 +3,8 @@ import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import CrudChipList from "@/components/crud-chip-list";
 import TextField from "@mui/material/TextField";
-import { useItemRoute } from "@/core/hooks/use-item-route";
 
 export default function Details() {
-  const {item, listMutatorsFactory}= useItemRoute();
 
   return (
     <>

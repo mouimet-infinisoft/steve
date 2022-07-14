@@ -1,5 +1,4 @@
 import * as React from "react";
-import NotImplemented from "@/components/not-implemented";
 import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import CrudChipList from "@/components/crud-chip-list";

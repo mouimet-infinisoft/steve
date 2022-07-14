@@ -5,10 +5,8 @@ import { config } from "@/features/cases/config";
 import { matchPath, useLocation } from "react-router-dom";
 import { Chip, Grid } from "@mui/material";
 import React from "react";
-import { useTheme } from "@emotion/react";
 
 const Header = ({ title, sx = {}, ...props }) => {
-  const theme = useTheme();
   const statePresets = {
     todo: "info",
     inprogress: "info",
@@ -23,7 +21,7 @@ const Header = ({ title, sx = {}, ...props }) => {
   const item = useMicroState(
     (s) => s?.[config.feature.name]?.list?.[query?.params?.id]
   );
-  const { id, reference, step, state } = React.useMemo(
+  const { reference, state } = React.useMemo(
     () => item ?? {},
     [item]
   );

@@ -8,6 +8,8 @@ export default function Cards({ list = [] }) {
   const { store } = useMicroContext();
   const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
 
+
+  
   const handleClick = (id) => () => {
     store.mutate((s) => ({
       ...s,

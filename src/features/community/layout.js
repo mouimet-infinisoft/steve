@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
-import Paper from "@mui/material/Paper";
 import Details from "./libs/details";
 import { Fab, InputAdornment, TextField } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";

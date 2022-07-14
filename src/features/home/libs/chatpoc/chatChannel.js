@@ -1,40 +1,64 @@
-import AmityClient, { ApiRegion, MessageRepository } from "@amityco/js-sdk";
 import { Box, TextField, Typography } from "@mui/material";
 import { purple } from "@mui/material/colors";
 import React, { startTransition, useEffect, useState } from "react";
+import AmityClient, {
+  ApiRegion,
+  MessageRepository,
+  ChannelRepository,
+  ChannelType 
+} from "@amityco/js-sdk";
 
-const ChatChannel = ({messageRepo}) => {
+const liveChannel = ChannelRepository.createChannel({ type: ChannelType.Conversation })
+
+liveChannel.on('dataUpdated', () => {
+  console.log('channel created');
+});
+
+const client = new AmityClient({
+  apiKey: "b0eebb0c6fd2f86d4a64df1e060e168884588aeaeb336e2d",
+  apiRegion: ApiRegion.US
+});
+const chan = "channel1";
+
+const ChatChannel = () => {
   const [messages, setMessages] = React.useState([]);
 
+  const registerMe = React.useCallback(async ({ userId, displayName }) => {
+    client.registerSession({ userId, displayName });
+    await ChannelRepository.joinChannel({
+      channelId: chan
+    });
+  }, []);
+
   useEffect(() => {
-    messageRepo
-      .messagesForChannel({ channelId: "channel1" })
-      .on("dataUpdated", (models) => {
-        // models will be an array of message objects
-        startTransition(() => setMessages(models));
-        models
-          .forEach((message) => {
-            console.log("Message: ", message);
-          })
-          .on("dataError", (error) => {
-            // Every error has a code. You can control how your application should behave in response to the error.
-            console.error(error);
-          });
-      });
+    // MessageRepository.messagesForChannel({ channelId: chan }).on(
+    //   "dataUpdated",
+    //   (models) => {
+    //     startTransition(() => setMessages(models));
+    //   }
+    // );
+
+    // MessageRepository.messagesForChannel({ channelId: chan }).on(
+    //   "dataError",
+    //   (error) => {
+    //     console.error(error);
+    //   }
+    // );
   }, []);
 
   const sendMsg = ({ message }) =>
-    messageRepo?.createTextMessage({
-      channelId: "channel1",
-      text: message,
-      parentId: "exampleParentMessageId"
+    MessageRepository.createTextMessage({
+      channelId: chan,
+      text: message
     });
 
   const [msg, setMsg] = useState("");
+  const [userId, setUserId] = useState("");
 
   return (
     <>
       <h2>Chat</h2>
+      <h4>{userId}</h4>
       <Box
         sx={(theme) => ({
           width: "200px",
@@ -76,11 +100,19 @@ const ChatChannel = ({messageRepo}) => {
         value={msg}
         onChange={(e) => setMsg(e.target.value)}
         onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            console.log(msg);
+          if (e.key === "Enter" && msg) {
             sendMsg({ message: msg });
             startTransition(() => setMsg(""));
           }
+        }}
+      />
+      <TextField
+        value={userId}
+        label="userid"
+        placeholder="userid"
+        onChange={(e) => setUserId(e.target.value)}
+        onBlur={(e) => {
+          registerMe({ userId: e.target.value, displayName: e.target.value });
         }}
       />
     </>

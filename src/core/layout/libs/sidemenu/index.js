@@ -2,10 +2,12 @@ import ContactsTwoToneIcon from '@mui/icons-material/ContactsTwoTone';
 import CorporateFareTwoToneIcon from '@mui/icons-material/CorporateFareTwoTone';
 import FolderTwoToneIcon from '@mui/icons-material/FolderTwoTone';
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
-import MailIcon from "@mui/icons-material/Mail";
+import LanTwoToneIcon from '@mui/icons-material/LanTwoTone';
+import LockTwoToneIcon from '@mui/icons-material/LockTwoTone';
 import MessageTwoToneIcon from '@mui/icons-material/MessageTwoTone';
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import PeopleTwoToneIcon from '@mui/icons-material/PeopleTwoTone';
+import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
+import SummarizeTwoToneIcon from '@mui/icons-material/SummarizeTwoTone';
 import { Tooltip } from '@mui/material';
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -65,8 +67,15 @@ const lists = [
   { label: "Contacts", icon: <ContactsTwoToneIcon /> },
   { label: "Messages", icon: <MessageTwoToneIcon /> },
   { label: "Organizations", icon: <CorporateFareTwoToneIcon /> },
+  { label: "Community", icon: <PeopleTwoToneIcon /> },
+];
+
+const listsTwo = [
   { label: "Cases", icon: <FolderTwoToneIcon /> },
-  { label: "Community", icon: <PeopleTwoToneIcon /> }
+  { label: "Services", icon: <LanTwoToneIcon /> },
+  { label: "Reports", icon: <SummarizeTwoToneIcon /> },
+  { label: "Security", icon: <LockTwoToneIcon /> },
+  { label: "Settings", icon: <SettingsTwoToneIcon /> }
 ];
 
 const Sidemenu = ({ open, handleClose }) => {
@@ -108,14 +117,16 @@ const Sidemenu = ({ open, handleClose }) => {
       <Divider />
 
       <List>
-        {["Messages", "MENUA", "MENUB"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
+      {listsTwo.map(({ label, icon }) => (
+          <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }}>
+            <Tooltip title={label} placement="right">
             <ListItemButton
               sx={{
                 minHeight: 48,
                 justifyContent: open ? "initial" : "center",
                 px: 2.5
               }}
+              onClick={() => navigate(`/${label}`)}
             >
               <ListItemIcon
                 sx={{
@@ -124,10 +135,11 @@ const Sidemenu = ({ open, handleClose }) => {
                   justifyContent: "center"
                 }}
               >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                {icon}
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText sx={{ opacity: open ? 1 : 0 }}>{label}</ListItemText>
             </ListItemButton>
+            </Tooltip>
           </ListItem>
         ))}
       </List>

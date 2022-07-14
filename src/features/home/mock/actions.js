@@ -23,7 +23,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },
@@ -38,7 +38,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },
@@ -53,7 +53,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },
@@ -68,7 +68,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },
@@ -83,7 +83,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },
@@ -98,7 +98,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },
@@ -113,7 +113,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },
@@ -128,7 +128,7 @@ export const actions = [
       width: "5rem",
       height: "5em",
       marginLeft: 1.295,
-      marginTop: 0.18,
+      marginTop: 0.05,
     })}
   />
   },

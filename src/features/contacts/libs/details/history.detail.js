@@ -1,11 +1,10 @@
 import { ButtonBase, Grid, IconButton, Typography, Box } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { getFormattedTitle } from "../utils";
 
-const TypographyTitle = (title, value) => (
+const HistoryChangedValues = (title, value) => (
     <Grid item xs={6}>
-        <Typography variant="body1">
-            {getFormattedTitle(title)}
+        <Typography variant="body1" sx={{textTransform: 'capitalize'}}>
+            {title}
         </Typography>
         <Typography variant="body1">
             {value}
@@ -13,11 +12,11 @@ const TypographyTitle = (title, value) => (
     </Grid>)
 
 
-const DetailedChanges = (nestedList) => (
+const NestedHistoryChangedValues = (nestedList) => (
     <>
         {nestedList.map((item) =>
         (Object.keys(item).map((key) => (
-            TypographyTitle(key, item[key])
+            HistoryChangedValues(key, item[key])
         )))
         )}
     </>)
@@ -33,8 +32,8 @@ const HistoryDetails = ({ showHistoryDetails, setShowHistoryDetails }) => {
             <Grid container spacing={2}>
                 {Object.keys(showHistoryDetails).map((key) => (
                     <>
-                        {Boolean(typeof showHistoryDetails[key] === "object") && DetailedChanges(showHistoryDetails[key])}
-                        {Boolean(typeof showHistoryDetails[key] !== "object") && TypographyTitle(key, showHistoryDetails[key])}
+                        {Boolean(typeof showHistoryDetails[key] === "object") && NestedHistoryChangedValues(showHistoryDetails[key])}
+                        {Boolean(typeof showHistoryDetails[key] !== "object") && HistoryChangedValues(key, showHistoryDetails[key])}
                     </>
                 ))}
             </Grid>

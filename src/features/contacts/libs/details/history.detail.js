@@ -3,7 +3,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const HistoryChangedValues = (title, value) => (
     <Grid item xs={6}>
-        <Typography variant="body1" sx={{textTransform: 'capitalize'}}>
+        <Typography variant="body1" textTransform='capitalize'>
             {title}
         </Typography>
         <Typography variant="body1">

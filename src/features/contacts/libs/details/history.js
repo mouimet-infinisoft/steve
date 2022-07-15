@@ -6,19 +6,7 @@ import { config } from '../../config'
 import { featurehistory } from '../../mock/featurelist';
 import HistoryTimeLine from './history.timeline';
 import HistoryDetails from './history.detail';
-import { motion, AnimatePresence } from 'framer-motion';
-
-const FadeInOutEffect = ({ children }) => (
-  <AnimatePresence>
-    <motion.div initial={{ opacity: 0, scale: 0.5 }}
-      exit={{ opacity: 0 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-    >
-      {children}
-    </motion.div>
-  </AnimatePresence>
-)
+import FadeInOutEffect from "@/components/fade-effect"
 
 const History = () => {
   const theme = useTheme();

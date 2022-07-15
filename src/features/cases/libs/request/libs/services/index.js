@@ -8,7 +8,7 @@ export default function Services() {
     <>
       <Typography variant="h5">Services</Typography>
       <Typography variant="subtitl1" color="text.secondary">
-        jhkjhlkj jh lj
+        What service is required?
       </Typography>
       <Divider variant="fullWidth" sx={{ py: "1rem", mb: "2rem" }} />
 

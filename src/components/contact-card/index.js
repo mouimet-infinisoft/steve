@@ -13,7 +13,7 @@ import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 import { defaultAvatar } from "@/components/avatar-upload/assets";
 
 export default function ContactCard({
-  id, name, email, avatar, address, telephones, tags, handleClick, isSelected
+  id, name, email, avatar, address, telephones, tags, handleClick, isSelected, onClickMessage
 }) {
   return (
     <Card
@@ -119,6 +119,7 @@ export default function ContactCard({
             aria-label="message"
             size="small"
             variant="outlined"
+            onClick={onClickMessage}
           >
             Message
           </Button>

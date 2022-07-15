@@ -19,7 +19,7 @@ const getHistoryIcon = {
 
 const HistoryTimeLine = ({ list = [], setShowHistoryDetails }) => {
   const handleClick = (item) => {
-    const { email, __meta__, __extra__, tags, ...rest } = item;
+    const { email, __meta__, __extra__, tags, id, avatar, ...rest } = item;
     setShowHistoryDetails(rest);
   }
   return (
@@ -27,7 +27,7 @@ const HistoryTimeLine = ({ list = [], setShowHistoryDetails }) => {
       {list.map((history) => {
         const userHistory = Object.values(history)[0];
         return (
-          <ButtonBase onClick={() => handleClick([userHistory])}>
+          <ButtonBase onClick={() => handleClick(userHistory)}>
             <TimelineItem>
               <TimelineOppositeContent
                 sx={{ m: 'auto 0' }}

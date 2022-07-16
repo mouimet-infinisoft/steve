@@ -45,7 +45,7 @@ export const featurehistory = () => [
       email: "meow@pound.net",
       telephones: [
         { key: 111976, label: "514-777-5555", tag: "Work" },
-        { key: 567222, label: "540-789-2121", tag: "Mobile" }
+        { key: 567222, label: "540-789-2121", tag: "Mobile" },
       ],
       tags: ["person"],
       state: "active",

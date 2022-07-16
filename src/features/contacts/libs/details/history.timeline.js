@@ -9,7 +9,6 @@ import Typography from '@mui/material/Typography';
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 import UpdateIcon from '@mui/icons-material/Update';
 import DeleteIcon from '@mui/icons-material/Delete';
-import ButtonBase from '@mui/material/ButtonBase';
 
 const getHistoryIcon = {
   creation: <CreateNewFolderIcon color="success" />,
@@ -19,38 +18,37 @@ const getHistoryIcon = {
 
 const HistoryTimeLine = ({ list = [], setShowHistoryDetails }) => {
   const handleClick = (item) => {
-    const { email, __meta__, __extra__, tags, id, avatar, ...rest } = item;
+    const { email, __meta__, __extra__, __relation__, tags, id, avatar, ...rest } = item;
+    console.log(rest)
     setShowHistoryDetails(rest);
   }
   return (
-    <Timeline>
+    <Timeline position="alternate">
       {list.map((history) => {
         const userHistory = Object.values(history)[0];
         return (
-          <ButtonBase onClick={() => handleClick(userHistory)}>
-            <TimelineItem>
-              <TimelineOppositeContent
-                sx={{ m: 'auto 0' }}
-                variant="body2"
-                color="text.secondary"
-              >
+          <TimelineItem onClick={() => handleClick(userHistory)}>
+            <TimelineOppositeContent
+              sx={{ m: 'auto 0' }}
+              variant="body2"
+            >
+              <Typography variant="body1" color="text.primary" textTransform={"capitalize"}>
+                {userHistory.__meta__.action}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
                 {new Date(userHistory.__meta__.timestamp).toDateString()}
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot>
-                  {getHistoryIcon[userHistory.__meta__.action]}
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent>
-                <Typography variant="body2">
-                  {userHistory.email}
-                </Typography>
-                <Typography variant="body2" component="span">{userHistory.__meta__.action} by {userHistory.email}</Typography>
-              </TimelineContent>
-            </TimelineItem>
-          </ButtonBase>
+              </Typography>
+            </TimelineOppositeContent>
+            <TimelineSeparator>
+              <TimelineConnector />
+              <TimelineDot>
+                {getHistoryIcon[userHistory.__meta__.action]}
+              </TimelineDot>
+              <TimelineConnector />
+            </TimelineSeparator>
+            <TimelineContent>
+            </TimelineContent>
+          </TimelineItem>
         )
       })}
     </Timeline>

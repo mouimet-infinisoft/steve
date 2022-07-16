@@ -7,6 +7,7 @@ import { featurehistory } from '../../mock/featurelist';
 import HistoryTimeLine from './history.timeline';
 import HistoryDetails from './history.detail';
 import FadeInOutEffect from "@/components/fade-effect"
+import ScrollContainer from '@/components/scroll-container';
 
 const History = () => {
   const theme = useTheme();
@@ -22,7 +23,9 @@ const History = () => {
       )}
       {showHistoryDetails && (
         <FadeInOutEffect>
-          <HistoryDetails showHistoryDetails={showHistoryDetails} setShowHistoryDetails={setShowHistoryDetails} />
+          <ScrollContainer>
+            <HistoryDetails showHistoryDetails={showHistoryDetails} setShowHistoryDetails={setShowHistoryDetails} />
+          </ScrollContainer>
         </FadeInOutEffect>
       )}
     </Box>

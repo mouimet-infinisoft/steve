@@ -8,10 +8,15 @@ import HistoryTimeLine from './history.timeline';
 import HistoryDetails from './history.detail';
 import FadeInOutEffect from "@/components/fade-effect"
 import ScrollContainer from '@/components/scroll-container';
+import { useItem } from '@/core/hooks';
 
 const History = () => {
   const theme = useTheme();
   const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
+  const { item } = useItem({
+    id: selectedId,
+    feature: config.feature.name
+});
   const historyList = featurehistory().filter((item) => item[selectedId]?.id === selectedId);
   const [showHistoryDetails, setShowHistoryDetails] = React.useState(null);
   return (
@@ -23,8 +28,8 @@ const History = () => {
       )}
       {showHistoryDetails && (
         <FadeInOutEffect>
-          <ScrollContainer>
-            <HistoryDetails showHistoryDetails={showHistoryDetails} setShowHistoryDetails={setShowHistoryDetails} />
+          <ScrollContainer name={item.name} email={item.email} date={showHistoryDetails.__meta__.timestamp} action={showHistoryDetails.__meta__.action} goBack={setShowHistoryDetails}>
+            <HistoryDetails showHistoryDetails={showHistoryDetails.history} />
           </ScrollContainer>
         </FadeInOutEffect>
       )}

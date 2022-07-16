@@ -13,12 +13,12 @@ const ScrollContainer = ({ name, email, action, date, children, goBack }) => {
                     <Grid item xs>
                         <Box display="flex" gap={theme.spacing(1)}>
                             <Avatar sx={{ width: 46, height: 46 }}>H</Avatar>
-                            <HeaderAndSubtitle label={"label"} value={"value"} />
+                            <HeaderAndSubtitle label={name} value={email} />
                         </Box>
                     </Grid>
                     <Grid item xs>
                         <Box display="flex" justifyContent={"space-between"}>
-                            <HeaderAndSubtitle flexDirection="column" label={"label"} value={"value"} />
+                            <HeaderAndSubtitle flexDirection="column" label={action} value={date} />
                             <IconButton onClick={() => goBack(false)}>
                                 <ArrowForwardIcon color="primary" />
                             </IconButton>
@@ -26,7 +26,7 @@ const ScrollContainer = ({ name, email, action, date, children, goBack }) => {
                     </Grid>
                 </Grid>
                 <Divider sx={{ marginBottom: 2, marginTop: 2 }} />
-                <Box height={theme.spacing(22)} overflow="auto">
+                <Box height={theme.spacing(20)} overflow="auto">
                     {children}
                 </Box>
             </Box>

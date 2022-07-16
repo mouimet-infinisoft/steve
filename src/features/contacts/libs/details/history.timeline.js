@@ -19,8 +19,7 @@ const getHistoryIcon = {
 const HistoryTimeLine = ({ list = [], setShowHistoryDetails }) => {
   const handleClick = (item) => {
     const { email, __meta__, __extra__, __relation__, tags, id, avatar, ...rest } = item;
-    console.log(rest)
-    setShowHistoryDetails(rest);
+    setShowHistoryDetails({ ...item, history: rest});
   }
   return (
     <Timeline position="alternate">

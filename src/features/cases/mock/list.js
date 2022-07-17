@@ -1,4 +1,4 @@
-import { generateId } from "@/helpers";
+import { generateUuid, generateId } from "@/helpers";
 
 const states = [
   "todo",
@@ -14,17 +14,18 @@ const caseslist = () =>
     .fill(0)
     .map(() => ({
       // General (Header)
-      id: generateId(String(Math.random()).replace(".", "")),
+      id: generateUuid(),
       reference: "C-" + generateId(""),
       state: states[Math.round(Math.floor(Math.random() * states.length))], // todo - inprogress - blocked - waiting - suspended - complete
       step: "request", // request - case - service - closed
       tags: ["person"],
 
       // Request
-      services: [{ key: 111976, label: "Plumber Bronze", tag: "Service" }],
-      location: ["spread contact#org#uuid"], // ordered list by  priority
+      services: [{ key: generateUuid(), label: "Plumber Bronze", tag: "Service" }],
+      location: [{ key: generateUuid(), label: "spread contact#org#uuid", tag: "Office" }], // ordered list by  priority
       origin: "Court of Quebec", // dpj , court, volunteer
-      motives: ["violence"],
+      motives: [{ key: generateUuid(), label: "violence", tag: "Motives" }],
+      notes:"",
 
       // Meta Operation
 
@@ -39,16 +40,16 @@ const caseslist = () =>
 
       // Meta Data
       __extra__: [
-        { id: "customId1323", key: "customfield", value: "customvalue" }
+        { id: generateUuid(), key: "customfield", value: "customvalue" }
       ],
       __relation__: [
         {
-          id: "121313424",
+          id: generateUuid(),
           key: "referent",
           value: "personUUID",
           authorizedTransport: true //Extra attributes concerned by (subject / relation)
         },
-        { id: "fdas54ff54", key: "father", value: "personUUID" }
+        { id: generateUuid(), key: "father", value: "personUUID" }
       ]
     }))
     .reduce((acc, props, i) => ({ ...acc, [props?.id]: props }), {});

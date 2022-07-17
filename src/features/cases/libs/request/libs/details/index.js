@@ -66,7 +66,8 @@ export default function Details() {
               borderBottom: "1px solid rgb(255 255 255 / 0%)"
             }
           })}
-          {...InputMutator("origin")}
+          value={item?.["origin"] ?? ''}
+          onChange={InputMutator("origin")}
         />
       </Box>
 
@@ -102,11 +103,12 @@ export default function Details() {
         <TextField
           fullWidth
           label="Notes"
-          placeholder=""
+          placeholder="Insert notes here..."
           variant="outlined"
           multiline
           minRows={8}
-          {...InputMutator("notes")}
+          value={item?.["notes"] ?? ''}
+          onChange={InputMutator("notes")}
           InputLabelProps={{ shrink: true }}
           sx={(theme) => ({
             "MuiInput-root:before": {

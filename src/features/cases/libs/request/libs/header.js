@@ -1,5 +1,4 @@
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import { useMicroState } from "@/core/state";
 import { config } from "@/features/cases/config";
 import { matchPath, useLocation } from "react-router-dom";
@@ -35,6 +34,8 @@ const Header = ({ title, sx = {}, ...props }) => {
   return (
     <Grid
       container
+      alignItems={'center'}
+      alignContent='stretch'
       sx={(theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: "1rem 3rem",
@@ -42,40 +43,30 @@ const Header = ({ title, sx = {}, ...props }) => {
         marginBottom: "2rem"
       })}
     >
-      <Grid item xs border={"0px solid red"}>
-        <Box sx={{ display: "flex" }}>
-          <Box>
-            <Typography variant="h2" sx={{ flex: 1 }}>
-              {title}
-            </Typography>
-            <Typography variant="h5" color="text.secondary" sx={{ flex: 1 }}>
-              {reference}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: 'center'
-            }}
-          >
-            <Title
-              title={"Status"}
-              description={
-                <Chip
-                  label={state}
-                  color={statePresets[state]}
-                  variant="outlined"
-                  sx={{ mx: "3rem", marginTop: '1rem', fontSize: "1.5rem" }}
-                />
-              }
-            />
-          </Box>
-        </Box>
+      <Grid item xs>
+        <Typography variant="h2" sx={{ flex: 1 }}>
+          {title}
+        </Typography>
+        <Typography variant="h5" color="text.secondary" sx={{ flex: 1 }}>
+          {reference}
+        </Typography>
       </Grid>
-      <Grid item xs={6} pl="7rem" border={"0px solid red"}></Grid>
-      <Grid item xs textAlign={"right"} border={"0px solid red"}>
+
+      <Grid item xs>
+        <Title
+          title={"Status"}
+          description={
+            <Chip
+              label={state}
+              color={statePresets[state]}
+              variant="outlined"
+              sx={{ my: '1rem', fontSize: "1.5rem" }}
+            />
+          }
+        />
+      </Grid>
+
+      <Grid item xs textAlign={"right"}>
         <Title
           title={"Created on "}
           description={new Date(createdAt * 1000).toDateString()}

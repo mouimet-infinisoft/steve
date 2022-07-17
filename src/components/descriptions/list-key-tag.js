@@ -1,7 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box'
 
-const ListKeyTag = ({title, list=[]}) =>  <div>
+const ListKeyTag = ({title, list=[], showTag=true}) =>  list?.length > 0 && <div>
 <Typography variant="subtitle2">{title}</Typography>
 <Box
   sx={{
@@ -21,14 +21,14 @@ const ListKeyTag = ({title, list=[]}) =>  <div>
       >
         {label}
       </Typography>
-      <Typography
+      {showTag && <Typography
         variant="caption"
         color="text.secondary.light"
         component="span"
         mr={1}
       >
         {tag}
-      </Typography>
+      </Typography>}
     </Box>
   ))}
 </Box>

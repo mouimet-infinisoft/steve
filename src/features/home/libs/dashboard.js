@@ -4,7 +4,6 @@ import { actions } from "../mock/actions";
 import AppCalendar from "@/components/calendar";
 import Checklist from "@/components/checklist";
 import { generateId } from "@/helpers";
-import Chat from "./chatpoc";
 import Box from "@mui/material/Box";
 import { checklist } from "../mock/checklist";
 
@@ -69,11 +68,10 @@ const Dashboard = () => {
         }}
       >
         <Box sx={{ height: "calc(100vh - 400px)" }}>
-          {/* <Typography variant="h2" gutterBottom>
+          <Typography variant="h2" gutterBottom>
             News
           </Typography>
-          <IconList items={items} key={generateId(Math.random())} /> */}
-          <Chat userId={"ostenguy"} displayName={"Ostin Guy"} />
+          {/* <IconList items={items} key={generateId(Math.random())} /> */}
         </Box>
       </Box>
     </>

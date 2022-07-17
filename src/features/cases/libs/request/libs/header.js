@@ -6,6 +6,13 @@ import { matchPath, useLocation } from "react-router-dom";
 import { Chip, Grid } from "@mui/material";
 import React from "react";
 
+const Title = React.lazy(() =>
+import(
+  /* webpackChunkName: 'avatar-title-description' */ "@/components/descriptions/title-description"
+)
+);
+
+
 const Header = ({ title, sx = {}, ...props }) => {
   const statePresets = {
     todo: "info",
@@ -21,35 +28,9 @@ const Header = ({ title, sx = {}, ...props }) => {
   const item = useMicroState(
     (s) => s?.[config.feature.name]?.list?.[query?.params?.id]
   );
-  const { reference, state } = React.useMemo(() => item ?? {}, [item]);
+
+  const { reference, state, createdAt,updatedAt  } = React.useMemo(() => item ?? {}, [item]);
   return (
-    // <Box
-    //   {...props}
-    //   sx={(theme) => ({
-    //     backgroundColor: theme.palette.background.default,
-    //     display: "flex",
-    //     alignItems: "flex-start",
-    //     // flexDirection: "column",
-    //     padding: "1rem 3rem",
-    //     borderRadius: "15px",
-    //     marginBottom: "2rem",
-    //     ...sx
-    //   })}
-    // >
-    //   <Box flex={"auto"}>
-    //     <Typography variant="h2" sx={{ flex: 1 }}>
-    //       {title}
-    //       <Chip label={state} color={statePresets[state]} sx={{ mx: "3rem" }} />
-    //     </Typography>
-    //     <Typography variant="h5" color="text.secondary" sx={{ flex: 1 }}>
-    //       {reference}
-    //     </Typography>
-    //   </Box>
-    //   <Box flex={1} flexBasis={66}>
-    //     middle
-    //   </Box>
-    //   <Box flex={"auto"}>end</Box>
-    // </Box>
     <Grid
       container
       sx={(theme) => ({
@@ -85,10 +66,10 @@ const Header = ({ title, sx = {}, ...props }) => {
         </Box>
       </Grid>
       <Grid item xs={6} pl="7rem" border={"0px solid red"}>
-        middle
       </Grid>
       <Grid item xs textAlign={"right"} border={"0px solid red"}>
-        right{" "}
+        <Title title={'Created on '}  description={new Date(createdAt*1000).toDateString()}/>
+        <Title title={'Last update on '}  description={new Date(updatedAt*1000).toDateString()}/>
       </Grid>
     </Grid>
   );

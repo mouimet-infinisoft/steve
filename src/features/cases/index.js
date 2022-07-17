@@ -16,7 +16,7 @@ const Feature = () => {
       
       <Route element={<RequestLayout />}>
         <Route path=":id" element={<Navigate to="Details" />} />
-        <Route path=":id/Individuals" element={<Individuals />} />
+        <Route path=":id/Individuals" element={<Individuals handleOnChange={undefined} />} />
         <Route path=":id/Details" element={<Details />} />
         <Route path=":id/Services" element={<Services />} />
         <Route path=":id/Summary" element={<Summary />} />

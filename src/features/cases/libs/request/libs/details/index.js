@@ -3,13 +3,38 @@ import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import CrudChipList from "@/components/crud-chip-list";
 import TextField from "@mui/material/TextField";
+import { matchPath, useLocation } from "react-router-dom";
+import { useItem } from "@/core/hooks";
+import { config } from "../../../../config/index";
 
 export default function Details() {
+  const { pathname } = useLocation();
+  const route = matchPath("/cases/:selectedId/Details", pathname);
+  const { item, listMutatorsFactory, InputMutator} = useItem({
+    id: route?.params?.selectedId,
+    feature: config.feature.name
+  });
+  const CrudList = ({ name, label, placeholder, variant = "inside" }) => (
+    <CrudChipList
+      inputComponentProps={{
+  
+        InputLabelProps: { shrink: true },
+        variant: "outlined",
+        label,
+        placeholder
+      }}
+      variant={variant}
+      key={item?.[name]?.length}
+      list={item?.[name] ?? []}
+      onRemove={listMutatorsFactory([name]).remove}
+      onAdd={listMutatorsFactory([name]).add}
+    />
+  );
 
   return (
     <>
       <Typography variant="h4">Details</Typography>
-      <Typography variant="subtitl1" color="text.secondary">
+      <Typography variant="subtitle1" color="text.secondary">
         Gather as much information possible to help system help you.
       </Typography>
       <Divider variant="fullWidth" sx={{ py: "1rem", mb: "2rem" }} />
@@ -19,56 +44,50 @@ export default function Details() {
           display: "flex",
           gap: 4,
           justifyContent: "space-evenly",
-          flexWrap: "wrap"
+          flexWrap: "nowrap",
+          padding: "1.5rem"
         }}
       >
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          
-          inputComponentProps={{
-            InputLabelProps: { shrink: true },
-            variant: "outlined",
-            label: "Motifs",
-            placeholder: "What are the motives for this request?"
-          }}
+        <CrudList
+          label="Motifs"
+          placeholder="What are the motives for this request?"
+          name="motives"
+        />
+        <TextField
+          label="Origin"
+          fullWidth
+          placeholder="Where is coming the request?"
+          variant="outlined"
+          InputLabelProps={{ shrink: true }}
+          sx={(theme) => ({
+            flex: 1,
+            marginLeft: '1.5rem',
+            "MuiInput-root:before": {
+              borderBottom: "1px solid rgb(255 255 255 / 0%)"
+            }
+          })}
+          {...InputMutator("origin")}
+        />
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          gap: 4,
+          justifyContent: "space-evenly",
+          flexWrap: "nowrap"
+        }}
+      >
+        <CrudList
+          label="Services"
+          placeholder="What is/are the services required?"
+          name="services"
         />
 
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            InputLabelProps: { shrink: true },
-            variant: "outlined",
-            label: "Origin",
-            placeholder: "Where is coming the request?"
-          }}
-        />
-
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            InputLabelProps: { shrink: true },
-            variant: "outlined",
-            label: "Services",
-            placeholder: "What is/are the services required?"
-          }}
-        />
-
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            InputLabelProps: { shrink: true },
-            variant: "outlined",
-            label: "Location",
-            placeholder: "Where is going to happen?"
-          }}
+        <CrudList
+          label="Location"
+          placeholder="Where is going to happen?"
+          name="location"
         />
       </Box>
 
@@ -87,6 +106,7 @@ export default function Details() {
           variant="outlined"
           multiline
           minRows={8}
+          {...InputMutator("notes")}
           InputLabelProps={{ shrink: true }}
           sx={(theme) => ({
             "MuiInput-root:before": {

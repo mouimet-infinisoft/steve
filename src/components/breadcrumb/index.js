@@ -44,17 +44,19 @@ ListItemLink.propTypes = {
 
 const LinkRouter = (props) => <Link {...props} component={RouterLink} />;
 
-const MietteDePain = () => {
+const MietteDePain = ({ itemLabel }) => {
   const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <Breadcrumbs aria-label="breadcrumb" sx={{ padding: "1rem 0rem", ".MuiBreadcrumbs-ol": {alignItems: "flex-start"} }}>
-      <LinkRouter
-        underline="hover"
-        color="inherit"
-        to="/"
-      >
+    <Breadcrumbs
+      aria-label="breadcrumb"
+      sx={{
+        padding: "1rem 0rem",
+        ".MuiBreadcrumbs-ol": { alignItems: "flex-start" }
+      }}
+    >
+      <LinkRouter underline="hover" color="inherit" to="/">
         <HomeTwoToneIcon sx={{ width: "1.4rem", height: "1.4rem" }} />
       </LinkRouter>
       {pathnames.map((value, index) => {
@@ -64,12 +66,12 @@ const MietteDePain = () => {
         return last ? (
           <Typography color="text.primary" key={to}>
             {/* {breadcrumbNameMap[to]} */}
-            {value}
+            {itemLabel?.key === value ? itemLabel?.value : value}
           </Typography>
         ) : (
           <LinkRouter underline="hover" color="inherit" to={to} key={to}>
             {/* {breadcrumbNameMap[to]} */}
-            {value}
+            {itemLabel?.key === value ? itemLabel?.value : value}
           </LinkRouter>
         );
       })}

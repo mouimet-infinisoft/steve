@@ -12,10 +12,13 @@ const states = [
 const caseslist = () =>
   new Array(10)
     .fill(0)
-    .map(() => ({
+    .map(() => {
+      const reference = "C-" + generateId("");
+      return {
       // General (Header)
       id: generateUuid(),
-      reference: "C-" + generateId(""),
+      label: reference, // This ifled is important and must be standard. Breadcrumd use it and other may as well
+      reference,
       state: states[Math.round(Math.floor(Math.random() * states.length))], // todo - inprogress - blocked - waiting - suspended - complete
       step: "request", // request - case - service - closed
       tags: ["person"],
@@ -51,7 +54,7 @@ const caseslist = () =>
         },
         { id: generateUuid(), key: "father", value: "personUUID" }
       ]
-    }))
+    }})
     .reduce((acc, props, i) => ({ ...acc, [props?.id]: props }), {});
 
 export default caseslist;

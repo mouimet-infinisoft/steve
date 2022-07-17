@@ -65,12 +65,10 @@ const MietteDePain = ({ itemLabel }) => {
 
         return last ? (
           <Typography color="text.primary" key={to}>
-            {/* {breadcrumbNameMap[to]} */}
             {itemLabel?.key === value ? itemLabel?.value : value}
           </Typography>
         ) : (
           <LinkRouter underline="hover" color="inherit" to={to} key={to}>
-            {/* {breadcrumbNameMap[to]} */}
             {itemLabel?.key === value ? itemLabel?.value : value}
           </LinkRouter>
         );

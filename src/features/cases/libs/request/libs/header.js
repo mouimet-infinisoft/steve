@@ -7,11 +7,10 @@ import { Chip, Grid } from "@mui/material";
 import React from "react";
 
 const Title = React.lazy(() =>
-import(
-  /* webpackChunkName: 'avatar-title-description' */ "@/components/descriptions/title-description"
-)
+  import(
+    /* webpackChunkName: 'avatar-title-description' */ "@/components/descriptions/title-description"
+  )
 );
-
 
 const Header = ({ title, sx = {}, ...props }) => {
   const statePresets = {
@@ -29,7 +28,10 @@ const Header = ({ title, sx = {}, ...props }) => {
     (s) => s?.[config.feature.name]?.list?.[query?.params?.id]
   );
 
-  const { reference, state, createdAt,updatedAt  } = React.useMemo(() => item ?? {}, [item]);
+  const { reference, state, createdAt, updatedAt } = React.useMemo(
+    () => item ?? {},
+    [item]
+  );
   return (
     <Grid
       container
@@ -54,22 +56,34 @@ const Header = ({ title, sx = {}, ...props }) => {
             sx={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center"
+              justifyContent: "center",
+              alignItems: 'center'
             }}
           >
-            <Chip
-              label={state}
-              color={statePresets[state]}
-              sx={{ mx: "3rem" }}
+            <Title
+              title={"Status"}
+              description={
+                <Chip
+                  label={state}
+                  color={statePresets[state]}
+                  variant="outlined"
+                  sx={{ mx: "3rem", marginTop: '1rem', fontSize: "1.5rem" }}
+                />
+              }
             />
           </Box>
         </Box>
       </Grid>
-      <Grid item xs={6} pl="7rem" border={"0px solid red"}>
-      </Grid>
+      <Grid item xs={6} pl="7rem" border={"0px solid red"}></Grid>
       <Grid item xs textAlign={"right"} border={"0px solid red"}>
-        <Title title={'Created on '}  description={new Date(createdAt*1000).toDateString()}/>
-        <Title title={'Last update on '}  description={new Date(updatedAt*1000).toDateString()}/>
+        <Title
+          title={"Created on "}
+          description={new Date(createdAt * 1000).toDateString()}
+        />
+        <Title
+          title={"Last update on "}
+          description={new Date(updatedAt * 1000).toDateString()}
+        />
       </Grid>
     </Grid>
   );

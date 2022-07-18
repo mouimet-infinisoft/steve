@@ -5,44 +5,101 @@ import cat3 from "./assets/cat3.gif";
 export const featurehistory = () => [
   {
     klhlojassasssaso897y9: {
+      address: "3649 rue Notre-Dame, Candiax, H72D92",
+      state: "active",
+      name: "BBB Ouimet",
+      email: "dog@pound.net",
+      __meta__: {
+        action: 'creation',
+        timestamp: Date.now(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+        username: "Jean Dupuis",
+        email: "jena@dupuis.com",
+        avatar: "https://i.pravatar.cc/48?" + Math.random()
+      },
+    }
+  },
+  {
+    klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       name: "Martin Ouimet",
+      email: "cat@pound.net",
+      tags: ["person"],
+      state: "active",
+      __meta__: {
+        action: 'update',
+        timestamp: Date.now(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+        username: "Jean Dupuis",
+        email: "jena@dupuis.com",
+        avatar: "https://i.pravatar.cc/48?" + Math.random()
+      },
+    }
+  },
+  {
+    klhlojassasssaso897y9: {
+      id: "klhlojassasssaso897y9",
+      name: "CCC Ouimet",
+      email: "meow@pound.net",
+      telephones: [
+        { key: 111976, label: "514-777-5555", tag: "Work" },
+        { key: 567222, label: "540-789-2121", tag: "Mobile" },
+      ],
+      tags: ["person"],
+      state: "active",
+      __meta__: {
+        action: 'delete',
+        timestamp: Date.now(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
+        username: "Jean Dupuis",
+        email: "jena@dupuis.com",
+        avatar: "https://i.pravatar.cc/48?" + Math.random()
+      },
+    }
+  },
+  {
+    klhlojassasssaso897y9: {
+      id: "klhlojassasssaso897y9",
       avatar: cat1,
       address: "3649 rue Notre-Dame, Candiax, H72D92",
       telephones: [
         { key: 111976, label: "514-777-5555", tag: "Work" },
         { key: 567222, label: "540-789-2121", tag: "Mobile" }
       ],
-      email: "dog@pound.net",
+      email: "ant@pound.net",
       tags: ["person"],
       state: "active",
       __meta__: {
-        action: 'creation',
-        timestamp: "1657479142",
-        createdAt: "1657479142",
-        updatedAt: "1657479142",
+        action: 'update',
+        timestamp: Date.now(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
         username: "Jean Dupuis",
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       },
       __relation__: [
         { id: "121313424", key: "employer", value: "pfizer" },
-        { id: "fdas54ff54", key: "father", value: "case32423" }
       ],
       __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
     }
   },
   {
-    klhlojassasssaso897y9: {
-      id: "klhlojassasssaso897y9",
+    kngfhnhfgngfhnfghngfhn9: {
+      id: "kngfhnhfgngfhnfghngfhn9",
+      name: "Martin FFF",
+      email: "mad@pound.net",
       telephones: [
         { key: 111976, label: "514-444-5555", tag: "Work" },
       ],
       __meta__: {
         action: 'update',
-        timestamp: "1657479142",
-        createdAt: "1657479142",
-        updatedAt: "1657479142",
+        timestamp: Date.now(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
         username: "Jean Dupuis",
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
@@ -50,14 +107,14 @@ export const featurehistory = () => [
     }
   },
   {
-    klhlojassasssaso897y9: {
-      id: "klhlojassasssaso897y9",
+    kdfasdfsdafdsfsdghhoyo897y9: {
+      id: "kdfasdfsdafdsfsdghhoyo897y9",
       email: "john.oiuime@jjj.com",
       __meta__: {
         action: 'update',
-        timestamp: "1657479142",
-        createdAt: "1657479142",
-        updatedAt: "1657479142",
+        timestamp: Date.now(),
+        createdAt: Date.now(),
+        updatedAt: Date.now(),
         username: "Jonh Ouimet",
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()

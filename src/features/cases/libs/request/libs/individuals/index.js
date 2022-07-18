@@ -10,7 +10,7 @@ export default function Individuals({ handleOnChange }) {
       <Box sx={{ display: "flex" }}>
         <Box sx={{ flex: 1 }}>
           <Typography variant="h5">Individuals</Typography>
-          <Typography variant="subtitl1" color="text.secondary">
+          <Typography variant="subtitle1" color="text.secondary">
             Create or add persons related to this request.
           </Typography>
         </Box>

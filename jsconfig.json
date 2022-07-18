@@ -1,11 +1,15 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "module": "node",
     "sourceMap": true,
+    "jsx": "preserve",
+    "checkJs": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"],
-  "exclude":["/template"]
+  "exclude": ["/template", "node_modules", "**/node_modules/*"]
 }

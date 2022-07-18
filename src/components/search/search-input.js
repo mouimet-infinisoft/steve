@@ -20,9 +20,8 @@ export default function SearchInput({ handleOnChange, InputProps }) {
           },
           "*:before, *:after": {
             borderBottom: "0 !important"
-          }
+          },
         })}
-        
         InputProps={{
           sx: {
             "MuiInput-root:hover:not(.Mui-disabled):before": {

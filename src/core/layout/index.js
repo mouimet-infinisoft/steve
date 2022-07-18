@@ -4,7 +4,7 @@ import Appbar from "./libs/appbar";
 import Sidemenu from "./libs/sidemenu";
 import { Outlet, useLocation } from "react-router-dom";
 import Paper from "@mui/material/Paper";
-import MietteDePain from "@/components/breadcrumb";
+import Breadcrumb from "@/components/breadcrumb";
 import { useItem } from "../hooks";
 
 export default function Layout() {
@@ -34,7 +34,7 @@ export default function Layout() {
             backgroundColor: `${theme.palette.background.paper} !important`
           })}
         >
-          <MietteDePain itemLabel={itemLabel} />
+          <Breadcrumb itemLabel={itemLabel} />
           <Outlet />
         </Paper>
       </Box>

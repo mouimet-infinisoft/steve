@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 import UpdateIcon from '@mui/icons-material/Update';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Box from '@mui/system/Box';
+import { useTheme } from "@mui/material"
 
 const getHistoryIcon = {
   creation: <CreateNewFolderIcon color="success" />,
@@ -17,41 +19,44 @@ const getHistoryIcon = {
 }
 
 const HistoryTimeLine = ({ list = [], setShowHistoryDetails }) => {
+  const theme = useTheme();
   const handleClick = (item) => {
     const { email, __meta__, __extra__, __relation__, tags, id, avatar, ...rest } = item;
-    setShowHistoryDetails({ ...item, history: rest});
+    setShowHistoryDetails({ ...item, history: rest });
   }
-  return (
-    <Timeline position="alternate">
-      {list.map((history) => {
-        const userHistory = Object.values(history)[0];
-        return (
-          <TimelineItem onClick={() => handleClick(userHistory)}>
-            <TimelineOppositeContent
-              sx={{ m: 'auto 0' }}
-              variant="body2"
-            >
-              <Typography variant="body1" color="text.primary" textTransform={"capitalize"}>
-                {userHistory.__meta__.action}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {new Date(userHistory.__meta__.timestamp).toDateString()}
-              </Typography>
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineConnector />
-              <TimelineDot>
-                {getHistoryIcon[userHistory.__meta__.action]}
-              </TimelineDot>
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-            </TimelineContent>
-          </TimelineItem>
-        )
-      })}
-    </Timeline>
 
+  return (
+    <Box sx={{ overflow: "auto", height: theme.spacing(32) }}>
+      <Timeline position="alternate">
+        {list.map((history) => {
+          const userHistory = Object.values(history)[0];
+          return (
+            <TimelineItem onClick={() => handleClick(userHistory)}>
+              <TimelineOppositeContent
+                sx={{ m: 'auto 0' }}
+                variant="body2"
+              >
+                <Typography variant="body1" color="text.primary" textTransform={"capitalize"}>
+                  {userHistory.__meta__.action}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {new Date(userHistory.__meta__.timestamp).toDateString()}
+                </Typography>
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineConnector />
+                <TimelineDot>
+                  {getHistoryIcon[userHistory.__meta__.action]}
+                </TimelineDot>
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+              </TimelineContent>
+            </TimelineItem>
+          )
+        })}
+      </Timeline>
+    </Box>
   )
 }
 

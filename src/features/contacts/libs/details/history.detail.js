@@ -1,7 +1,6 @@
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import { useTheme } from "@emotion/react";
+import { useTheme } from "@mui/material";
 import HeaderAndSubtitle from "@/components/header-subtitle";
 import { removeIdAndKeys } from "./utils";
 import { generateId } from "@/helpers";
@@ -10,7 +9,7 @@ const NestedHistoryDetailsItems = (key, nestedList) => {
     const theme = useTheme();
     const list = removeIdAndKeys(nestedList)
     return (
-        <Grid item xs={6}>
+        <Grid item xs={6} key={generateId()}>
             <Typography variant="body1" textTransform='capitalize'>
                 {key}
             </Typography>
@@ -20,19 +19,17 @@ const NestedHistoryDetailsItems = (key, nestedList) => {
 }
 
 const HistoryDetails = ({ showHistoryDetails }) => (
-    <Grid container spacing={2}>
-        <>
-            {Object.keys(showHistoryDetails).map((key) => (
-                <Box key={generateId()}>
+    <Grid container spacing={2} sx={{overflow:"auto"}}>
+           {Object.keys(showHistoryDetails).map((key) => (
+                <>
                     {Boolean(typeof showHistoryDetails[key] === "object") && NestedHistoryDetailsItems(key, showHistoryDetails[key])}
                     {Boolean(typeof showHistoryDetails[key] !== "object") && (
                         <Grid item xs={6}>
-                            <HeaderAndSubtitle label={key} value={showHistoryDetails[key]} />
+                            <HeaderAndSubtitle key={generateId()} label={key} value={showHistoryDetails[key]} />
                         </Grid>
                     )}
-                </Box>
+                </>
             ))}
-        </>
     </ Grid>
 )
 

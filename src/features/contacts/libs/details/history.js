@@ -6,9 +6,9 @@ import { config } from '../../config'
 import { featurehistory } from '../../mock/featurelist';
 import HistoryTimeLine from './history.timeline';
 import HistoryDetails from './history.detail';
-import FadeInOutEffect from "@/components/fade-effect"
 import ScrollContainer from '@/components/scroll-container';
 import { useItem } from '@/core/hooks';
+import SlideEffect from '@/components/slide-effect';
 
 const History = () => {
   const theme = useTheme();
@@ -20,18 +20,18 @@ const History = () => {
   const historyList = featurehistory().filter((item) => item[selectedId]?.id === selectedId);
   const [showHistoryDetails, setShowHistoryDetails] = React.useState(null);
   return (
-    <Box height={theme.spacing(32)} overflow="auto">
+    <Box height={theme.spacing(32)} sx={{overflow:"auto", overflowX:"hidden"}}>
       {!showHistoryDetails && (
-        <FadeInOutEffect>
+        <SlideEffect>
           <HistoryTimeLine list={historyList} setShowHistoryDetails={setShowHistoryDetails} />
-        </FadeInOutEffect>
+        </SlideEffect>
       )}
       {showHistoryDetails && (
-        <FadeInOutEffect>
-          <ScrollContainer name={item.name} email={item.email} date={showHistoryDetails.__meta__.timestamp} action={showHistoryDetails.__meta__.action} goBack={setShowHistoryDetails}>
+        <SlideEffect>
+          <ScrollContainer name={item.name} email={item.email} date={showHistoryDetails.__meta__.timestamp} action={showHistoryDetails.__meta__.action} goBack={() => setShowHistoryDetails(false)}>
             <HistoryDetails showHistoryDetails={showHistoryDetails.history} />
           </ScrollContainer>
-        </FadeInOutEffect>
+        </SlideEffect>
       )}
     </Box>
   );

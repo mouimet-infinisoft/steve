@@ -1,5 +1,8 @@
-import { Avatar, Divider, Grid, IconButton } from "@mui/material"
-import { Box } from "@mui/system"
+import IconButton  from "@mui/material/IconButton"
+import Avatar  from "@mui/material/Avatar"
+import Divider from "@mui/material/Divider"
+import Grid from "@mui/material/Grid"
+import Box from "@mui/system/Box"
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { useTheme } from "@emotion/react";
 import HeaderAndSubtitle from "../header-subtitle";

@@ -5,7 +5,8 @@ import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
 import  Fields  from "./Fields";
 import  ExtraFields  from "./ExtraFields";
 import History from "@/features/contacts/libs/details/history";
-import NotImplemented from "@/components/not-implemented";
+// import NotImplemented from "@/components/not-implemented";
+import Reminder from "./reminder";
 
 export const detailsCardtabs = {
   Contact: {
@@ -19,7 +20,7 @@ export const detailsCardtabs = {
     to: "/home/settings",
     label: "Relations",
     icon: <ConnectWithoutContactTwoToneIcon />,
-    component: <NotImplemented />,
+    component: <Reminder />,
     iconPosition: "start"
   },
   History: {

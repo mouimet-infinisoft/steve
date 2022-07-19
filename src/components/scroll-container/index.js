@@ -3,7 +3,6 @@ import Avatar from "@mui/material/Avatar"
 import Divider from "@mui/material/Divider"
 import Grid from "@mui/material/Grid"
 import Box from "@mui/system/Box"
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import HeaderAndSubtitle from "../header-subtitle";
 import { useTheme } from "@mui/material"
 
@@ -18,12 +17,9 @@ const ScrollContainer = ({ name, email, action, date, children, goBack }) => {
                         <HeaderAndSubtitle label={name} value={email} />
                     </Box>
                 </Grid>
-                <Grid item xs>
+                 <Grid item xs>
                     <Box display="flex" justifyContent={"space-between"}>
                         <HeaderAndSubtitle flexDirection="column" label={action} value={date} />
-                        <IconButton onClick={() => goBack()}>
-                            <ArrowForwardIcon color="primary" />
-                        </IconButton>
                     </Box>
                 </Grid>
             </Grid>

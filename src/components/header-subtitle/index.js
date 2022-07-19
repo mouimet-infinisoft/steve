@@ -3,7 +3,7 @@ import Box from "@mui/system/Box"
 
 const HeaderAndSubtitle = (props) => (
     <Box {...props}>
-        <Typography variant="body1" color="text.primary" textTransform={"capitalize"}>
+        <Typography variant="body1" color="text.primary" textTransform={"capitalize"} textAlign="start">
             {props.label}
         </Typography>
         <Typography variant="body2" color="text.secondary" component={"span"}>

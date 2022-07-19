@@ -27,9 +27,9 @@ const History = () => {
         </SlideEffect>
       )}
       {showHistoryDetails && (
-        <SlideEffect>
+        <SlideEffect direction='right'>
           <ScrollContainer name={item.name} email={item.email} date={showHistoryDetails.__meta__.timestamp} action={showHistoryDetails.__meta__.action} goBack={() => setShowHistoryDetails(false)}>
-            <HistoryDetails showHistoryDetails={showHistoryDetails.history} />
+            <HistoryDetails showHistoryDetails={showHistoryDetails.history}  goBack={() => setShowHistoryDetails(false)}/>
           </ScrollContainer>
         </SlideEffect>
       )}

@@ -88,7 +88,7 @@ export default function ContactCard({
               title={"Address"}
               description={address ?? "Add an address"}
             />
-            <Telephones title="Telephones" telephones={telephones} />
+            <Telephones title="Telephones" list={telephones} />
           </CardContent>
 
           <CardActions disableSpacing sx={{ height: 60 }}>

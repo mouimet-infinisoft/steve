@@ -1,5 +1,4 @@
 import * as React from "react";
-import NotImplemented from "@/components/not-implemented";
 import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import CrudChipList from "@/components/crud-chip-list";
@@ -9,7 +8,7 @@ export default function Services() {
     <>
       <Typography variant="h5">Services</Typography>
       <Typography variant="subtitl1" color="text.secondary">
-        jhkjhlkj jh lj
+        What service is required?
       </Typography>
       <Divider variant="fullWidth" sx={{ py: "1rem", mb: "2rem" }} />
 

@@ -1,13 +1,12 @@
 import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
-import Paper from "@mui/material/Paper";
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
 import { config } from "../../config";
 import { onCreate } from "../../services";
-import SearchInput from "../search/search-input";
+import SearchInput from "@/components/search/search-input";
 
 const Layout = () => {
   const { store } = useMicroContext();

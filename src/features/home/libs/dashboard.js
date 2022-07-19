@@ -1,37 +1,24 @@
 import ActionTile from "@/components/action-tile";
+import { Typography, Divider } from "@mui/material";
+import { actions } from "../mock/actions";
 import AppCalendar from "@/components/calendar";
 import Checklist from "@/components/checklist";
-import IconList from "@/features/home/libs/icon-list";
 import { generateId } from "@/helpers";
-import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import { actions } from "../mock/actions";
 import { checklist } from "../mock/checklist";
-import { items } from "../mock/news";
 
 const ActionList = ({ actions }) =>
-  actions.map((props) => (
-    <DashboardActionTile {...props} key={generateId(Math.random())} />
+  actions.map(({ title, to }) => (
+    <ActionTile
+      key={generateId(Math.random())}
+      title={
+        <Typography variant="h3" component="div">
+          {title}
+        </Typography>
+      }
+      to={to}
+    />
   ));
-
-const DashboardActionTile = ({ title, description, to, ...props }) => (
-  <ActionTile
-  {...props}
-  
-    key={generateId(Math.random())}
-    title={
-      <Typography variant="h3" component="div">
-        {title}
-      </Typography>
-    }
-    // description={
-    //   <Typography variant="subtitle1" gutterBottom component="div">
-    //     {description}
-    //   </Typography>
-    // }
-    to={to}
-  />
-);
 
 const Dashboard = () => {
   return (
@@ -84,7 +71,7 @@ const Dashboard = () => {
           <Typography variant="h2" gutterBottom>
             News
           </Typography>
-          <IconList items={items} key={generateId(Math.random())} />
+          {/* <IconList items={items} key={generateId(Math.random())} /> */}
         </Box>
       </Box>
     </>

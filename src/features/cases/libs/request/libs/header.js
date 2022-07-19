@@ -1,14 +1,17 @@
 import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
 import { useMicroState } from "@/core/state";
 import { config } from "@/features/cases/config";
 import { matchPath, useLocation } from "react-router-dom";
 import { Chip, Grid } from "@mui/material";
 import React from "react";
-import { useTheme } from "@emotion/react";
+
+const Title = React.lazy(() =>
+  import(
+    /* webpackChunkName: 'avatar-title-description' */ "@/components/descriptions/title-description"
+  )
+);
 
 const Header = ({ title, sx = {}, ...props }) => {
-  const theme = useTheme();
   const statePresets = {
     todo: "info",
     inprogress: "info",
@@ -23,40 +26,16 @@ const Header = ({ title, sx = {}, ...props }) => {
   const item = useMicroState(
     (s) => s?.[config.feature.name]?.list?.[query?.params?.id]
   );
-  const { id, reference, step, state } = React.useMemo(
+
+  const { reference, state, createdAt, updatedAt } = React.useMemo(
     () => item ?? {},
     [item]
   );
   return (
-    // <Box
-    //   {...props}
-    //   sx={(theme) => ({
-    //     backgroundColor: theme.palette.background.default,
-    //     display: "flex",
-    //     alignItems: "flex-start",
-    //     // flexDirection: "column",
-    //     padding: "1rem 3rem",
-    //     borderRadius: "15px",
-    //     marginBottom: "2rem",
-    //     ...sx
-    //   })}
-    // >
-    //   <Box flex={"auto"}>
-    //     <Typography variant="h2" sx={{ flex: 1 }}>
-    //       {title}
-    //       <Chip label={state} color={statePresets[state]} sx={{ mx: "3rem" }} />
-    //     </Typography>
-    //     <Typography variant="h5" color="text.secondary" sx={{ flex: 1 }}>
-    //       {reference}
-    //     </Typography>
-    //   </Box>
-    //   <Box flex={1} flexBasis={66}>
-    //     middle
-    //   </Box>
-    //   <Box flex={"auto"}>end</Box>
-    // </Box>
     <Grid
       container
+      alignItems={'center'}
+      alignContent='stretch'
       sx={(theme) => ({
         backgroundColor: theme.palette.background.default,
         padding: "1rem 3rem",
@@ -64,42 +43,38 @@ const Header = ({ title, sx = {}, ...props }) => {
         marginBottom: "2rem"
       })}
     >
-      <Grid item xs border={"0px solid red"}>
-        <Box sx={{ display: "flex" }}>
-          <Box>
-            <Typography variant="h2" sx={{ flex: 1 }}>
-              {title}
-            </Typography>
-            <Typography variant="h5" color="text.secondary" sx={{ flex: 1 }}>
-              {reference}
-            </Typography>
-          </Box>
-          <Box
-            height={"100%"}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignContent: "center",
-              alignItems: "center"
-            }}
-          >
-            <Typography variant="subtitle1" sx={{ flex: 1 }} textAlign="center">
-              State
-            </Typography>
+      <Grid item xs>
+        <Typography variant="h2" sx={{ flex: 1 }}>
+          {title}
+        </Typography>
+        <Typography variant="h5" color="text.secondary" sx={{ flex: 1 }}>
+          {reference}
+        </Typography>
+      </Grid>
+
+      <Grid item xs>
+        <Title
+          title={"Status"}
+          description={
             <Chip
               label={state}
               color={statePresets[state]}
-              sx={{ mx: "3rem" }}
+              variant="outlined"
+              sx={{ my: '1rem', fontSize: "1.5rem" }}
             />
-          </Box>
-        </Box>
+          }
+        />
       </Grid>
-      <Grid item xs={6} pl="7rem" border={"0px solid red"}>
-        middle
-      </Grid>
-      <Grid item xs textAlign={"right"} border={"0px solid red"}>
-        right{" "}
+
+      <Grid item xs textAlign={"right"}>
+        <Title
+          title={"Created on "}
+          description={new Date(createdAt * 1000).toDateString()}
+        />
+        <Title
+          title={"Last update on "}
+          description={new Date(updatedAt * 1000).toDateString()}
+        />
       </Grid>
     </Grid>
   );

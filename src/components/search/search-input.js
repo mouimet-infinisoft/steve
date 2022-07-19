@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { InputAdornment, TextField } from "@mui/material";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 
-export default function SearchInput({ handleOnChange }) {
+export default function SearchInput({ handleOnChange, InputProps }) {
   return (
     <Box>
       <TextField
@@ -20,10 +20,9 @@ export default function SearchInput({ handleOnChange }) {
           },
           "*:before, *:after": {
             borderBottom: "0 !important"
-          }
+          },
         })}
         InputProps={{
-          style: { fontSize: "1.5rem" },
           sx: {
             "MuiInput-root:hover:not(.Mui-disabled):before": {
               borderBottom: 0

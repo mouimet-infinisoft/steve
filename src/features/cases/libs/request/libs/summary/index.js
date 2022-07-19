@@ -1,70 +1,83 @@
 import * as React from "react";
-import NotImplemented from "@/components/not-implemented";
-import { Divider, Typography } from "@mui/material";
-import Box from "@mui/material/Box";
-import CrudChipList from "@/components/crud-chip-list";
+import { Button, Divider, Typography } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import { useItem } from "@/core/hooks";
+import { config } from "../../../../config/index";
+import { matchPath, useLocation } from "react-router-dom";
+
+const List = React.lazy(() =>
+  import(
+    /* webpackChunkName: 'avatar-title-description' */ "@/components/descriptions/list-key-tag"
+  )
+);
+
+const Origin = React.lazy(() =>
+  import(
+    /* webpackChunkName: 'avatar-title-description' */ "@/components/descriptions/title-description"
+  )
+);
 
 export default function Summary() {
+  const { pathname } = useLocation();
+  const route = matchPath("/Cases/:selectedId/Summary", pathname);
+
+  const { item } = useItem({
+    id: route.params.selectedId,
+    feature: config.feature.name
+  });
+
+  const gridItemsPresets = {
+    small: { xs: 12, sm: 6, md: 4, lg: 3 },
+    medium: { xs: 12, sm: 6 },
+    large: { xs: 12, sm: 6, md: 4, lg: 3, xl: 2 },
+    full: { xs: 12 },
+    split2:{xs: 12, sm: 6} 
+  };
+  const GridItem = ({ hidden=false, children, variant = "small", ...props }) =>
+    hidden ? null : (
+      <Grid item {...gridItemsPresets[variant]} {...props}>
+        {children}
+      </Grid>
+    );
+
   return (
     <>
-      <Typography variant="h5">Summary</Typography>
-      <Typography variant="subtitl1" color="text.secondary">
-        jhkjhlkj jh lj
-      </Typography>
+      <Grid container spacing={4} justifyContent="space-between">
+        <GridItem variant='split2'>
+          <Typography variant="h5">Summary</Typography>
+          <Typography variant="subtitle1" color="text.secondary">
+            Make sure the information is correct before completing.
+          </Typography>
+        </GridItem>
+
+        <GridItem variant='split2' textAlign='right'>
+          <Button variant='contained'>Complete</Button>
+        </GridItem>
+      </Grid>
+
       <Divider variant="fullWidth" sx={{ py: "1rem", mb: "2rem" }} />
 
-      <Box
-        sx={{
-          display: "flex",
-          gap: 4,
-          justifyContent: "space-evenly",
-          flexWrap: "wrap"
-        }}
-      >
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Motifs",
-            placeholder: "Type motive here..."
-          }}
-        />
+      <Grid container spacing={4}>
+        <GridItem hidden={item?.motives?.length <= 0}>
+          <List title={"Motives"} list={item?.motives} showTag={false} />
+        </GridItem>
 
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Origin",
-            placeholder: "Type request origin here..."
-          }}
-        />
+        <GridItem hidden={item?.services?.length <= 0}>
+          <List title={"Services"} list={item?.services} showTag={false} />
+        </GridItem>
 
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Services",
-            placeholder: "Choose services..."
-          }}
-        />
+        <GridItem hidden={item?.location?.length <= 0}>
+          <List title={"Location"} list={item?.location} showTag={false} />
+        </GridItem>
 
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Location",
-            placeholder: "Choose location..."
-          }}
-        />
-      </Box>
+        <GridItem hidden={item?.origin?.length <= 0}>
+          <Origin title="Origin" description={item?.origin} />
+        </GridItem>
+
+        <GridItem hidden={item?.notes?.length <= 0} variant="full">
+          <Origin title="Notes" description={item?.notes} />
+        </GridItem>
+      </Grid>
     </>
   );
 }

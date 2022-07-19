@@ -3,7 +3,6 @@ import LinkTabs from "@/components/tabs/link-tabs";
 import { tabs } from "./mock/tabs";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
-import Paper from "@mui/material/Paper";
 import { generateId } from "@/helpers";
 
 const HomeLayout = () => {

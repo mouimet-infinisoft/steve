@@ -1,16 +1,36 @@
 import * as React from "react";
-import NotImplemented from "@/components/not-implemented";
-import { Divider, Typography } from "@mui/material";
+import { Divider, Fab, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import CrudChipList from "@/components/crud-chip-list";
+import AddIcon from "@mui/icons-material/Add";
+import SearchInput from "@/components/search/search-input";
 
-export default function Individuals() {
+export default function Individuals({ handleOnChange }) {
   return (
     <>
-      <Typography variant="h5">Individuals</Typography>
-      <Typography variant="subtitl1" color="text.secondary">
-        Create or add persons related to this request.
-      </Typography>
+      <Box sx={{ display: "flex" }}>
+        <Box sx={{ flex: 1 }}>
+          <Typography variant="h5">Individuals</Typography>
+          <Typography variant="subtitle1" color="text.secondary">
+            Create or add persons related to this request.
+          </Typography>
+        </Box>
+
+        <Box sx={{display: 'flex', gap:2}}>
+          <SearchInput size='medium' handleOnChange={handleOnChange} />
+          <Fab
+            variant="extended"
+            color="primary"
+            size='medium'
+            //onClick={onCreate(store)}
+            sx={{
+              display: { xs: "none", md: "inherit" }
+            }}
+          >
+            <AddIcon sx={{ mr: 1 }} />
+            Create
+          </Fab>
+        </Box>
+      </Box>
       <Divider variant="fullWidth" sx={{ py: "1rem", mb: "2rem" }} />
 
       <Box
@@ -21,49 +41,7 @@ export default function Individuals() {
           flexWrap: "wrap"
         }}
       >
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Motifs",
-            placeholder: "Type motive here..."
-          }}
-        />
-
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Origin",
-            placeholder: "Type request origin here..."
-          }}
-        />
-
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Services",
-            placeholder: "Choose services..."
-          }}
-        />
-
-        <CrudChipList
-          variant="inside"
-          list={[]}
-          onAdd={() => {}}
-          inputComponentProps={{
-            variant: "outlined",
-            label: "Location",
-            placeholder: "Choose location..."
-          }}
-        />
+        duckette
       </Box>
     </>
   );

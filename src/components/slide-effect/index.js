@@ -1,4 +1,3 @@
-import Box from '@mui/system/Box';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { Suspense } from 'react';
 

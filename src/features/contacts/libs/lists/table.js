@@ -3,20 +3,16 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Grid from "@mui/material/Grid";
 import { useMicroContext } from "@/core/state";
-import { config } from "../../config";
+import { onSelect } from "../../services";
 
-const ContactListItem = React.lazy(() => import(/* webpackChunkName: 'ContactListItem' */ '@/components/contact-list/ContactListItem'))
+const ContactListItem = React.lazy(() =>
+  import(
+    /* webpackChunkName: 'ContactListItem' */ "@/components/contact-list/ContactListItem"
+  )
+);
 
 export default function Table({ list = [] }) {
   const { store } = useMicroContext();
-
-  const handleClick = (id) => () => {
-    store.mutate((s) => ({
-      ...s,
-      [config.feature.name]: { ...s[config.feature.name], selectedId: id }
-    }));
-    store.emit(`${config.feature.name}.click`, { id });
-  };
 
   return (
     <Box
@@ -30,7 +26,7 @@ export default function Table({ list = [] }) {
               <ContactListItem
                 key={props?.id}
                 {...props}
-                handleClick={handleClick(props?.id)}
+                handleClick={onSelect({ store, id: props?.id })}
               />
             ))}
         </List>
@@ -38,6 +34,3 @@ export default function Table({ list = [] }) {
     </Box>
   );
 }
-
-
-

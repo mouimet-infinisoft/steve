@@ -2,13 +2,12 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Details from "./libs/details";
-import { Fab, InputAdornment, TextField } from "@mui/material";
+import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
-import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import { config } from "./config";
-import { onCreate } from "./services";
-import { Search } from "../../components/search/Search";
+import { onCreate, onSearch } from "./services";
+import Search from "@/components/search";
 
 const Layout = () => {
   const { store } = useMicroContext();
@@ -18,13 +17,8 @@ const Layout = () => {
       <Title title={config.feature.name}>
         <Box>
           <Search
-            onChange={(e) =>
-              store.emit(`${config.feature.name}.search`, {
-                term: e.target.value
-              })
-            }
+            handleOnChange={(e) => onSearch({ store, value: e.target.value })}
           />
- 
         </Box>
         <Fab
           variant="extended"
@@ -76,7 +70,7 @@ const Layout = () => {
           })}
         >
           <Outlet />
-          <Details visible={false} />
+          <Details />
         </Box>
       </Box>
     </>

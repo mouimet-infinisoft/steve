@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Box } from '@mui/material';
 import { useTheme } from '@mui/system';
 import { useMicroState } from "@/core/state";
-import { config } from '../../config'
-import { featurehistory } from '../../mock/featurelist';
+import { config } from '../../../config'
+import { featurehistory } from '../../../mock/featurelist';
 import HistoryTimeLine from './history.timeline';
 import HistoryDetails from './history.detail';
 import FadeInOutEffect from "@/components/fade-effect"

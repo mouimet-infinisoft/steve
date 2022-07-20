@@ -24,3 +24,18 @@ export const onCreate = (store) => () => {
   }));
   store.emit(`${config.feature.name}.create.click`, { id });
 };
+
+export const onSelect =
+  ({ store, id }) =>
+  () => {
+    store.emit(`${config.feature.name}.click`, { id });
+    store.mutate((s) => ({
+      ...s,
+      [config.feature.name]: { ...s[config.feature.name], selectedId: id }
+    }));
+  };
+
+export const onSearch = ({ value, store }) =>  
+  store.emit(`${config.feature.name}.search`, {
+    term: value
+  });

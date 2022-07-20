@@ -1,17 +1,15 @@
 import { Grid, Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
-import { removeIdAndKeys } from "./utils";
 import HeaderAndSubtitle from "@/components/header-subtitle";
 
-const NestedHistoryDetailsItems = (key, nestedList) => {
+const NestedHistoryDetailsItems = (key, {key:k, id, ...list}) => {
     const theme = useTheme();
-    const list = removeIdAndKeys(nestedList)
     return (
         <Grid item xs={6}>
             <Typography variant="body1" textTransform='capitalize'>
                 {key}
             </Typography>
-            {list.map(({ label, tag, value }) =>
+            {list?.map(({ label, tag, value }) =>
             (
                 <HeaderAndSubtitle label={label} tag={tag} value={value} display="flex" gap={theme.spacing(1)} />
             ))}

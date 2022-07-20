@@ -4,7 +4,7 @@ import HistoryTwoToneIcon from "@mui/icons-material/HistoryTwoTone";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
 import  Fields  from "./Fields";
 import  ExtraFields  from "./ExtraFields";
-import History from "@/features/contacts/libs/details/history";
+import History from "@/features/contacts/libs/details/convert_stateless/history";
 import Relations from "./relations";
 
 export const detailsCardtabs = {

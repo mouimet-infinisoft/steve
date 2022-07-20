@@ -8,6 +8,7 @@ export const featurehistory = () => [
       address: "3649 rue Notre-Dame, Candiax, H72D92",
       state: "active",
       name: "BBB Ouimet",
+      label: "BBB Ouimet",
       email: "dog@pound.net",
       __meta__: {
         action: 'creation',
@@ -24,6 +25,7 @@ export const featurehistory = () => [
     klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       name: "Martin Ouimet",
+      label: "Martin Ouimet",
       email: "cat@pound.net",
       tags: ["person"],
       state: "active",
@@ -42,6 +44,7 @@ export const featurehistory = () => [
     klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       name: "CCC Ouimet",
+      label: "CCC Ouimet",
       email: "meow@pound.net",
       telephones: [
         { key: 111976, label: "514-777-5555", tag: "Work" },
@@ -64,6 +67,8 @@ export const featurehistory = () => [
     klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       avatar: cat1,
+      name: "Tukette",
+      label: "Tukette",
       address: "3649 rue Notre-Dame, Candiax, H72D92",
       telephones: [
         { key: 111976, label: "514-777-5555", tag: "Work" },
@@ -127,6 +132,7 @@ const featurelist = () => ({
   klhlojassasssaso897y9: {
     id: "klhlojassasssaso897y9",
     name: "Martin Ouimet",
+    label: "Martin Ouimet",
     avatar: cat1,
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
@@ -153,6 +159,7 @@ const featurelist = () => ({
   kdfasdfsdafdsfsdghhoyo897y9: {
     id: "kdfasdfsdafdsfsdghhoyo897y9",
     name: "Jean Phil",
+    label: "Jean Phil",
     avatar: cat2,
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
@@ -179,6 +186,7 @@ const featurelist = () => ({
   kngfhnhfgngfhnfghngfhn9: {
     id: "kngfhnhfgngfhnfghngfhn9",
     name: "Doig Ette",
+    label: "Doig Ette",
     avatar: cat3,
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [
@@ -210,6 +218,7 @@ const featurelist = () => ({
   ngfhnfghnfghngh: {
     id: "ngfhnfghnfghngh",
     name: "Jean Dog Associates",
+    label: "Jean Dog Associates",
     avatar: "https://i.pravatar.cc/48?" + Math.random(),
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     telephones: [

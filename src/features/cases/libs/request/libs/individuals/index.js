@@ -2,7 +2,7 @@ import * as React from "react";
 import { Divider, Fab, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import AddIcon from "@mui/icons-material/Add";
-import SearchInput from "@/components/search/search-input";
+import SearchInput from "@/components/search";
 
 export default function Individuals({ handleOnChange }) {
   return (
@@ -15,12 +15,15 @@ export default function Individuals({ handleOnChange }) {
           </Typography>
         </Box>
 
-        <Box sx={{display: 'flex', gap:2}}>
-          <SearchInput size='medium' handleOnChange={handleOnChange} />
+        <Box sx={{ display: "flex", gap: 2 }}>
+          <SearchInput
+            InputProps={{ size: "medium" }}
+            handleOnChange={handleOnChange}
+          />
           <Fab
             variant="extended"
             color="primary"
-            size='medium'
+            size="medium"
             //onClick={onCreate(store)}
             sx={{
               display: { xs: "none", md: "inherit" }

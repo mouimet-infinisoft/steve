@@ -1,14 +1,14 @@
 import * as React from 'react';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
 import { useTheme } from '@mui/system';
 import { useMicroState } from "@/core/state";
 import { config } from '../../../config'
 import { featurehistory } from '../../../mock/featurelist';
 import HistoryTimeLine from './history.timeline';
 import HistoryDetails from './history.detail';
-import FadeInOutEffect from "@/components/fade-effect"
 import ScrollContainer from '@/components/scroll-container';
 import { useItem } from '@/core/hooks';
+import SlideEffect from '@/components/slide-effect';
 
 const History = () => {
   const theme = useTheme();
@@ -19,19 +19,20 @@ const History = () => {
 });
   const historyList = featurehistory().filter((item) => item[selectedId]?.id === selectedId);
   const [showHistoryDetails, setShowHistoryDetails] = React.useState(null);
+  console.log(showHistoryDetails)
   return (
-    <Box height={theme.spacing(32)} overflow="auto">
+    <Box height={theme.spacing(32)} sx={{overflow:"auto", overflowX:"hidden"}}>
       {!showHistoryDetails && (
-        <FadeInOutEffect>
+        <SlideEffect>
           <HistoryTimeLine list={historyList} setShowHistoryDetails={setShowHistoryDetails} />
-        </FadeInOutEffect>
+        </SlideEffect>
       )}
       {showHistoryDetails && (
-        <FadeInOutEffect>
-          <ScrollContainer name={item.name} email={item.email} date={showHistoryDetails.__meta__.timestamp} action={showHistoryDetails.__meta__.action} goBack={setShowHistoryDetails}>
-            <HistoryDetails showHistoryDetails={showHistoryDetails.history} />
+        <SlideEffect direction='right' styleProps={{textAlign:"start"}}>
+          <ScrollContainer name={item.name} email={item.email} date={showHistoryDetails.__meta__.timestamp} action={showHistoryDetails.__meta__.action} goBack={() => setShowHistoryDetails(false)}>
+            <HistoryDetails showHistoryDetails={showHistoryDetails.history}  goBack={() => setShowHistoryDetails(false)}/>
           </ScrollContainer>
-        </FadeInOutEffect>
+        </SlideEffect>
       )}
     </Box>
   );

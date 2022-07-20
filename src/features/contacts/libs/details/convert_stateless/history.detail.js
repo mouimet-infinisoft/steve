@@ -6,7 +6,7 @@ import HeaderAndSubtitle from "@/components/header-subtitle";
 import { generateId } from "@/helpers";
 import * as React from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import Empty from "@/components/no-record-found";
+import NoResult from "@/components/no-result";
 
 const Address = React.lazy(() =>
   import(
@@ -20,20 +20,20 @@ const Telephones = React.lazy(() =>
   )
 );
 
-const HistoryDetails = ({ showHistoryDetails, goBack, showNoRecordFound }) => {
+const HistoryDetails = ({ address = "",telephones = [], state = "", showNoRecordFound, action }) => {
   const theme = useTheme();
   return (
     <>
       <Box display="flex" height="inherit" justifyContent={showNoRecordFound ? "flex-start" : "center"}>
         <IconButton
-          onClick={() => goBack()}
+          onClick={() => action()}
           style={{ display: "inline-flex" }}
           disableRipple
         >
           <ArrowBackIcon color="primary" />
         </IconButton>
 
-        {!Boolean(showNoRecordFound) && <Empty />}
+        {!Boolean(showNoRecordFound) && <NoResult />}
         {Boolean(showNoRecordFound) && (
           <Box
             display="flex"
@@ -42,22 +42,22 @@ const HistoryDetails = ({ showHistoryDetails, goBack, showNoRecordFound }) => {
             gap={theme.spacing(2)}
           >
             <Address
-              title={showHistoryDetails?.address ? "Address" : ""}
-              description={showHistoryDetails?.address ?? ""}
+              title={address ? "Address" : ""}
+              description={address}
             />
             <Telephones
-              title={showHistoryDetails?.telephones ? "Telephones" : ""}
+              title={telephones ? "Telephones" : ""}
               styleProps={{
                 display: "flex",
                 alignItems: "flex-start",
                 flexDirection: "column"
               }}
-              telephones={showHistoryDetails?.telephones ?? []}
+              telephones={telephones}
             />
             <HeaderAndSubtitle
               key={generateId()}
-              label={showHistoryDetails?.state ? "State" : ""}
-              value={showHistoryDetails?.state ?? ""}
+              label={state ? "State" : ""}
+              value={state}
             />
           </Box>
         )}

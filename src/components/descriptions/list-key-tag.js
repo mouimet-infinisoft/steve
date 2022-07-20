@@ -1,7 +1,7 @@
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box'
 
-const ListKeyTag = ({title, telephones=[], styleProps}) =>  <Box {...styleProps}>
+const ListKeyTag = ({title, list=[], showTag, styleProps}) =>  <Box {...styleProps}>
 
 <Typography variant="subtitle2">{title}</Typography>
 <Box

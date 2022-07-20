@@ -45,7 +45,7 @@ export const actions = [
   {
     title: "Org",
     description: "Lorem ipsume hehe kjek sss",
-    to: "organization",
+    to: "organizations",
     icon: <CorporateFareTwoToneIcon
     sx={(theme) => ({
       color: theme.palette.primary.contrastText,

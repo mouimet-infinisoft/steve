@@ -1,9 +1,9 @@
-import Box from "@mui/material/Box";
 import LinkTabs from "@/components/tabs/link-tabs";
-import { tabs } from "./mock/tabs";
-import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import { generateId } from "@/helpers";
+import Box from "@mui/material/Box";
+import { Outlet } from "react-router-dom";
+import { tabs } from "./mock/tabs";
 
 const HomeLayout = () => {
   return (

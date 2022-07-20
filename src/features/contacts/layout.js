@@ -2,12 +2,12 @@ import Box from "@mui/material/Box";
 import { Outlet } from "react-router-dom";
 import Title from "@/components/title";
 import Details from "./libs/details";
-import { Fab, InputAdornment, TextField } from "@mui/material";
+import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
-import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 import { config } from "./config";
-import { onCreate } from "./services";
+import { onCreate, onSearch } from "./services";
+import Search from "@/components/search";
 
 const Layout = () => {
   const { store } = useMicroContext();
@@ -16,44 +16,8 @@ const Layout = () => {
     <>
       <Title title={config.feature.name}>
         <Box>
-          <TextField
-            placeholder="Search ..."
-            type="search"
-            variant="standard"
-            sx={(theme) => ({
-              padding: "0.25rem 1rem",
-              backgroundColor: theme.palette.primary.dark,
-              borderRadius: theme.shape.borderRadius,
-              outline: `1px ${theme.palette.primary.light} solid`,
-              ":hover, :active, :focus-within": {
-                outline: `3px ${theme.palette.primary.dark} solid !important`,
-                backgroundColor: theme.palette.primary.light
-              },
-              "*:before, *:after": {
-                borderBottom: "0 !important"
-              }
-            })}
-            InputProps={{
-              style: { fontSize: "1.5rem" },
-              sx: {
-                "MuiInput-root:hover:not(.Mui-disabled):before": {
-                  borderBottom: 0
-                }
-              },
-              startAdornment: (
-                <InputAdornment sx={{ mr: "0.5rem" }} position='start'>
-                  <SearchTwoToneIcon
-                    color="primary"
-                    sx={{ width: "2rem", height: "2rem" }}
-                  />
-                </InputAdornment>
-              )
-            }}
-            onChange={(e) =>
-              store.emit(`${config.feature.name}.search`, {
-                term: e.target.value
-              })
-            }
+          <Search
+            handleOnChange={(e) => onSearch({ store, value: e.target.value })}
           />
         </Box>
         <Fab
@@ -106,7 +70,7 @@ const Layout = () => {
           })}
         >
           <Outlet />
-          <Details visible={false} />
+          <Details />
         </Box>
       </Box>
     </>

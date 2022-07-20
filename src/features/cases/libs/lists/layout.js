@@ -6,7 +6,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
 import { config } from "../../config";
 import { onCreate } from "../../services";
-import SearchInput from "@/components/search/search-input";
+import SearchInput from "@/components/search";
 
 const Layout = () => {
   const { store } = useMicroContext();

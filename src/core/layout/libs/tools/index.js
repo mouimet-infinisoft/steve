@@ -6,7 +6,9 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
-import { Badge, Box, IconButton } from "@mui/material";
+import Badge from "@mui/material/Badge";
+import IconButton from "@mui/material/IconButton";
+import Box from "@mui/material/Box";
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -15,16 +17,29 @@ import MenuItem from '@mui/material/MenuItem';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from "@mui/material/Typography";
 import * as React from 'react';
+import { useTheme } from "@mui/system";
 
 const Tools = () => {
+  const theme = useTheme();
+  const [messagesMenuPosition, setMessageMenuPosition] = React.useState(null);
+  const showMessagesMenu = Boolean(messagesMenuPosition);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+
+  const showMessages = (event) => {
+    setMessageMenuPosition(event.currentTarget);
+  };
+  const hideMessagesMenu = () => {
+    setMessageMenuPosition(null);
+  };
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
-  };;
+  };
 
   return (
     <>
@@ -47,7 +62,7 @@ const Tools = () => {
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ display: { xs: "none", md: "flex" } }}>
       <ThemeToggleSwitch />
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit" onClick={showMessages}>
           <Badge badgeContent={4} color="error">
             <MailIcon />
           </Badge>
@@ -147,6 +162,22 @@ const Tools = () => {
           <MoreIcon />
         </IconButton>
       </Box>
+
+      <Menu
+        id="basic-menu"
+        anchorEl={messagesMenuPosition}
+        open={showMessagesMenu}
+        onClose={hideMessagesMenu}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+        PaperProps={{ sx:{ width:theme.spacing(32)}}}
+      >
+        <MenuItem onClick={hideMessagesMenu}>
+
+        <Avatar /> Profile
+        </MenuItem>
+      </Menu>
  
     </>
   );

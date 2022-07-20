@@ -27,7 +27,7 @@ const Lists = (props) => {
         term
           ? JSON.stringify(i)
               .toLocaleLowerCase()
-              .includes(term.toLocaleLowerCase())
+              .includes(String(term).toLowerCase())
           : i
       ),
     [pageDataList, term]

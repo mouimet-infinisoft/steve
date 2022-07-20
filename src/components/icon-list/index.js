@@ -1,10 +1,9 @@
-import * as React from "react";
+import Avatar from "@mui/material/Avatar";
+import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
-import Avatar from "@mui/material/Avatar";
+import ListItemText from "@mui/material/ListItemText";
 
 const IconListItem = ({
   icon = <Avatar alt="avatar" />,
@@ -23,7 +22,7 @@ const IconListItem = ({
 
 export default function IconList({ items }) {
   return (
-    <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
+    <List sx={{ width: "100%", bgcolor: "background.paper" }}>
       {items.map((props, index) => (
         <>
           <IconListItem {...props} key={index} />

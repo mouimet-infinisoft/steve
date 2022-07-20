@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "module": "node",
+    "lib":["dom"],
     "sourceMap": true,
     "jsx": "preserve",
     "checkJs": true,

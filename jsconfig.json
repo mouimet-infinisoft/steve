@@ -5,6 +5,7 @@
     "sourceMap": true,
     "jsx": "preserve",
     "checkJs": true,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]
     }

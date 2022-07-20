@@ -2,6 +2,7 @@ import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box'
 
 const ListKeyTag = ({title, telephones=[], styleProps}) =>  <Box {...styleProps}>
+
 <Typography variant="subtitle2">{title}</Typography>
 <Box
   sx={{
@@ -11,7 +12,7 @@ const ListKeyTag = ({title, telephones=[], styleProps}) =>  <Box {...styleProps}
   }}
   component="span"
 >
-  {telephones?.map(({ key, label, tag }) => (
+  {list?.map(({ key, label, tag }) => (
     <Box key={key} component="span">
       <Typography
         variant="body2"
@@ -21,14 +22,14 @@ const ListKeyTag = ({title, telephones=[], styleProps}) =>  <Box {...styleProps}
       >
         {label}
       </Typography>
-      <Typography
+      {showTag && <Typography
         variant="caption"
         color="text.secondary.light"
         component="span"
         mr={1}
       >
         {tag}
-      </Typography>
+      </Typography>}
     </Box>
   ))}
 </Box>

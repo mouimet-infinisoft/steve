@@ -3,7 +3,6 @@ import { useMicroContext, useMicroState } from "@/core/state";
 import { config } from "../../config";
 import { onSelect } from "../../services";
 import { Link } from "react-router-dom";
-import { useItemRoute } from "@/core/hooks/use-item-route";
 
 const ContactCard = React.lazy(() =>
   import(/* webpackChunkName: 'ContactCard' */ "@/components/contact-card")

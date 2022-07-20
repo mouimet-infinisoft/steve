@@ -1,4 +1,7 @@
-import { Box, IconButton, useTheme } from "@mui/material";
+import {useTheme} from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import Box from "@mui/material/Box";
+
 import HeaderAndSubtitle from "@/components/header-subtitle";
 import { generateId } from "@/helpers";
 import * as React from "react";
@@ -17,17 +20,11 @@ const Telephones = React.lazy(() =>
   )
 );
 
-const HistoryDetails = ({ showHistoryDetails, goBack }) => {
+const HistoryDetails = ({ showHistoryDetails, goBack, showNoRecordFound }) => {
   const theme = useTheme();
-  const addressTitle = showHistoryDetails?.address ? "Address" : "";
-  const telephoneTitle = showHistoryDetails?.telephones ? "Telephones" : "";
-  const stateTitle = showHistoryDetails?.state ? "State" : "";
-  const showNoRecordFound = Object.values(showHistoryDetails).length;
-  const iconPosition = showNoRecordFound ? "flex-start" : "center";
-
   return (
     <>
-      <Box display="flex" height="inherit" justifyContent={iconPosition}>
+      <Box display="flex" height="inherit" justifyContent={showNoRecordFound ? "flex-start" : "center"}>
         <IconButton
           onClick={() => goBack()}
           style={{ display: "inline-flex" }}
@@ -45,11 +42,11 @@ const HistoryDetails = ({ showHistoryDetails, goBack }) => {
             gap={theme.spacing(2)}
           >
             <Address
-              title={addressTitle}
+              title={showHistoryDetails?.address ? "Address" : ""}
               description={showHistoryDetails?.address ?? ""}
             />
             <Telephones
-              title={telephoneTitle}
+              title={showHistoryDetails?.telephones ? "Telephones" : ""}
               styleProps={{
                 display: "flex",
                 alignItems: "flex-start",
@@ -59,7 +56,7 @@ const HistoryDetails = ({ showHistoryDetails, goBack }) => {
             />
             <HeaderAndSubtitle
               key={generateId()}
-              label={stateTitle}
+              label={showHistoryDetails?.state ? "State" : ""}
               value={showHistoryDetails?.state ?? ""}
             />
           </Box>

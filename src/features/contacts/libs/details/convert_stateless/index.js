@@ -1,33 +1,20 @@
-import { useMicroState } from "@/core/state";
-import { config } from '../../../config'
-import { featurehistory } from '../../../mock/featurelist';
-import * as React from 'react';
-import { Routes, Route, Outlet } from "react-router-dom";
-import Box from "@mui/system/Box";
-import { useTheme } from "@mui/material";
-import HistoryTimeLineContainer from "./history.timeline";
+import * as React from "react";
+import History from "./generic";
+import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
+import UpdateIcon from "@mui/icons-material/Update";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CalendarTodayTwoToneIcon from "@mui/icons-material/CalendarTodayTwoTone";
+import HistoryDetails from "./detail";
 
-const HistoryLayout = () => {
-  const theme = useTheme();
-  return (
-    <Box width={1} height={theme.spacing(32)} overflow="auto">
-      <Outlet />
-    </Box>
-  )
-}
-
-const History = () => {
-  const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
-  const historyList = featurehistory().filter((item) => item[selectedId]?.id === selectedId);
-  const handleAction = () => { }
-  return (
-    <Routes>
-      <Route element={<HistoryLayout />}>
-        <Route path="history" element={<HistoryTimeLineContainer list={historyList} action={handleAction} />} />
-      </Route>
-    </Routes>
-  );
+const icon = {
+  creation: <CreateNewFolderIcon color="success" />,
+  update: <UpdateIcon color="primary" />,
+  delete: <DeleteIcon color="error" />,
+  today: <CalendarTodayTwoToneIcon color="primary" />
 };
 
+const ContactHistory = () => {
+  return <History timelineProps={{ list: [] }} detailsProps={{ icon, content: <HistoryDetails /> }} />;
+};
 
-export default History;
+export default ContactHistory;

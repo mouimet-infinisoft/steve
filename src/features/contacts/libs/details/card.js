@@ -21,6 +21,7 @@ export default function DetailsCard() {
   const { name, email, avatar, tags } = React.useMemo(() => item ?? {}, [item]);
   const theme = useTheme();
 
+
   return (
       <Card
         sx={{
@@ -106,7 +107,7 @@ export default function DetailsCard() {
             marginBottom: "1rem"
           }}
         >
-          <BasicTabs tabs={detailsCardtabs} />
+          <BasicTabs relativeTo={`/${config.feature.name}/${selectedId}`} tabs={detailsCardtabs} />
         </CardActions>
 
         <CardContent></CardContent>

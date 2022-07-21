@@ -2,7 +2,7 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function a11yProps(index) {
   return {
@@ -12,7 +12,7 @@ function a11yProps(index) {
 }
 
 
-export default function BasicTabs({ tabs }) {
+export default function BasicTabs({ tabs, relativeTo="" }) {
   const [value, setValue] = React.useState(Object.keys(tabs)?.[0]);
 
   const handleChange = (event, newValue) => {
@@ -24,8 +24,8 @@ export default function BasicTabs({ tabs }) {
     <Box sx={{ width: "100%" }}>
       <Box sx={{ marginBottom: '2rem', borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange} aria-label="tabs">
-          {Object.entries(tabs)?.map(([k, {component, ...tab}], i) => (
-            <LinkTab key={`${tab?.label}-${i}`} {...tab} value={k} {...a11yProps(i)} />
+          {Object.entries(tabs)?.map(([k, {component, to, ...tab}], i) => (
+            <LinkTab key={`${tab?.label}-${i}`} to={`${relativeTo}/${to}`} {...tab} value={k} {...a11yProps(i)} />
           ))}
         </Tabs>
       </Box>

@@ -9,14 +9,14 @@ import NotImplemented from "@/components/not-implemented";
 
 export const detailsCardtabs = {
   Contact: {
-    to: "/home/dashboard",
+    to: "contacts",
     label: "Contact",
     icon: <ContactPhoneTwoToneIcon />,
     component: <Fields />,
     iconPosition: "start"
   },
   Relations: {
-    to: "/home/settings",
+    to: "relations",
     label: "Relations",
     icon: <ConnectWithoutContactTwoToneIcon />,
     component: <NotImplemented />,
@@ -30,7 +30,7 @@ export const detailsCardtabs = {
     iconPosition: "start"
   },
   Misc: {
-    to: "/home/settings",
+    to: "extra",
     icon: <MoreHorizTwoToneIcon />,
     component: <ExtraFields />,
     iconPosition: "start"

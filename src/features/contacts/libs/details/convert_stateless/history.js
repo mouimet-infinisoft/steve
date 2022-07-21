@@ -11,7 +11,7 @@ const HistoryTimelineAndDetails = ({ selectedHistory, historyList, setShowHistor
 
   return (
     <Box height={theme.spacing(32)} sx={{ overflow: "auto", overflowX: "hidden" }}>
-      {!showHistoryDetails && (
+      {/* {!showHistoryDetails && (
         <SlideEffect>
           <HistoryTimeLine list={historyList} setShowHistoryDetails={setShowHistoryDetails} />
         </SlideEffect>
@@ -22,7 +22,7 @@ const HistoryTimelineAndDetails = ({ selectedHistory, historyList, setShowHistor
             <HistoryDetails showHistoryDetails={showHistoryDetails?.history} goBack={() => setShowHistoryDetails(false)} showNoRecordFound={Object.values(showHistoryDetails).length} />
           </ScrollContainer>
         </SlideEffect>
-      )}
+      )} */}
     </Box>
   );
 }

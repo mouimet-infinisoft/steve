@@ -23,7 +23,7 @@ export const detailsCardtabs = {
     iconPosition: "start"
   },
   History: {
-    to: "/home/settings",
+    to: "history",
     label: "History",
     icon: <HistoryTwoToneIcon />,
     component: <History />,

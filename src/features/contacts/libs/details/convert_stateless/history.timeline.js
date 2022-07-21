@@ -9,8 +9,6 @@ import Typography from "@mui/material/Typography";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import UpdateIcon from "@mui/icons-material/Update";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Box from "@mui/system/Box";
-import { useTheme } from "@mui/material";
 import CalendarTodayTwoToneIcon from '@mui/icons-material/CalendarTodayTwoTone';
 
 const getHistoryIcon = {
@@ -20,56 +18,46 @@ const getHistoryIcon = {
   today: <CalendarTodayTwoToneIcon color="primary" />
 };
 
-const HistoryTimeLine = ({ list, setShowHistoryDetails }) => {
-  const theme = useTheme();
-  const handleClick = (item) => {
-    const {
-      email,
-      __meta__,
-      __extra__,
-      __relation__,
-      tags,
-      id,
-      avatar,
-      ...rest
-    } = item;
-    setShowHistoryDetails({ ...item, history: rest });
-  };
+const HistoryTimeLineDetails = ({ title, subtitle, description, action }) => (
+  <TimelineItem onClick={() => action()}>
+    <TimelineOppositeContent sx={{ m: "auto 0" }} variant="body2">
+      <Typography
+        variant="body1"
+        color="text.primary"
+        textTransform={"capitalize"}
+      >
+        {title}
+      </Typography>
+      <Typography variant="body2" color="text.secondary">
+        {subtitle}
+      </Typography>
+    </TimelineOppositeContent>
+    <TimelineSeparator>
+      <TimelineConnector />
+      <TimelineDot>
+        {description}
+      </TimelineDot>
+      <TimelineConnector />
+    </TimelineSeparator>
+    <TimelineContent></TimelineContent>
+  </TimelineItem>
+)
 
 
+const HistoryTimeLineContainer = ({ list = [], action, ...props }) => {
   return (
-    <Box sx={{ overflow: "auto", height: theme.spacing(32) }}>
-      <Timeline position="alternate">
-        {list.map((history) => {
-          const userHistory = Object.values(history)[0];
-          return (
-            <TimelineItem onClick={() => handleClick(userHistory)}>
-              <TimelineOppositeContent sx={{ m: "auto 0" }} variant="body2">
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  textTransform={"capitalize"}
-                >
-                  {userHistory.__meta__.action}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {new Date(userHistory.__meta__.timestamp).toDateString()}
-                </Typography>
-              </TimelineOppositeContent>
-              <TimelineSeparator>
-                <TimelineConnector />
-                <TimelineDot>
-                  {getHistoryIcon[userHistory.__meta__.action]}
-                </TimelineDot>
-                <TimelineConnector />
-              </TimelineSeparator>
-              <TimelineContent></TimelineContent>
-            </TimelineItem>
-          );
-        })}
-      </Timeline>
-    </Box>
-  );
-};
+    <Timeline position="alternate">
+      {list.map((item) => {
+        const userHistory = Object.values(item)[0];
+        return (
+          <HistoryTimeLineDetails
+            action={action}
+            title={userHistory.__meta__.action} subtitle={new Date(userHistory.__meta__.timestamp).toDateString()} description={getHistoryIcon[userHistory.__meta__.action]} {...props} />
+        )
+      })}
+    </Timeline>
+  )
+}
 
-export default HistoryTimeLine;
+
+export default HistoryTimeLineContainer;

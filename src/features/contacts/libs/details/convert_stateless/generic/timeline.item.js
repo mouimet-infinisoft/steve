@@ -24,7 +24,7 @@ const HistoryTimeLineItem = ({ title, subtitle, description, action }) => (
     <TimelineSeparator>
       <TimelineConnector />
       <TimelineDot>
-        {/* {description} */}
+        {description}
       </TimelineDot>
       <TimelineConnector />
     </TimelineSeparator>

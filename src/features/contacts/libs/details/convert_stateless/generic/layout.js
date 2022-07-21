@@ -8,14 +8,14 @@ const Layout = () => {
   const theme = useTheme();
   return (
     <Box width={1} height={theme.spacing(32)} overflow="auto">
-      <IconButton
+      {/* <IconButton
         style={{ display: "inline-flex" }}
         disableRipple
-        component={Link}
-        to={-1}
+        // component={Link}
+        // to={-1}
       >
         <ArrowBackIcon color="primary" />
-      </IconButton>
+      </IconButton> */}
       <Outlet />
     </Box>
   );

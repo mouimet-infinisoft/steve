@@ -5,6 +5,9 @@ import UpdateIcon from "@mui/icons-material/Update";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CalendarTodayTwoToneIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import HistoryDetails from "./detail";
+import { featurehistory } from "@/features/contacts/mock/featurelist";
+import { useMicroState } from "@/core/state";
+import { config } from "@/features/contacts/config";
 
 const icon = {
   creation: <CreateNewFolderIcon color="success" />,
@@ -14,7 +17,11 @@ const icon = {
 };
 
 const ContactHistory = () => {
-  return <History timelineProps={{ list: [] }} detailsProps={{ icon, content: <HistoryDetails /> }} />;
+  const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
+  const selectedUserHistory = featurehistory().filter((history) => history.id === selectedId);
+  const mappHistory = selectedUserHistory.map(({__meta__}) => {
+    return {title: __meta__.action, subtitle: new Date(__meta__.timestamp).toLocaleDateString(), description: icon[__meta__.action]}})
+  return <History timelineProps={{ list: mappHistory }} detailsProps={{ icon, content: <HistoryDetails /> }} />;
 };
 
 export default ContactHistory;

@@ -4,7 +4,6 @@ import cat3 from "./assets/cat3.gif";
 
 export const featurehistory = () => [
   {
-    klhlojassasssaso897y9: {
       address: "3649 rue Notre-Dame, Candiax, H72D92",
       state: "active",
       name: "BBB Ouimet",
@@ -19,10 +18,8 @@ export const featurehistory = () => [
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       },
-    }
   },
   {
-    klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       name: "Martin Ouimet",
       label: "Martin Ouimet",
@@ -38,10 +35,8 @@ export const featurehistory = () => [
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       },
-    }
   },
   {
-    klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       name: "CCC Ouimet",
       label: "CCC Ouimet",
@@ -61,10 +56,8 @@ export const featurehistory = () => [
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       },
-    }
   },
   {
-    klhlojassasssaso897y9: {
       id: "klhlojassasssaso897y9",
       avatar: cat1,
       name: "Tukette",
@@ -90,10 +83,8 @@ export const featurehistory = () => [
         { id: "121313424", key: "employer", value: "pfizer" },
       ],
       __extra__: [{ id: "@212131", key: "Allergy", value: "Peannuts" }]
-    }
   },
   {
-    kngfhnhfgngfhnfghngfhn9: {
       id: "kngfhnhfgngfhnfghngfhn9",
       name: "Martin FFF",
       email: "mad@pound.net",
@@ -109,10 +100,8 @@ export const featurehistory = () => [
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
       }
-    }
   },
   {
-    kdfasdfsdafdsfsdghhoyo897y9: {
       id: "kdfasdfsdafdsfsdghhoyo897y9",
       email: "john.oiuime@jjj.com",
       __meta__: {
@@ -123,9 +112,24 @@ export const featurehistory = () => [
         username: "Jonh Ouimet",
         email: "jena@dupuis.com",
         avatar: "https://i.pravatar.cc/48?" + Math.random()
-      }
     }
   },
+  {
+    address: "3649 rue Notre-Dame, Candiax, H72D92",
+    state: "active",
+    name: "BBB Ouimet",
+    label: "BBB Ouimet",
+    email: "dog@pound.net",
+    __meta__: {
+      action: "creation",
+      timestamp: Date.now(),
+      createdAt: Date.now(),
+      updatedAt: Date.now(),
+      username: "Jean Dupuis",
+      email: "jena@dupuis.com",
+      avatar: "https://i.pravatar.cc/48?" + Math.random()
+    }
+  }
 ];
 
 const featurelist = () => ({

@@ -18,7 +18,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -45,8 +45,7 @@ const closedMixin = (theme) => ({
   }
 });
 
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open"
+const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== "open"
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
@@ -63,19 +62,19 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const lists = [
-  { label: "Home", icon: <HomeTwoToneIcon /> },
-  { label: "Contacts", icon: <ContactsTwoToneIcon /> },
-  { label: "Messages", icon: <MessageTwoToneIcon /> },
-  { label: "Organizations", icon: <CorporateFareTwoToneIcon /> },
-  { label: "Community", icon: <PeopleTwoToneIcon /> },
+  { label: "home", icon: <HomeTwoToneIcon /> },
+  { label: "contacts", icon: <ContactsTwoToneIcon /> },
+  { label: "messages", icon: <MessageTwoToneIcon /> },
+  { label: "organizations", icon: <CorporateFareTwoToneIcon /> },
+  { label: "community", icon: <PeopleTwoToneIcon /> },
 ];
 
 const listsTwo = [
-  { label: "Cases", icon: <FolderTwoToneIcon /> },
-  { label: "Services", icon: <LanTwoToneIcon /> },
-  { label: "Reports", icon: <SummarizeTwoToneIcon /> },
-  { label: "Security", icon: <LockTwoToneIcon /> },
-  { label: "Settings", icon: <SettingsTwoToneIcon /> }
+  { label: "cases", icon: <FolderTwoToneIcon /> },
+  { label: "services", icon: <LanTwoToneIcon /> },
+  { label: "reports", icon: <SummarizeTwoToneIcon /> },
+  { label: "security", icon: <LockTwoToneIcon /> },
+  { label: "settings", icon: <SettingsTwoToneIcon /> }
 ];
 
 const Sidemenu = ({ open, handleClose }) => {
@@ -87,7 +86,7 @@ const Sidemenu = ({ open, handleClose }) => {
       <Box sx={{ paddingTop: "64px" }} />
       <List sx={{ borderRight: 0 }}>
         {lists.map(({ label, icon }) => (
-            <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }}>
+            <ListItem key={label} to={`/${label}`} disablePadding sx={{ display: "block" }} component={Link}>
               <Tooltip title={label} placement="right">
               <ListItemButton
                 sx={{
@@ -106,7 +105,7 @@ const Sidemenu = ({ open, handleClose }) => {
                 >
                   {icon}
                 </ListItemIcon>
-                <ListItemText sx={{ opacity: open ? 1 : 0 }}>{label}</ListItemText>
+                <ListItemText sx={{ opacity: open ? 1 : 0 }}  primaryTypographyProps={{textTransform:'capitalize'}}>{label}</ListItemText>
               </ListItemButton>
               </Tooltip>
             </ListItem>
@@ -118,7 +117,7 @@ const Sidemenu = ({ open, handleClose }) => {
 
       <List>
       {listsTwo.map(({ label, icon }) => (
-          <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }}>
+          <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }} component={Link}>
             <Tooltip title={label} placement="right">
             <ListItemButton
               sx={{
@@ -137,7 +136,7 @@ const Sidemenu = ({ open, handleClose }) => {
               >
                 {icon}
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }}>{label}</ListItemText>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primaryTypographyProps={{textTransform:'capitalize'}}>{label}</ListItemText>
             </ListItemButton>
             </Tooltip>
           </ListItem>

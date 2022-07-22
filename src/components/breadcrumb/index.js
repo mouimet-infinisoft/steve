@@ -30,7 +30,10 @@ function ListItemLink(props) {
   return (
     <li>
       <ListItem button component={RouterLink} to={to} {...other}>
-        <ListItemText primary={primary} />
+        <ListItemText
+          primary={primary}
+          primaryTypographyProps={{ textTransform: "capitalize" }}
+        />
         {icon}
       </ListItem>
     </li>
@@ -64,12 +67,14 @@ const MietteDePain = ({ itemLabel }) => {
         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
 
         return last ? (
-          <Typography color="text.primary" key={to}>
+          <Typography color="text.primary" key={to} textTransform="capitalize">
             {itemLabel?.key === value ? itemLabel?.value : value}
           </Typography>
         ) : (
           <LinkRouter underline="hover" color="inherit" to={to} key={to}>
-            {itemLabel?.key === value ? itemLabel?.value : value}
+            <Typography color="text.secondary" textTransform="capitalize">
+              {itemLabel?.key === value ? itemLabel?.value : value}
+            </Typography>
           </LinkRouter>
         );
       })}

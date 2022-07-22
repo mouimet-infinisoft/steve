@@ -2,35 +2,36 @@ import ContactPhoneTwoToneIcon from "@mui/icons-material/ContactPhoneTwoTone";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import HistoryTwoToneIcon from "@mui/icons-material/HistoryTwoTone";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
-import  Fields  from "./Fields";
+import  Contact  from "./contact";
 import  ExtraFields  from "./ExtraFields";
-import History from "@/features/contacts/libs/details/convert_stateless/index";
+import History from "@/features/contacts/libs/details/history/index";
 import NotImplemented from "@/components/not-implemented";
 
 export const detailsCardtabs = {
   Contact: {
-    to: "/home/dashboard",
-    label: "Contact",
+    to: "contact",
+    label: "contact",
     icon: <ContactPhoneTwoToneIcon />,
-    component: <Fields />,
+    component: <Contact />,
     iconPosition: "start"
   },
   Relations: {
-    to: "/home/settings",
-    label: "Relations",
+    to: "relations",
+    label: "relations",
     icon: <ConnectWithoutContactTwoToneIcon />,
     component: <NotImplemented />,
     iconPosition: "start"
   },
   History: {
-    to: "/home/settings",
-    label: "History",
+    to: "history",
+    label: "history",
     icon: <HistoryTwoToneIcon />,
     component: <History />,
     iconPosition: "start"
   },
   Misc: {
-    to: "/home/settings",
+    to: "extra",
+    label: "",
     icon: <MoreHorizTwoToneIcon />,
     component: <ExtraFields />,
     iconPosition: "start"

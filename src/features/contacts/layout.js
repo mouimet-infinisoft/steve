@@ -8,6 +8,7 @@ import { useMicroContext } from "@/core/state";
 import { config } from "./config";
 import { onCreate, onSearch } from "./services";
 import Search from "@/components/search";
+import List from "./libs/lists";
 
 const Layout = () => {
   const { store } = useMicroContext();
@@ -69,8 +70,8 @@ const Layout = () => {
             marginBottom: "2rem"
           })}
         >
+          <List />
           <Outlet />
-          <Details />
         </Box>
       </Box>
     </>

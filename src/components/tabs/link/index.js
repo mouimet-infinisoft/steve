@@ -1,7 +1,7 @@
 import * as React from "react";
 import Tab from "@mui/material/Tab";
 import { Link } from "react-router-dom";
-import BasicTabs from "./basic";
+import BasicTabs from "../basic";
 
 const LinkTab = ({ to = "/", ...tab }) => (
   <Link to={to}>

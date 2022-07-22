@@ -10,7 +10,7 @@ import { useMicroContext, useMicroState } from "@/core/state";
 import AvatarUpload from "@/components/avatar-upload";
 import { config } from "../../config";
 import { useItem } from "@/core/hooks";
-import LinkTabs from "@/components/tabs/link-tabs";
+import LinkTabs from "@/components/tabs/link";
 
 export default function DetailsCard() {
   const { store } = useMicroContext();

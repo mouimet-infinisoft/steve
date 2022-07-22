@@ -1,2 +1,2 @@
-export * from './link-tabs'
+export * from './link'
 export * from './basic'

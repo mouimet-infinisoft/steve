@@ -1,4 +1,4 @@
-import LinkTabs from "@/components/tabs/link-tabs";
+import LinkTabs from "@/components/tabs/link";
 import Title from "@/components/title";
 import { generateId } from "@/helpers";
 import Box from "@mui/material/Box";

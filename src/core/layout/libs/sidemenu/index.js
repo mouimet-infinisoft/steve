@@ -45,8 +45,7 @@ const closedMixin = (theme) => ({
   }
 });
 
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open"
+const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== "open"
 })(({ theme, open }) => ({
   width: drawerWidth,
   flexShrink: 0,
@@ -118,7 +117,7 @@ const Sidemenu = ({ open, handleClose }) => {
 
       <List>
       {listsTwo.map(({ label, icon }) => (
-          <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }}>
+          <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }} component={Link}>
             <Tooltip title={label} placement="right">
             <ListItemButton
               sx={{

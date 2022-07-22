@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import BasicTabs from "@/components/tabs/basic-tabs";
+import BasicTabs from "@/components/tabs/basic";
 import { detailsCardtabs } from "./card.tabs";
 import { Button, TextField } from "@mui/material";
 import { useItem } from "@/core/hooks";

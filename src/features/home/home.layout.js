@@ -22,7 +22,7 @@ const HomeLayout = () => {
         })}
       >
         <Box>
-          <LinkTabs tabs={tabs} key={generateId(Math.random())} />
+          <LinkTabs tabs={tabs} key={generateId()} />
         </Box>
 
         <Box

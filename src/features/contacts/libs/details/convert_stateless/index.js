@@ -18,9 +18,14 @@ const icon = {
 
 const ContactHistory = () => {
   const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
+  
   const selectedUserHistory = featurehistory().filter((history) => history.id === selectedId);
+
   const mappHistory = selectedUserHistory.map(({__meta__}) => {
-    return {title: __meta__.action, subtitle: new Date(__meta__.timestamp).toLocaleDateString(), description: icon[__meta__.action]}})
+    return {title: __meta__.action, subtitle: new Date(__meta__.timestamp+1000).toLocaleDateString(), description: icon[__meta__.action]}})
+
+
+
   return <History timelineProps={{ list: mappHistory }} detailsProps={{ icon, content: <HistoryDetails /> }} />;
 };
 

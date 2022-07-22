@@ -62,19 +62,19 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== "open"
 }));
 
 const lists = [
-  { label: "Home", icon: <HomeTwoToneIcon /> },
-  { label: "Contacts", icon: <ContactsTwoToneIcon /> },
-  { label: "Messages", icon: <MessageTwoToneIcon /> },
-  { label: "Organizations", icon: <CorporateFareTwoToneIcon /> },
-  { label: "Community", icon: <PeopleTwoToneIcon /> },
+  { label: "home", icon: <HomeTwoToneIcon /> },
+  { label: "contacts", icon: <ContactsTwoToneIcon /> },
+  { label: "messages", icon: <MessageTwoToneIcon /> },
+  { label: "organizations", icon: <CorporateFareTwoToneIcon /> },
+  { label: "community", icon: <PeopleTwoToneIcon /> },
 ];
 
 const listsTwo = [
-  { label: "Cases", icon: <FolderTwoToneIcon /> },
-  { label: "Services", icon: <LanTwoToneIcon /> },
-  { label: "Reports", icon: <SummarizeTwoToneIcon /> },
-  { label: "Security", icon: <LockTwoToneIcon /> },
-  { label: "Settings", icon: <SettingsTwoToneIcon /> }
+  { label: "cases", icon: <FolderTwoToneIcon /> },
+  { label: "services", icon: <LanTwoToneIcon /> },
+  { label: "reports", icon: <SummarizeTwoToneIcon /> },
+  { label: "security", icon: <LockTwoToneIcon /> },
+  { label: "settings", icon: <SettingsTwoToneIcon /> }
 ];
 
 const Sidemenu = ({ open, handleClose }) => {
@@ -105,7 +105,7 @@ const Sidemenu = ({ open, handleClose }) => {
                 >
                   {icon}
                 </ListItemIcon>
-                <ListItemText sx={{ opacity: open ? 1 : 0 }}>{label}</ListItemText>
+                <ListItemText sx={{ opacity: open ? 1 : 0 }}  primaryTypographyProps={{textTransform:'capitalize'}}>{label}</ListItemText>
               </ListItemButton>
               </Tooltip>
             </ListItem>
@@ -136,7 +136,7 @@ const Sidemenu = ({ open, handleClose }) => {
               >
                 {icon}
               </ListItemIcon>
-              <ListItemText sx={{ opacity: open ? 1 : 0 }}>{label}</ListItemText>
+              <ListItemText sx={{ opacity: open ? 1 : 0 }} primaryTypographyProps={{textTransform:'capitalize'}}>{label}</ListItemText>
             </ListItemButton>
             </Tooltip>
           </ListItem>

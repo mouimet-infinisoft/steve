@@ -9,28 +9,29 @@ import NotImplemented from "@/components/not-implemented";
 
 export const detailsCardtabs = {
   Contact: {
-    to: "Contacts",
-    label: "Contact",
+    to: "contact",
+    label: "contact",
     icon: <ContactPhoneTwoToneIcon />,
     component: <Fields />,
     iconPosition: "start"
   },
   Relations: {
     to: "relations",
-    label: "Relations",
+    label: "relations",
     icon: <ConnectWithoutContactTwoToneIcon />,
     component: <NotImplemented />,
     iconPosition: "start"
   },
   History: {
     to: "history",
-    label: "History",
+    label: "history",
     icon: <HistoryTwoToneIcon />,
     component: <History />,
     iconPosition: "start"
   },
   Misc: {
     to: "extra",
+    label: "",
     icon: <MoreHorizTwoToneIcon />,
     component: <ExtraFields />,
     iconPosition: "start"

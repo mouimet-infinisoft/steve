@@ -6,7 +6,7 @@ const HistoryDetails = ({content}) => {
     <>
     <h1>details</h1>
       <Box display="flex" height="inherit">
-          {content}
+          {/* {content} */}
       </Box>
     </>
   );

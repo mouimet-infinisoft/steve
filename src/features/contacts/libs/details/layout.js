@@ -10,7 +10,7 @@ export default function Details() {
   const anchor = "right";
   const navigate = useNavigate();
 
-  const [visible, setVisible] = React.useState(true);
+  const [visible, setVisible] = React.useState(false);
   const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
   const item = useMicroState((s) => s[config.feature.name].list[selectedId]);
 
@@ -36,7 +36,10 @@ export default function Details() {
     <Drawer
       anchor={anchor}
       open={visible}
-      onClose={() => {setVisible(false); navigate(-1)}}
+      onClose={() => {
+        setVisible(false);
+        navigate(-1);
+      }}
       sx={{
         ".MuiBackdrop-root": {
           backgroundColor: "rgba(0, 0, 0, 0.8)"
@@ -51,7 +54,7 @@ export default function Details() {
         }
       }}
     >
-      <DetailsCard />
+      <Outlet />
     </Drawer>
   );
 }

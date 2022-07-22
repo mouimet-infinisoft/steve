@@ -2,10 +2,12 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { a11yProps } from ".";
+import { Link, useNavigate } from "react-router-dom";
+import { generateId } from "@/helpers";
 
 export const ArrayTabs = ({ tabs, TabSlot = Tab }) => {
-  const [value, setValue] = React.useState(0);
+  const navigate = useNavigate();
+  const [value, setValue] = React.useState(tabs[0].label);
 
   const handleChange = (event, newValue) => {
     React.startTransition(() => setValue(newValue));
@@ -17,22 +19,17 @@ export const ArrayTabs = ({ tabs, TabSlot = Tab }) => {
         sx={{ marginBottom: "2rem", borderBottom: 1, borderColor: "divider" }}
       >
         <Tabs value={value} onChange={handleChange} aria-label="tabs">
-          {tabs?.map(({ component, label, ...tab }, i) => (
+          {tabs?.map(({ component, label, to, ...tab }, i) => (
             <TabSlot
-              key={`${tab?.label}-${i}`}
-              value={i}
+              key={generateId(Math.random())}
+              value={label}
               label={label}
               {...tab}
-              {...a11yProps(i)}
+              onClick={() => navigate(to)}
             />
           ))}
         </Tabs>
       </Box>
-
-      {React.isValidElement(tabs?.[value]?.component) &&
-        React.cloneElement(tabs[value].component, {
-          props: { ...tabs[value] }
-        })}
     </Box>
   );
 };

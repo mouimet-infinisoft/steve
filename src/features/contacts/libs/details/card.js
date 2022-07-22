@@ -3,14 +3,14 @@ import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import BasicTabs from "@/components/tabs/basic";
+import LinkTabs from "@/components/tabs/link";
 import { detailsCardtabs } from "./card.tabs";
 import { Button, TextField, useTheme } from "@mui/material";
 import { useMicroContext, useMicroState } from "@/core/state";
 import AvatarUpload from "@/components/avatar-upload";
 import { config } from "../../config";
 import { useItem } from "@/core/hooks";
-import LinkTabs from "@/components/tabs/link";
+import { Outlet } from "react-router-dom";
 
 export default function DetailsCard() {
   const { store } = useMicroContext();
@@ -111,7 +111,9 @@ export default function DetailsCard() {
           <LinkTabs tabs={detailsCardtabs} />
         </CardActions>
 
-        <CardContent></CardContent>
+        <CardContent>
+          <Outlet />
+        </CardContent>
 
         <CardActions
           sx={{

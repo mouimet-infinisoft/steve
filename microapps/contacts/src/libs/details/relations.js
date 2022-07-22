@@ -13,11 +13,11 @@ const Relations = () => {
         id: selectedId,
         feature: config.feature.name
     });
-    const { __relation__ } = item;
+    const { __relation__ = [] } = item;
     return (
         <FadeInOutEffect>
             <Box display="flex" gap={theme.spacing(4)}>
-                {__relation__.map((relation) => (
+                {__relation__?.map((relation) => (
                     <Box display="flex" gap={theme.spacing(2)} mb={theme.spacing(2)}>
                         <ConnectWithoutContactTwoToneIcon />
                         <Box>

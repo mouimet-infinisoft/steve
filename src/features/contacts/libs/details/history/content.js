@@ -4,8 +4,9 @@ import * as React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useItem } from "@/core/hooks";
 import { config } from "../../../config";
+import ScrollContainer from "@/components/scroll-container";
 
-const Address = React.lazy(() =>
+const AddressAndOtherValues = React.lazy(() =>
   import(
     /* webpackChunkName: 'title-description' */ "@/components/descriptions/title-description"
   )
@@ -24,20 +25,20 @@ const Content = () => {
 
   return (
     <Box
+    width={1}
       display="flex"
       flexDirection="column"
-      pl={theme.spacing(1)} 
+      pl={theme.spacing(2)} 
+      pr={theme.spacing(2)} 
       gap={theme.spacing(2)}
       component={Link}
       to={id}
     >
-      <Address title="Address" description={item?.address} />
+    <ScrollContainer title={item.name} subtitle={item.email} description={new Date().toDateString("en-US")}>
+      <AddressAndOtherValues title="Address" description={item?.address} />
       <Telephones title="Telephones" list={item?.telephones} showTag={false} />
-      {/* <HeaderAndSubtitle
-            key={generateId()}
-            label={state ? "State" : ""}
-            value={state}
-  /> */}
+      <AddressAndOtherValues title="State" description={item?.state} />
+    </ScrollContainer>
     </Box>
   );
 };

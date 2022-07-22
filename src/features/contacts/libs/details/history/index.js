@@ -1,5 +1,4 @@
 import * as React from "react";
-import History from "../../../../../components/history";
 import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import UpdateIcon from "@mui/icons-material/Update";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -8,6 +7,12 @@ import Content from "./content";
 import { featurehistory } from "@/features/contacts/mock/featurehistory";
 import { useMicroState } from "@/core/state";
 import { config } from "@/features/contacts/config";
+
+const History = React.lazy(() =>
+  import(
+    /* webpackChunkName: 'contact-history' */ "@/components/history"
+  )
+);
 
 const icon = {
   creation: <CreateNewFolderIcon color="success" />,
@@ -24,14 +29,15 @@ const ContactHistory = () => {
     (history) => history.id === selectedId
   );
 
-  const mappHistory = selectedUserHistory?.map(({ __meta__ = {} }) => {
+  const mappHistory = selectedUserHistory?.map(({ id, __meta__ = {} }) => {
     return {
+      id:id ?? 0,
       title: __meta__?.action,
       subtitle: new Date(__meta__?.timestamp ?? 0)?.toLocaleDateString(),
       description: icon[__meta__?.action]
     };
   });
-
+  
   return (
     <History
       timelineProps={{ list: mappHistory }}

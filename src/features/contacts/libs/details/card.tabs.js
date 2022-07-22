@@ -9,7 +9,7 @@ import NotImplemented from "@/components/not-implemented";
 
 export const detailsCardtabs = {
   Contact: {
-    to: "contacts",
+    to: "Contacts",
     label: "Contact",
     icon: <ContactPhoneTwoToneIcon />,
     component: <Fields />,

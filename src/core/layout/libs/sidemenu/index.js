@@ -18,7 +18,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -87,7 +87,7 @@ const Sidemenu = ({ open, handleClose }) => {
       <Box sx={{ paddingTop: "64px" }} />
       <List sx={{ borderRight: 0 }}>
         {lists.map(({ label, icon }) => (
-            <ListItem key={label} to={`${label}`} disablePadding sx={{ display: "block" }}>
+            <ListItem key={label} to={`/${label}`} disablePadding sx={{ display: "block" }} component={Link}>
               <Tooltip title={label} placement="right">
               <ListItemButton
                 sx={{

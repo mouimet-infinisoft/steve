@@ -7,9 +7,9 @@ const Details = React.lazy(() => import(/* webpackChunkName: 'HistoryTimeline' *
 const History = ({ timelineProps, detailsProps }) => {
   return (
     <Routes>
-    <Route element={<Layout />}>
-      <Route path="history" element={<Timeline {...timelineProps} />} />
-       <Route path=":id/details" element={<Details {...detailsProps} />} />
+    <Route path="/Contacts/:id/history" element={<Layout />}>
+      <Route index element={<Timeline {...timelineProps} />} />
+       <Route path="/Contacts/:id/history/:timelineItemId/details" element={<Details {...detailsProps} />} />
     </Route>
   </Routes>
   );

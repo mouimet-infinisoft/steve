@@ -33,8 +33,6 @@ const Content = () => {
       width={1}
       display="flex"
       flexDirection="column"
-      pl={theme.spacing(2)}
-      pr={theme.spacing(2)}
       gap={theme.spacing(2)}
     >
       <ScrollContainer title={item.name} subtitle={item.email} description={new Date().toDateString("en-US")}>

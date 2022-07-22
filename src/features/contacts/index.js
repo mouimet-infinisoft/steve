@@ -1,7 +1,5 @@
 import Layout from "./layout";
 import { Routes, Route } from "react-router-dom";
-import List from "./libs/lists";
-import Details from "./libs/details";
 import DetailsDrawer from "./libs/details";
 import Contact from "./libs/details/contact";
 import Relations from "./libs/details/relations";

@@ -1,6 +1,5 @@
 import { config } from "../config";
 import { generateId } from "@/helpers";
-import { useNavigate } from "react-router-dom";
 
 export const onCreate = (store, post) => () => {
   const id = generateId();

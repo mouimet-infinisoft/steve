@@ -9,11 +9,12 @@ const HistoryTimeLine = ({ list = [] }) => {
   return (
     <Box overflow="auto" height={theme.spacing(28)}>
       <Timeline position="alternate" sx={{paddingTop:0}}>
-        {list?.map?.(({id, title, subtitle, description}) => (
+        {list?.map?.(({id, title, subtitle2, subtitle, description}) => (
           <HistoryTimelineItem
             key={generateId()}
             title={title}
             subtitle={subtitle}
+            subtitle2={subtitle2}
             description={description}
             to={id}
           />

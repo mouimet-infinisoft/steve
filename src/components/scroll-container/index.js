@@ -7,7 +7,7 @@ import { IconButton, Typography, useTheme } from "@mui/material"
 import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const ScrollContainer = ({ title, subtitle, description, children }) => {
+const ScrollContainer = ({ title, subtitle, subtitle2, description, children }) => {
     const theme = useTheme();
     return (
         <>
@@ -25,7 +25,7 @@ const ScrollContainer = ({ title, subtitle, description, children }) => {
                         <Avatar sx={{ width: theme.spacing(5), height: theme.spacing(5) }}><Typography textTransform="capitalize">{title.charAt(1)}</Typography></Avatar>
                         <HeaderAndSubtitle label={title} value={subtitle} />
                     </Box>
-                    <HeaderAndSubtitle flexDirection="column" label={"action"} value={description} />
+                    <HeaderAndSubtitle flexDirection="column" label={subtitle2} value={description} />
                 </Box>
             </Box>
             <Divider />

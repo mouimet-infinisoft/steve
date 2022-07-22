@@ -34,7 +34,7 @@ const ContactHistory = () => {
     (history) => history.id === selectedId
   );
 
-  const mappHistory = selectedUserHistory?.map(({ id, email, __meta__ = {} }) => {
+  const list = selectedUserHistory?.map(({ id, email, __meta__ = {} }) => {
     return {
       id:id ?? 0,
       title: __meta__?.action,
@@ -46,7 +46,7 @@ const ContactHistory = () => {
   
   return (
     <History
-      timelineProps={{ list: mappHistory }}
+      timelineProps={{ list: list }}
       detailsProps={{ content: <Content /> }}
     />
   );

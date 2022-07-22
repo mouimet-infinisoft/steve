@@ -1,9 +1,8 @@
+import { featurehistory } from "@/features/contacts/mock/featurehistory";
 import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import * as React from "react";
 import { useParams } from "react-router-dom";
-import { useItem } from "@/core/hooks";
-import { config } from "../../../config";
 
 const AddressAndOtherValues = React.lazy(() =>
   import(
@@ -26,8 +25,7 @@ const ScrollContainer = React.lazy(() =>
 const Content = () => {
   const theme = useTheme();
   const { id } = useParams();
-  const { item } = useItem({ id, feature: config.feature.name });
-
+  const item = featurehistory().find((item) => item.id === id)
   return (
     <Box
       width={1}
@@ -35,7 +33,7 @@ const Content = () => {
       flexDirection="column"
       gap={theme.spacing(2)}
     >
-      <ScrollContainer title={item.name} subtitle={item.email} description={new Date().toDateString("en-US")}>
+      <ScrollContainer title={item.name} subtitle={item.email} subtitle2={item?.__meta__?.action} description={new Date().toDateString("en-US")}>
         <AddressAndOtherValues title="Address" description={item?.address} />
         <Telephones title="Telephones" list={item?.telephones} showTag={false} />
         <AddressAndOtherValues title="State" description={item?.state} />

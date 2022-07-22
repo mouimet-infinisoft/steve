@@ -3,6 +3,7 @@ import cat1 from "./assets/cat1.gif";
 
 export const featurehistory = () => [
   {
+    id: "klhlojassasssaso897y9",
     address: "3649 rue Notre-Dame, Candiax, H72D92",
     state: "active",
     name: "BBB Ouimet",

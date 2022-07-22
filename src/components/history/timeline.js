@@ -1,8 +1,8 @@
 import HistoryTimelineItem from "./timeline.item";
 import { generateId } from "@/helpers";
 import Timeline from "@mui/lab/Timeline";
-import { Link } from "react-router-dom";
-import { Box, useTheme } from "@mui/system";
+import { useTheme } from "@mui/system";
+import Box from "@mui/system/Box";
 
 const HistoryTimeLine = ({ list = [] }) => {
   const theme = useTheme();

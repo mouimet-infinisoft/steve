@@ -1,10 +1,9 @@
 import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import * as React from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useItem } from "@/core/hooks";
 import { config } from "../../../config";
-import ScrollContainer from "@/components/scroll-container";
 
 const AddressAndOtherValues = React.lazy(() =>
   import(
@@ -18,6 +17,12 @@ const Telephones = React.lazy(() =>
   )
 );
 
+const ScrollContainer = React.lazy(() =>
+  import(
+    /* webpackChunkName: 'avatar-title-description' */ "@/components/scroll-container"
+  )
+);
+
 const Content = () => {
   const theme = useTheme();
   const { id } = useParams();
@@ -25,20 +30,18 @@ const Content = () => {
 
   return (
     <Box
-    width={1}
+      width={1}
       display="flex"
       flexDirection="column"
-      pl={theme.spacing(2)} 
-      pr={theme.spacing(2)} 
+      pl={theme.spacing(2)}
+      pr={theme.spacing(2)}
       gap={theme.spacing(2)}
-      component={Link}
-      to={id}
     >
-    <ScrollContainer title={item.name} subtitle={item.email} description={new Date().toDateString("en-US")}>
-      <AddressAndOtherValues title="Address" description={item?.address} />
-      <Telephones title="Telephones" list={item?.telephones} showTag={false} />
-      <AddressAndOtherValues title="State" description={item?.state} />
-    </ScrollContainer>
+      <ScrollContainer title={item.name} subtitle={item.email} description={new Date().toDateString("en-US")}>
+        <AddressAndOtherValues title="Address" description={item?.address} />
+        <Telephones title="Telephones" list={item?.telephones} showTag={false} />
+        <AddressAndOtherValues title="State" description={item?.state} />
+      </ScrollContainer>
     </Box>
   );
 };

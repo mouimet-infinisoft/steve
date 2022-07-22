@@ -22,120 +22,111 @@ export default function DetailsCard() {
   const { name, email, avatar, tags } = React.useMemo(() => item ?? {}, [item]);
   const theme = useTheme();
 
-
   return (
-      <Card
+    <Card
+      sx={{
+        width: "500px",
+        height: 600,
+        padding: "1rem",
+        position: "relative",
+        overflow: "visible"
+      }}
+    >
+      <CardHeader
+        style={{ height: "120px" }}
+        avatar={<AvatarUpload src={avatar} save={onMutation("avatar")} />}
+        action={
+          <TextField
+            placeholder="Person"
+            variant="standard"
+            inputProps={{
+              style: {
+                padding: "0.5rem 1rem",
+                borderRadius: theme.shape.borderRadius,
+                textAlign: "center"
+              }
+            }}
+            sx={(theme) => ({
+              "MuiInput-root:*": {
+                borderBottom: "none"
+              },
+              "*:before, *:after": {
+                borderBottom: "0 !important"
+              },
+              background: theme.palette.primary.main,
+              borderRadius: theme.shape.borderRadius,
+              position: "absolute",
+              right: "2rem",
+              top: "-1rem",
+              maxWidth: "100px"
+            })}
+            value={tags?.[0]}
+            onChange={(e) => {
+              listMutatorsFactory("tags").update(0, e.target.value);
+            }}
+          />
+        }
+        title={
+          <TextField
+            fullWidth
+            placeholder="Full name"
+            variant="standard"
+            inputProps={{ style: { fontSize: theme.typography.h3.fontSize } }}
+            sx={(theme) => ({
+              "MuiInput-root:before": {
+                borderBottom: "1px solid rgb(255 255 255 / 0%)"
+              }
+            })}
+            value={name}
+            onChange={(e) => {
+              mutation("name", e.target.value);
+            }}
+          />
+        }
+        subheader={
+          <TextField
+            fullWidth
+            placeholder="Add email name@site.com"
+            variant="standard"
+            sx={{
+              "MuiInput-root:before": {
+                borderBottom: "1px solid rgb(255 255 255 / 0%)"
+              }
+            }}
+            value={email}
+            onChange={(e) => {
+              mutation("email", e.target.value);
+            }}
+          />
+        }
+      />
+
+      <CardContent>
+        <LinkTabs tabs={detailsCardtabs}/>
+        <Outlet />
+      </CardContent>
+
+      <CardActions
         sx={{
-          width: "500px",
-          height: 600,
-          padding: "1rem",
-          position: "relative",
-          overflow: "visible"
+          display: "flex",
+          justifyContent: "center",
+          marginBottom: "1rem",
+          position: "absolute",
+          bottom: 0,
+          width: "calc(100% - 2rem)"
         }}
       >
-        <CardHeader
-          avatar={<AvatarUpload src={avatar} save={onMutation("avatar")} />}
-          action={
-            <TextField
-              placeholder="Person"
-              variant="standard"
-              inputProps={{
-                style: {
-                  padding: "0.5rem 1rem",
-                  borderRadius: theme.shape.borderRadius,
-                  textAlign: "center"
-                }
-              }}
-              sx={(theme) => ({
-                "MuiInput-root:*": {
-                  borderBottom: "none"
-                },
-                "*:before, *:after": {
-                  borderBottom: "0 !important"
-                },
-                background: theme.palette.primary.main,
-                borderRadius: theme.shape.borderRadius,
-                position: "absolute",
-                right: "2rem",
-                top: "-1rem",
-                maxWidth: "100px"
-              })}
-              value={tags?.[0]}
-              onChange={(e) => {
-                listMutatorsFactory("tags").update(0, e.target.value);
-              }}
-            />
-          }
-          title={
-            <TextField
-              fullWidth
-              placeholder="Full name"
-              variant="standard"
-              inputProps={{ style: { fontSize: theme.typography.h3.fontSize } }}
-              sx={(theme) => ({
-                "MuiInput-root:before": {
-                  borderBottom: "1px solid rgb(255 255 255 / 0%)"
-                }
-              })}
-              value={name}
-              onChange={(e) => {
-                mutation("name", e.target.value);
-              }}
-            />
-          }
-          subheader={
-            <TextField
-              fullWidth
-              placeholder="Add email name@site.com"
-              variant="standard"
-              sx={{
-                "MuiInput-root:before": {
-                  borderBottom: "1px solid rgb(255 255 255 / 0%)"
-                }
-              }}
-              value={email}
-              onChange={(e) => {
-                mutation("email", e.target.value);
-              }}
-            />
-          }
-        />
-
-        <CardActions
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: "1rem"
+        <Button
+          variant="outlined"
+          color="warning"
+          onClick={() => {
+            store.emit(`${config.feature.name}.archive.click`);
+            mutation("state", "archived");
           }}
         >
-          <LinkTabs tabs={detailsCardtabs} />
-        </CardActions>
-
-        <CardContent>
-          <Outlet />
-        </CardContent>
-
-        <CardActions
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: "1rem",
-            position: "absolute",
-            bottom: 0,
-            width: "calc(100% - 2rem)"
-          }}
-        >
-          <Button
-            variant="outlined"
-            color="warning"
-            onClick={() => {
-              store.emit(`${config.feature.name}.archive.click`);
-              mutation("state", "archived");
-            }}
-          >
-            Archive
-          </Button>
-        </CardActions>
-      </Card>
+          Archive
+        </Button>
+      </CardActions>
+    </Card>
   );
 }

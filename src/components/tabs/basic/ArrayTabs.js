@@ -2,10 +2,10 @@ import * as React from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import { generateId } from "@/helpers";
 
-export const ArrayTabs = ({ tabs, TabSlot = Tab }) => {
+export const ArrayTabs = ({ tabs, TabSlot = Tab, ...props }) => {
   const navigate = useNavigate();
   const [value, setValue] = React.useState(tabs[0].label);
 
@@ -14,7 +14,7 @@ export const ArrayTabs = ({ tabs, TabSlot = Tab }) => {
   };
 
   return (
-    <Box sx={{ width: "100%" }}>
+    <Box sx={{ width: "100%" }} {...props}>
       <Box
         sx={{ marginBottom: "2rem", borderBottom: 1, borderColor: "divider" }}
       >

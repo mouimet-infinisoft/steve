@@ -17,7 +17,7 @@ export default function Cards({ list = [] }) {
       {list
         ?.filter((i) => i?.state === "active")
         ?.map((item) => (
-          <Link to={item.id+"/details"}               key={item?.id}>
+          <Link to={item.id+"/contact"}               key={item?.id}>
             <ContactCard
               {...item}
               handleClick={onSelect({ id: item?.id, store })}

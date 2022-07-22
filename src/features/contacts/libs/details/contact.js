@@ -31,7 +31,7 @@ const txtfieldCss = {
   }
 };
 
-const Fields = () => {
+const Contact = () => {
   const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
   const { item, listMutatorsFactory, mutation } = useItem({
     id: selectedId,
@@ -83,4 +83,4 @@ const Fields = () => {
   );
 };
 
-export default Fields
+export default Contact

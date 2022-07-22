@@ -5,7 +5,7 @@
     "lib":["dom"],
     "sourceMap": true,
     "jsx": "preserve",
-    "checkJs": true,
+    "checkJs": false,
     "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]

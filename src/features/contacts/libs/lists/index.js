@@ -1,9 +1,7 @@
 import NoResult from "@/components/no-result";
 import { usePagination, useSubscribe } from "@/core/hooks";
 import React from "react";
-import { Outlet } from "react-router-dom";
 import {config} from '../../config'
-import Details from "../details";
 import Cards from "./cards";
 import Table from "./table";
 
@@ -41,8 +39,6 @@ const Lists = (props) => {
       <Table {...props} list={list} />
       <Cards {...props} list={list} />
       <AppPagination />
-      {/* <Details /> */}
-      <Outlet />
     </>
   );
 };

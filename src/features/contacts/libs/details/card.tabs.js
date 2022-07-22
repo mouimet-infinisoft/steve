@@ -2,9 +2,9 @@ import ContactPhoneTwoToneIcon from "@mui/icons-material/ContactPhoneTwoTone";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import HistoryTwoToneIcon from "@mui/icons-material/HistoryTwoTone";
 import MoreHorizTwoToneIcon from "@mui/icons-material/MoreHorizTwoTone";
-import  Fields  from "./Fields";
+import  Contact  from "./contact";
 import  ExtraFields  from "./ExtraFields";
-import History from "@/features/contacts/libs/details/convert_stateless/index";
+import History from "@/features/contacts/libs/details/history/index";
 import NotImplemented from "@/components/not-implemented";
 
 export const detailsCardtabs = {
@@ -12,7 +12,7 @@ export const detailsCardtabs = {
     to: "contact",
     label: "contact",
     icon: <ContactPhoneTwoToneIcon />,
-    component: <Fields />,
+    component: <Contact />,
     iconPosition: "start"
   },
   Relations: {

@@ -5,13 +5,18 @@ import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineOppositeContent from "@mui/lab/TimelineOppositeContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import Typography from "@mui/material/Typography";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const HistoryTimeLineItem = ({ title, subtitle, description, action }) =>{ 
-  const nav = useNavigate()
-  
+const HistoryTimeLineItem = ({
+  title = "",
+  subtitle = "",
+  description = "",
+  to = "/"
+}) => {
+  const nav = useNavigate();
+
   return (
-    <TimelineItem onClick={()=>{nav("876ighuh")}}>
+    <TimelineItem onClick={() => nav(to)}>
       <TimelineOppositeContent sx={{ m: "auto 0" }} variant="body2">
         <Typography
           variant="body1"
@@ -31,5 +36,6 @@ const HistoryTimeLineItem = ({ title, subtitle, description, action }) =>{
       </TimelineSeparator>
       <TimelineContent></TimelineContent>
     </TimelineItem>
-)};
+  );
+};
 export default HistoryTimeLineItem;

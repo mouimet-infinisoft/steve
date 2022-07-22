@@ -4,7 +4,7 @@ import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import { a11yProps } from ".";
 
-export const ArrayTabs = ({ tabs, TabSlot=Tab }) => {
+export const ArrayTabs = ({ tabs, TabSlot = Tab }) => {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -21,13 +21,18 @@ export const ArrayTabs = ({ tabs, TabSlot=Tab }) => {
             <TabSlot
               key={`${tab?.label}-${i}`}
               value={i}
+              label={label}
               {...tab}
-              {...a11yProps(i)} />
+              {...a11yProps(i)}
+            />
           ))}
         </Tabs>
       </Box>
 
-      {React.isValidElement(tabs?.[value]?.component) && React.cloneElement(tabs[value].component)}
+      {React.isValidElement(tabs?.[value]?.component) &&
+        React.cloneElement(tabs[value].component, {
+          props: { ...tabs[value] }
+        })}
     </Box>
   );
 };

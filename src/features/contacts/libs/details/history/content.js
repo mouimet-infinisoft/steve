@@ -34,9 +34,8 @@ const Content = () => {
       gap={theme.spacing(2)}
     >
       <ScrollContainer title={item.name} subtitle={item.email} subtitle2={item?.__meta__?.action} description={new Date().toDateString("en-US")}>
-        <AddressAndOtherValues title="Address" description={item?.address} />
-        <Telephones title="Telephones" list={item?.telephones} showTag={false} />
-        <AddressAndOtherValues title="State" description={item?.state} />
+        <AddressAndOtherValues title={item?.address ? "Address" : ""} description={item?.address} />
+        <Telephones title={item?.telephones ? "Telephones" :""} list={item?.telephones} showTag={false} />
       </ScrollContainer>
     </Box>
   );

@@ -9,7 +9,7 @@ const LinkTab = ({ to = "/", ...tab }) => (
   </Link>
 );
 
-const LinkTabs = ({ tabs, props }) => (
+const LinkTabs = ({ tabs, ...props }) => (
   <BasicTabs tabs={tabs} TabSlot={LinkTab} {...props} />
 );
 

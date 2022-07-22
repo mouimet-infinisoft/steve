@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Title from "@/components/title";
-import Details from "./libs/details";
 import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
@@ -12,6 +11,7 @@ import List from "./libs/lists";
 
 const Layout = () => {
   const { store } = useMicroContext();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -24,7 +24,9 @@ const Layout = () => {
         <Fab
           variant="extended"
           color="primary"
-          onClick={onCreate(store)}
+          onClick={onCreate(store, (id) =>
+            navigate(`/${config.feature.name}/${id}`)
+          )}
           sx={{
             display: { xs: "none", md: "inherit" }
           }}

@@ -5,7 +5,7 @@ import UpdateIcon from "@mui/icons-material/Update";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CalendarTodayTwoToneIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import Content from "./content";
-import { featurehistory } from "@/features/contacts/mock/featurelist";
+import { featurehistory } from "@/features/contacts/mock/featurehistory";
 import { useMicroState } from "@/core/state";
 import { config } from "@/features/contacts/config";
 

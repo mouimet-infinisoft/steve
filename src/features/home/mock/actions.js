@@ -11,7 +11,7 @@ export const actions = [
   {
     title: "Contacts",
     description: "Lorem ipsume hehe kjek sss",
-    to: "contacts",
+    to: "/contacts",
     icon: (
       <ContactsTwoToneIcon
         sx={(theme) => ({
@@ -29,7 +29,7 @@ export const actions = [
   {
     title: "Messages",
     description: "Lorem ipsume hehe kjek sss",
-    to: "messages",
+    to: "/messages",
     icon: (
       <MessageTwoToneIcon
         sx={(theme) => ({
@@ -47,7 +47,7 @@ export const actions = [
   {
     title: "Org",
     description: "Lorem ipsume hehe kjek sss",
-    to: "organizations",
+    to: "/organizations",
     icon: (
       <CorporateFareTwoToneIcon
         sx={(theme) => ({
@@ -65,7 +65,7 @@ export const actions = [
   {
     title: "Cases",
     description: "Lorem ipsume hehe kjek sss",
-    to: "cases",
+    to: "/cases",
     icon: (
       <FolderTwoToneIcon
         sx={(theme) => ({
@@ -83,7 +83,7 @@ export const actions = [
   {
     title: "Services",
     description: "Lorem ipsume hehe kjek sss",
-    to: "services",
+    to: "/services",
     icon: (
       <LanTwoToneIcon
         sx={(theme) => ({
@@ -101,7 +101,7 @@ export const actions = [
   {
     title: "Reports",
     description: "Lorem ipsume hehe kjek sss",
-    to: "reports",
+    to: "/reports",
     icon: (
       <SummarizeTwoToneIcon
         sx={(theme) => ({
@@ -119,7 +119,7 @@ export const actions = [
   {
     title: "Security",
     description: "Lorem ipsume hehe kjek sss",
-    to: "security",
+    to: "/security",
     icon: (
       <LockTwoToneIcon
         sx={(theme) => ({
@@ -137,7 +137,7 @@ export const actions = [
   {
     title: "Settings",
     description: "Lorem ipsume hehe kjek sss",
-    to: "settings",
+    to: "/settings",
     icon: (
       <SettingsTwoToneIcon
         sx={(theme) => ({

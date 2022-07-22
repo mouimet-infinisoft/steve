@@ -1,7 +1,8 @@
 import { config } from "../config";
 import { generateId } from "@/helpers";
+import { useNavigate } from "react-router-dom";
 
-export const onCreate = (store) => () => {
+export const onCreate = (store, post) => () => {
   const id = generateId();
   store.mutate((s) => ({
     ...s,
@@ -23,6 +24,8 @@ export const onCreate = (store) => () => {
     }
   }));
   store.emit(`${config.feature.name}.create.click`, { id });
+
+  post?.(id)
 };
 
 export const onSelect =

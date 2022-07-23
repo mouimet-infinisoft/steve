@@ -8,7 +8,6 @@ import { config } from "@/config/index";
 import { onSearch } from "@/core/services/triggers/onSearch";
 import { onCreate } from "@/core/services/triggers/onCreate";
 import Search from "@/components/search";
-import List from "@/app/lists";
 
 const Layout = () => {
   const { store } = useMicroContext();
@@ -73,7 +72,6 @@ const Layout = () => {
             marginBottom: "2rem"
           })}
         >
-          <List />
           <Outlet />
         </Box>
       </Box>

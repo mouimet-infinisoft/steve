@@ -10,7 +10,7 @@ import { useMicroContext } from "../state";
 import { config } from "@/config/";
 
 const Feature = () => {
-  const { log } = useMicroContext()
+  const { log } = useMicroContext();
   const location = useLocation();
 
   if (config?.verbose) {
@@ -20,13 +20,14 @@ const Feature = () => {
   return (
     <Routes>
       <Route element={<Layout />}>
-        <Route path=":id" element={<DetailsDrawer />}>
-          <Route path="relations" element={<Relations />} />
-          <Route path="extra" element={<ExtraFields />} />
-          <Route path="history/*" element={<History />} />
-          <Route path="contact" element={<Contact />} />
+        <Route path=":id" element={<Lists />}>
+          <Route element={<DetailsDrawer />}>
+            <Route path="relations" element={<Relations />} />
+            <Route path="extra" element={<ExtraFields />} />
+            <Route path="history/*" element={<History />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
         </Route>
-        <Route index element={<Lists />} />
       </Route>
     </Routes>
   );

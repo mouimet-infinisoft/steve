@@ -11,7 +11,16 @@ DEBUG_PATH      Outputs webpack configured path
 Feature name            Important and has impact on module federation
 
 
-# Micro apps
+# Mono Repo
+
+## Start 
+For now there is only one main solution for the project. It can be started as following from the monorepo root. It will start federation, container and micro apps.
+
+```sh
+$ npm run start
+```
+
+# Micro Apps
 Can run `alone` or `containerized` or `both` at the same time.
 
 # Run

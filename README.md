@@ -52,7 +52,21 @@ $ npm run start
 $ npm run start  
 ```
 >  ## Federated Module Live Reload
->  Live reload is configured on federated module however, for already loaded module, a refresh is still required.  
+>  Live reload is configured on federated module however, for already loaded module, a refresh is still required.   
 
+
+# VsCode Debugging
+
+1. Start all
+
+```sh
+$ npm run start
+```
+2. Insert `debugger` statement where you want to break.
+
+3. Press F5 to start debugger
+
+# Problem
+Inserting breakpoint directly from UI is always breaking and needs reconfiguration. Therefore, inserting statement is a workaround.
 
 ## Build All

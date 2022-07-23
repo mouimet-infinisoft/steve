@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack serve -c config/webpack/webpack.config.dev.js --color --progress",
+    "start": "node --inspect node_modules/webpack-dev-server/bin/webpack-dev-server.js -c config/webpack/webpack.config.dev.js --color --progress",
     "build": "npm run build:dev",
     "build:dev": "webpack build -c config/webpack/webpack.config.dev.js --color --progress",
     "build:dev:watch": "webpack build -c config/webpack/webpack.config.dev.js --color --progress --watch",

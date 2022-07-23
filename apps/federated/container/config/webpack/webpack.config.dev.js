@@ -64,5 +64,5 @@ module.exports = merge(custom, common, {
       template: join(APPROOT, 'config', 'webpack', 'index.html'),
     }),
   ],
-  devtool: 'eval-source-map',
+  devtool: 'source-map',
 });

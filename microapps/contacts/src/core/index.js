@@ -9,7 +9,7 @@ function App(props) {
   return (
     <Suspense>
       <MicroContextProvider>
-        <BrowserRouter basename={props?.basename}>
+        <BrowserRouter basename={props?.basename ?? "/"}>
           <Router />
         </BrowserRouter>
       </MicroContextProvider>

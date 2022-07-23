@@ -8,7 +8,7 @@ function App({ basename }) {
   return (
     <Suspense>
       <MicroContextProvider>
-        <BrowserRouter basename={"cases"}>
+        <BrowserRouter basename={basename ?? "/"}>
           <Router />
         </BrowserRouter>
       </MicroContextProvider>

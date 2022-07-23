@@ -1,5 +1,5 @@
 {
-  "name": "container",
+  "name": "cases",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -10,7 +10,7 @@
     "build:prod": "webpack build -c config/webpack/webpack.config.prod.js --color --progress",
     "analyze:bundle:baseline": "cross-env ANALYZEBASELINE=true& webpack build -c config/webpack/webpack.analyze.js --color --progress",
     "analyze:bundle": "webpack build -c config/webpack/webpack.analyze.js --color --progress",
-    "clean": "rimraf node_modules dist artefacts *.lock *.log",
+    "clean":"rimraf node_modules dist artefacts *.lock *.log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -44,15 +44,12 @@
   },
   "infinisoft": {
     "moduleFederation": {
-      "title": "Container",
+      "title": "Cases",
       "category": "microapps",
       "image": "https://www.kitchen.infini-soft.com/assets/infinisoftticon.png",
-      "component": "Container",
+      "component": "Case",
       "dev": {
-        "remotes": {
-          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js",
-          "cases": "cases@http://localhost:5000/cases/artefacts/dev/remoteEntry.js"
-        }
+        "remotes": {}
       },
       "prod": {
         "remotes": {}

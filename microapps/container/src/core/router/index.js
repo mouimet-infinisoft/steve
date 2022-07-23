@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "../layout";
 import React from 'react'
 
+const Cases = React.lazy(() => import(/* webpackChunkName: 'Cases' */ 'cases/Case'))
 const Contacts = React.lazy(() => import(/* webpackChunkName: 'Contacts' */ 'contacts/Contact'))
 
 const Router = () => {
@@ -15,8 +16,8 @@ const Router = () => {
       <Route path="/*" element={<Layout />}>
         {/* <Route path="home/*" element={<Home />} /> */}
         <Route path="contacts/*" element={<Contacts />} />
-        {/* <Route path="cases/*" element={<Cases />} />
-        <Route path="messages/*" element={<Messages />} />
+        <Route path="cases/*" element={<Cases />} />
+        {/* <Route path="messages/*" element={<Messages />} />
         <Route path="organizations/*" element={<Organizations />} />
         <Route path="community/*" element={<Community />} />
         <Route index element={<Home />} /> */}

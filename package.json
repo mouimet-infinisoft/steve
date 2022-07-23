@@ -10,7 +10,7 @@
     "@infini-soft/store": "^0.1.24",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.89",
-    "@mui/material": "^5.8.7",
+    "@mui/material": "^5.9.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.4",

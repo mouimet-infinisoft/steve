@@ -1,7 +1,7 @@
-import { config } from "../config";
-import { generateId } from "@/helpers";
+import { config } from "@/config/index";
+import { generateId } from "@/core/helpers";
 
-export const onCreate = (store) => () => {
+export const onCreate = (store, post) => () => {
   const id = generateId();
   store.mutate((s) => ({
     ...s,
@@ -23,4 +23,21 @@ export const onCreate = (store) => () => {
     }
   }));
   store.emit(`${config.feature.name}.create.click`, { id });
+
+  post?.(id)
 };
+
+export const onSelect =
+  ({ store, id }) =>
+  () => {
+    store.emit(`${config.feature.name}.click`, { id });
+    store.mutate((s) => ({
+      ...s,
+      [config.feature.name]: { ...s[config.feature.name], selectedId: id }
+    }));
+  };
+
+export const onSearch = ({ value, store }) =>  
+  store.emit(`${config.feature.name}.search`, {
+    term: value
+  });

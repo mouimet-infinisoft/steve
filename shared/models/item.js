@@ -1,4 +1,3 @@
-import cat1 from "./assets/cat1.gif";
 
 const item = () => ({
   id: "klhlojassasssaso897y9",

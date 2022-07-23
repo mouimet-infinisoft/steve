@@ -1,4 +1,4 @@
-import { featurehistory } from "@/mock/featurehistory";
+import { featurehistory } from "@/mock/history";
 import { useTheme } from "@mui/material";
 import Box from "@mui/material/Box";
 import * as React from "react";

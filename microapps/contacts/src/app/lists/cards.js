@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMicroContext, useMicroState } from "@/core/state";
 import { config } from "@/config/index";
-import { onSelect } from "@/services";
+import { onSelect } from "@/core/services/triggers/onSelect";
 import { Link } from "react-router-dom";
 
 const ContactCard = React.lazy(() =>

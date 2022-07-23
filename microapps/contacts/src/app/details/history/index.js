@@ -3,7 +3,7 @@ import CreateNewFolderIcon from "@mui/icons-material/CreateNewFolder";
 import UpdateIcon from "@mui/icons-material/Update";
 import DeleteIcon from "@mui/icons-material/Delete";
 import CalendarTodayTwoToneIcon from "@mui/icons-material/CalendarTodayTwoTone";
-import { featurehistory } from "@/mock/featurehistory";
+import { featurehistory } from "@/mock/history";
 import { useMicroState } from "@/core/state";
 import { config } from "@/config";
 

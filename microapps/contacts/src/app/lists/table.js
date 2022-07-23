@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Grid from "@mui/material/Grid";
 import { useMicroContext } from "@/core/state";
-import { onSelect } from "@/services";
+import { onSelect } from "@/core/services/triggers/onSelect";
 
 const ContactListItem = React.lazy(() =>
   import(

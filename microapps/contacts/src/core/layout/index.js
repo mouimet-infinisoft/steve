@@ -5,7 +5,8 @@ import { Fab } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import { useMicroContext } from "@/core/state";
 import { config } from "@/config/index";
-import { onCreate, onSearch } from "@/services";
+import { onSearch } from "@/core/services/triggers/onSearch";
+import { onCreate } from "@/core/services/triggers/onCreate";
 import Search from "@/components/search";
 import List from "@/app/lists";
 

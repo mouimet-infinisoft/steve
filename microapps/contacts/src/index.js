@@ -1,1 +1,1 @@
-import('./bootstrap')
+import('./core/state/bootstrap')

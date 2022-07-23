@@ -1,21 +1,23 @@
-import {config} from "@/config/index";
+import { config } from "@/config/index";
 import { Store } from "@infini-soft/store";
 import React, { startTransition, useCallback, useEffect } from "react";
 import { CssBaseline } from "@mui/material";
 import AppThemeProvider from "@/core/theme/components/provider";
-import contactlist from "@/mock/featurelist";
+import { list } from "@/core/services/crud/list";
 
-const initialStore = {
-  theme: {
-    mode: "dark"
-  },
-  Contacts: {
-    list: contactlist(),
-    selectedId: ""
-  },
-};
-
-const initializeStore = () => Promise.resolve(initialStore);
+const initializeStore = () =>
+  new Promise(async (resolve) => {
+    const _list = await list();
+    resolve({
+      theme: {
+        mode: "dark"
+      },
+      Contacts: {
+        list: _list,
+        selectedId: ""
+      }
+    });
+  });
 
 const initialContext = {
   store: new Store(initializeStore, { devtool: config.devtools }),

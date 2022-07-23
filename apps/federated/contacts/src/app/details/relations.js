@@ -5,6 +5,7 @@ import { Box, useTheme } from "@mui/system";
 import ConnectWithoutContactTwoToneIcon from "@mui/icons-material/ConnectWithoutContactTwoTone";
 import { Chip, Typography } from "@mui/material";
 import FadeInOutEffect from "@/components/fade-effect";
+import { generateId } from "@/core/helpers";
 
 const Relations = () => {
     const theme = useTheme();
@@ -18,7 +19,7 @@ const Relations = () => {
         <FadeInOutEffect>
             <Box display="flex" gap={theme.spacing(4)}>
                 {__relation__?.map((relation) => (
-                    <Box display="flex" gap={theme.spacing(2)} mb={theme.spacing(2)}>
+                    <Box display="flex" key={generateId()} gap={theme.spacing(2)} mb={theme.spacing(2)}>
                         <ConnectWithoutContactTwoToneIcon />
                         <Box>
                             <Typography textTransform={"capitalize"} variant="body1">

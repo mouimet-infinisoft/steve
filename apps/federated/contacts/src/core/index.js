@@ -4,12 +4,12 @@ import Router from "@/core/router";
 import MicroContextProvider from "@/core/state/context";
 import Component from '@/components/component'
 
-function App({basename='/'}) {
+function App({basename}) {
   return (
     <Component>
       <MicroContextProvider>
         <BrowserRouter basename={basename}>
-          <Router basename={basename}/>
+          <Router />
         </BrowserRouter>
       </MicroContextProvider>
     </Component>

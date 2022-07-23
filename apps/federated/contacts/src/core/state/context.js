@@ -28,7 +28,7 @@ const initialContext = {
 const MicroContext = React.createContext(initialContext);
 
 const MicroContextProvider = ({ children, context = initialContext }) => {
-  const [mode, setMode] = React.useState("dark");
+  const [mode, setMode] = React.useState(context?.themeMode ?? "dark");
 
   const handleToggle = useCallback(
     () =>

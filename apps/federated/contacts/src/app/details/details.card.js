@@ -11,6 +11,7 @@ import AvatarUpload from "@/components/avatar-upload";
 import { config } from "@/config";
 import { useItem } from "@/core/hooks";
 import { Outlet } from "react-router-dom";
+import Component from "@/components/component";
 
 export default function DetailsCard() {
   const { store } = useMicroContext();
@@ -102,8 +103,10 @@ export default function DetailsCard() {
       />
 
       <CardContent>
-        <LinkTabs tabs={detailsCardtabs}/>
-        <Outlet />
+        <LinkTabs tabs={detailsCardtabs} />
+        <Component>
+          <Outlet />
+        </Component>
       </CardContent>
 
       <CardActions

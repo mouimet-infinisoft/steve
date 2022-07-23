@@ -4,7 +4,7 @@ import React from "react";
 import { config } from "@/config";
 import Cards from "./cards";
 import Table from "./table";
-import { Outlet } from "react-router-dom";
+
 
 const Lists = (props) => {
   const { AppPagination, pageDataList = [] } = usePagination({
@@ -39,7 +39,6 @@ const Lists = (props) => {
       <Table {...props} list={list} />
       <Cards {...props} list={list} />
       <AppPagination />
-      <Outlet />
     </>
   );
 };

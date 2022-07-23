@@ -4,6 +4,7 @@
 node_modules
 artefacts
 dist
+/templates
 /.pnp
 .pnp.js
 

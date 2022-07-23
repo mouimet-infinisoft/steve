@@ -4,7 +4,7 @@
  * www.infini-soft.com
  */
 
-const {APPROOT} = require('./paths')
+const {APPROOT, PKGJSON} = require('../paths')
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common');
 const custom = {}// require('./config/custom.webpack.config.dev');
@@ -12,7 +12,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlugin;
 const { MinChunkSizePlugin } = require('webpack').optimize;
-const {peerDependencies, name, infinisoft} = require('../../package.json');
+const {peerDependencies, name, infinisoft} = require(PKGJSON);
 const { join } = require('path');
 
 module.exports = merge(custom, common, {
@@ -23,7 +23,7 @@ module.exports = merge(custom, common, {
     publicPath: 'auto',
   },
   devServer: {
-    static: join(APPROOT, 'artefacts'),
+    static: join(APPROOT, 'artefacts','dev'),
     hot: true,
   },
   plugins: [

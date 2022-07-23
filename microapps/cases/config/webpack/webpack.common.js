@@ -4,8 +4,17 @@
  * www.infini-soft.com
  */
 
-const { APPROOT, SHARED_COMPONENTS, SHARED_HELPERS } = require("./paths");
+const {
+  debug_paths,
+  APPROOT,
+  SHARED_COMPONENTS,
+  SHARED_HELPERS
+} = require("../paths");
 const { join } = require("path");
+
+if (process.DEBUG_PATH){
+  debug_paths();
+}
 
 module.exports = {
   context: APPROOT,

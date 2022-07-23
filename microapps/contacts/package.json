@@ -10,7 +10,7 @@
     "build:prod": "webpack build -c config/webpack/webpack.config.prod.js --color --progress",
     "analyze:bundle:baseline": "cross-env ANALYZEBASELINE=true& webpack build -c config/webpack/webpack.analyze.js --color --progress",
     "analyze:bundle": "webpack build -c config/webpack/webpack.analyze.js --color --progress",
-    "clean":"rimraf node_modules dist artefacts *.lock *.log",
+    "clean": "rimraf node_modules dist artefacts *.lock *.log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -30,6 +30,7 @@
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "mustache": "^4.2.0",
     "rimraf": "^3.0.2",
     "style-loader": "^3.3.1",
     "webpack": "^5.73.0",

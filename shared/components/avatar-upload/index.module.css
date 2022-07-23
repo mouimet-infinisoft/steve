@@ -1,0 +1,15 @@
+:root {
+  --mouse-over: 0;
+}
+
+.detailCardAvatar > * :hover {
+  cursor: pointer;
+  --mouse-over: 1;
+}
+
+.detailCardAvatarUpload {
+  opacity: var(--mouse-over);
+  position: absolute;
+  color: #4caf50;
+  z-index: 9999999;
+}

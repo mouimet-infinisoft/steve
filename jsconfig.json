@@ -11,6 +11,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "microapps/home"],
   "exclude": ["/template", "node_modules", "**/node_modules/*"]
 }

@@ -14,6 +14,8 @@ const ModuleFederationPlugin = require('webpack').container.ModuleFederationPlug
 const { MinChunkSizePlugin } = require('webpack').optimize;
 const {peerDependencies, name, infinisoft} = require(PKGJSON);
 const { join } = require('path');
+const { MFLiveReloadPlugin } = require('@module-federation/fmr');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = merge(custom, common, {
   mode: 'development',
@@ -24,12 +26,20 @@ module.exports = merge(custom, common, {
   },
   devServer: {
     static: join(APPROOT, 'artefacts','dev'),
+    hot: false,
     liveReload: true,
+    port: infinisoft.moduleFederation.devport,
     open: "/"
   },
   plugins: [
+    new MFLiveReloadPlugin({
+      port: infinisoft.moduleFederation.devport,
+      container: name,
+      standalone: true
+    }),
+    new ReactRefreshWebpackPlugin(),
     new MinChunkSizePlugin({
-      minChunkSize: 10000, // Minimum number of characters
+      minChunkSize: 10000,
     }),
     new ModuleFederationPlugin({
       name,

@@ -48,4 +48,11 @@ $ npm run start
 
 ## Start All
 
+```sh  
+$ npm run start  
+```
+>  ## Federated Module Live Reload
+>  Live reload is configured on federated module however, for already loaded module, a refresh is still required.  
+
+
 ## Build All

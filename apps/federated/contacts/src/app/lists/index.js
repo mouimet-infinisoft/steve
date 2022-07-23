@@ -36,6 +36,7 @@ const Lists = (props) => {
   return (
     <>
       {term && list?.length <= 0 && <NoResult />}
+
       <Table {...props} list={list} />
       <Cards {...props} list={list} />
       <AppPagination />

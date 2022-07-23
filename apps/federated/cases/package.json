@@ -10,7 +10,7 @@
     "build:prod": "webpack build -c config/webpack/webpack.config.prod.js --color --progress",
     "analyze:bundle:baseline": "cross-env ANALYZEBASELINE=true& webpack build -c config/webpack/webpack.analyze.js --color --progress",
     "analyze:bundle": "webpack build -c config/webpack/webpack.analyze.js --color --progress",
-    "clean":"rimraf node_modules dist artefacts *.lock *.log",
+    "clean": "rimraf node_modules dist artefacts *.lock *.log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -18,6 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.18.9",
+    "@module-federation/fmr": "^0.0.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "babel-loader": "^8.2.5",
     "babel-plugin-lodash": "^3.3.4",
@@ -44,6 +45,7 @@
   },
   "infinisoft": {
     "moduleFederation": {
+      "devport": 8082,
       "title": "Cases",
       "category": "microapps",
       "image": "https://www.kitchen.infini-soft.com/assets/infinisoftticon.png",

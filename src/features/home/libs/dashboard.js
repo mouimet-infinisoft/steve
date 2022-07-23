@@ -1,6 +1,8 @@
 import ActionTile from "@/components/action-tile";
 import AppCalendar from "@/components/calendar";
 import Checklist from "@/components/checklist";
+import IconList from "./icon-list";
+import { items } from "../mock/news";
 import { generateId } from "@/helpers";
 import { Divider, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
@@ -39,16 +41,18 @@ const Dashboard = () => {
       >
         <Box
           sx={{
-            height: "calc(100vh - 400px)",
-            // border: "1px solid",
-            // borderColor: "rgba(255, 255, 255, 0.12)",
-            // borderRadius: "15px",
-            // padding: "2rem",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+            border: "1px solid",
+            borderColor: "rgba(255, 255, 255, 0.12)",
+            borderRadius: "15px",
+            padding: "2rem",
           }}
         >
           <AppCalendar />
           <Box sx={{ display: "flex" }}>
-            <Divider sx={{ width: "350px", margin: "1rem" }} />
+            <Divider sx={{ width: "350px", margin: "2.5rem" }} />
           </Box>
 
           <Checklist list={checklist} key={generateId(Math.random())} />
@@ -61,6 +65,7 @@ const Dashboard = () => {
           flexWrap: "wrap",
           flexGrow: 2,
           flexBasis: 60,
+          justifyContent: "center"
         }}
       >
         <ActionList actions={actions} key={generateId(Math.random())} />
@@ -77,7 +82,7 @@ const Dashboard = () => {
           <Typography variant="h2" gutterBottom>
             News
           </Typography>
-          {/* <IconList items={items} key={generateId(Math.random())} /> */}
+          <IconList items={items} key={generateId(Math.random())} />
         </Box>
       </Box>
     </>

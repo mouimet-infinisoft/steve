@@ -25,7 +25,7 @@ export default function Checklist({list}) {
   };
 
   return (
-    <List sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', maxWidth: 400, bgcolor: 'background.paper', marginLeft: "1rem" }}>
       {list.map((value, index) => {
         const labelId = `checkbox-list-label-${index}`;
 

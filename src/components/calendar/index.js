@@ -6,7 +6,7 @@ function AppCalendar() {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div>
+    <div sx={{ marginLeft: "1.5rem" }}>
       <Calendar onChange={onChange} value={value} />
     </div>
   );

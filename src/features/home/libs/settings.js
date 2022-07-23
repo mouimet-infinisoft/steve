@@ -20,7 +20,7 @@ const Settings = () => {
         <Box
           sx={{
             height: "calc(100vh - 400px)",
-            padding: "2rem",
+            padding: "1.5rem",
             paddingRight: 0,
           }}
         >
@@ -50,7 +50,7 @@ const Settings = () => {
       <Divider orientation="vertical" flexItem sx={{ margin: 0, padding: 0 }} />
       <Box
         sx={{
-          padding: "2rem",
+          padding: "1.5rem",
           display: "flex",
           gap: 4,
           flexWrap: "wrap",
@@ -60,6 +60,7 @@ const Settings = () => {
       >
         Settings
       </Box>
+      <Divider orientation="vertical" flexItem sx={{ margin: 0, padding: 0 }} />
       <Box
         sx={{
           flexGrow: 1,
@@ -68,7 +69,7 @@ const Settings = () => {
           height: "calc(100vh - 400px)"
         }}
       >
-        <Box sx={{ height: "calc(100vh - 400px)", padding: "2rem" }}>Settings</Box>
+        <Box sx={{ height: "calc(100vh - 400px)", padding: "1.5rem" }}>Settings</Box>
       </Box>
     </>
   );

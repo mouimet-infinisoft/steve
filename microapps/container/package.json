@@ -1,5 +1,5 @@
 {
-  "name": "contacts",
+  "name": "container",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -44,12 +44,14 @@
   },
   "infinisoft": {
     "moduleFederation": {
-      "title": "Contact",
+      "title": "Container",
       "category": "microapps",
       "image": "https://www.kitchen.infini-soft.com/assets/infinisoftticon.png",
-      "component": "Contact",
+      "component": "Container",
       "dev": {
-        "remotes": {}
+        "remotes": {
+          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js"
+        }
       },
       "prod": {
         "remotes": {}

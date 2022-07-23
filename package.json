@@ -69,8 +69,9 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "start": "set NODE_ENV=development&& node scripts/start.js",
-    "build": "node scripts/build.js",
+    "startold": "set NODE_ENV=development&& node scripts/start.js",
+    "start": "serve -l 5000 -s microapps",
+    "build": "node scripts/start.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -148,5 +149,21 @@
     "presets": [
       "react-app"
     ]
+  },
+  "infinisoft": {
+    "moduleFederation": {
+      "title": "Container",
+      "category": "microapps",
+      "image": "https://www.kitchen.infini-soft.com/assets/components.png",
+      "component": "Container",
+      "dev": {
+        "remotes": {
+          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js"
+        }
+      },
+      "prod": {
+        "remotes": { }
+      }
+    }
   }
 }

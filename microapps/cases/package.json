@@ -49,7 +49,9 @@
       "image": "https://www.kitchen.infini-soft.com/assets/infinisoftticon.png",
       "component": "Case",
       "dev": {
-        "remotes": {}
+        "remotes": {
+          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js"
+        }
       },
       "prod": {
         "remotes": {}

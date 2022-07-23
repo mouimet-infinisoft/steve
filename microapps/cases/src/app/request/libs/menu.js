@@ -36,8 +36,8 @@ export default function IconMenu() {
               borderLeft: `5px solid ${theme.palette.primary.light}`
             }
           })}
-          to={`${id}/${label}`}
-          selected={path?.includes(`${id}/${label}`)}
+          to={label}
+          selected={path?.includes(label)}
           component={Link}
         >
           <ListItemIcon sx={{ px: "1rem" }}>{icon}</ListItemIcon>

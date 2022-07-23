@@ -26,7 +26,7 @@ const Layout = () => {
           variant="extended"
           color="primary"
           onClick={onCreate(store, (id) =>
-            navigate(`/${config.feature.name}/${id}`)
+            navigate(id)
           )}
           sx={{
             display: { xs: "none", md: "inherit" }

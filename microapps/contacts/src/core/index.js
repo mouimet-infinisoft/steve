@@ -4,11 +4,12 @@ import Router from "@/core/router";
 import MicroContextProvider from "@/core/state/context";
 import { Suspense } from "react";
 
-function App() {
+function App(props) {
+  console.log(`POSP  = `, props);
   return (
     <Suspense>
       <MicroContextProvider>
-        <BrowserRouter>
+        <BrowserRouter basename={props?.basename}>
           <Router />
         </BrowserRouter>
       </MicroContextProvider>

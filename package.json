@@ -70,9 +70,13 @@
   },
   "scripts": {
     "start": "set NODE_ENV=development&& concurrently \"npm run start:federation\" \"npm run start:cases\" \"npm run start:contacts\" \"npm run start:container\"",
+    "start:prod": "set NODE_ENV=production&& concurrently \"npm run start:federation\" \"npm run start:cases:prod\" \"npm run start:contacts:prod\" \"npm run start:container:prod\"",
     "start:container": "\"cd apps/federated/container&& npm run start\"",
+    "start:container:prod": "\"cd apps/federated/container&& npm run start:prod\"",
     "start:contacts": "\"cd apps/federated/contacts&& npm run build:dev:watch\"",
+    "start:contacts:prod": "\"cd apps/federated/contacts&& npm run build:prod:watch\"",
     "start:cases": "\"cd apps/federated/cases&& npm run build:dev:watch\"",
+    "start:cases:prod": "\"cd apps/federated/cases&& npm run build:prod:watch\"",
     "start:federation": "serve -l 5000 -s apps/federated",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",

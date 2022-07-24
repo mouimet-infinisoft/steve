@@ -35,9 +35,5 @@ jobs:
       run: npm run ci:test
     - name: 🚀 Deploy
       working-directory: ./apps/federated
-      run: surge . $SurgeDomain --token $SurgeToken
-    - name: 🚀 Deploy
-      run: pwd
-    - name: 🚀 Deploy
-      run: ls
+      run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
     

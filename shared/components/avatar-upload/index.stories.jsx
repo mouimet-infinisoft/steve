@@ -1,5 +1,5 @@
 import React from 'react';
-import {AvatarUpload} from './index.jsx';
+import {AvatarUpload} from './index.js';
 
 export default {
   title: 'Components/AvatarUpload',

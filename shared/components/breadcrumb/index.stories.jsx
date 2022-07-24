@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MietteDePain } from './index.jsx';
+import { MietteDePain } from './index.js';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

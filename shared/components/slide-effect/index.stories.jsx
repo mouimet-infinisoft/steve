@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider } from './index.jsx';
+import { Slider } from './index.js';
 
 export default {
   title: 'Components/Slider',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import  { ActionTile } from './index.jsx';
+import  { ActionTile } from './index.js';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

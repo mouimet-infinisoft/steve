@@ -152,9 +152,6 @@ Using generators to create new components, you can access these aliases when imp
 ```js
 import CrudChipList from "@/components/breadcrumb";
 ```
-
-
-
 # Components
 
 Stateless component are in `shared/components` folder.

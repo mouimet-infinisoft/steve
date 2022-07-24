@@ -2,7 +2,7 @@ name: Deploy Preview on Edison
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ ci ]
 
 jobs:
   build:

@@ -26,12 +26,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: 📥 Initialize workspace
-      run: npm i
-    - run: npm install --location=global surge lerna
+      run: npm install --location=global surge lerna
     - name: 🔨 Build
       run: lerna run build
     - name: 🧪 Test
       run: npm run ci:test
     - name: 🚀 Deploy
-    - run: surge ./apps/federated $SurgeDomain --token $SurgeToken
+      run: surge ./apps/federated $SurgeDomain --token $SurgeToken
     

@@ -8,7 +8,7 @@ function Core() {
   return (
     <Component>
       <MicroContextProvider>
-        <Router>
+        <Router basename="/">
           <CoreRouter />
         </Router>
       </MicroContextProvider>

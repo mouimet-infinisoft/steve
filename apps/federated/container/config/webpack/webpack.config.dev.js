@@ -21,14 +21,15 @@ module.exports = merge(custom, common, {
   output: {
     filename: '[name].[contenthash].js',
     path: join(APPROOT, 'artefacts', 'dev'),
-    publicPath: 'auto',
+    publicPath: '/',
   },
   devServer: {
     static: join(APPROOT, 'artefacts','dev'),
     hot: false,
     liveReload: true,
     port: infinisoft.moduleFederation.devport,
-    open: "/"
+    open: "/",
+    historyApiFallback: true
   },
   plugins: [
     new MFLiveReloadPlugin({

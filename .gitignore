@@ -2,7 +2,7 @@
 
 # dependencies
 node_modules
-artefacts
+# artefacts
 dist
 /templates
 /.pnp

@@ -15,4 +15,8 @@ jobs:
         with:
           node-version: 8
       - run: npm install -g surge
-      - run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: surge ./apps/federated ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      - run: pwd
+      - run: cd apps
+      - run: pwd
+      - run: ls

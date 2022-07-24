@@ -140,15 +140,17 @@ There are 3 preview channels available. When you PR on one of these branch, it w
 4. Build
 5. Deploy on preview
 
-| Branch  | URL                                 |
-| ------- | ----------------------------------- |
+| Branch  | URL                                                           |
+| ------- | ------------------------------------------------------------- |
 | parking | https://fearful-language.surge.sh/`YOUR_APP`/artefacts/prod   |
 | edison  | https://abhorrent-teaching.surge.sh/`YOUR_APP`/artefacts/prod |
 | steve   | https://apathetic-able.surge.sh/`YOUR_APP`/artefacts/prod     |
-
+| dev     | https://instinctive-smile.surge.sh/`YOUR_APP`/artefacts/prod  |
+| main    | https://unknown/`YOUR_APP`/artefacts/prod                     |
 
 > ## Example
-> https://apathetic-able.surge.sh/contacts/artefacts/prod   
+>
+> https://apathetic-able.surge.sh/contacts/artefacts/prod
 
 <br />
 <br />

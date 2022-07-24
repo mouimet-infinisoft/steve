@@ -27,14 +27,8 @@ jobs:
         cache: 'npm'
     - name: 📦 Install
       run: npm install
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - name: 📥 Initialize workspace
       run: npm install --location=global surge lerna
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - name: 🔨 Build
       run: lerna run build
     - name: 🧪 Test

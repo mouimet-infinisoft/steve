@@ -1,14 +1,14 @@
 ```
-#### ##    ## ######## #### ##    ## ####  ######   #######  ######## ######## 
- ##  ###   ## ##        ##  ###   ##  ##  ##    ## ##     ## ##          ##    
- ##  ####  ## ##        ##  ####  ##  ##  ##       ##     ## ##          ##    
- ##  ## ## ## ######    ##  ## ## ##  ##   ######  ##     ## ######      ##    
- ##  ##  #### ##        ##  ##  ####  ##        ## ##     ## ##          ##    
- ##  ##   ### ##        ##  ##   ###  ##  ##    ## ##     ## ##          ##    
-#### ##    ## ##       #### ##    ## ####  ######   #######  ##          ##    
+#### ##    ## ######## #### ##    ## ####  ######   #######  ######## ########
+ ##  ###   ## ##        ##  ###   ##  ##  ##    ## ##     ## ##          ##
+ ##  ####  ## ##        ##  ####  ##  ##  ##       ##     ## ##          ##
+ ##  ## ## ## ######    ##  ## ## ##  ##   ######  ##     ## ######      ##
+ ##  ##  #### ##        ##  ##  ####  ##        ## ##     ## ##          ##
+ ##  ##   ### ##        ##  ##   ###  ##  ##    ## ##     ## ##          ##
+#### ##    ## ##       #### ##    ## ####  ######   #######  ##          ##
 ```
-> "I have not failed. I've just found 10,000 ways that won't work.", <br/>
-> <i>Thomas A. Edison & Martin Ouimet</i>
+
+> "I have not failed. I've just found 10,000 ways that won't work.", <br/> > <i>Thomas A. Edison & Martin Ouimet</i>
 
 # Environment Variables
 
@@ -44,6 +44,7 @@ For now there is only one main solution for the project. It can be started as fo
 ```sh
 $ npm run start
 ```
+
 <br />
 <br />
 
@@ -93,6 +94,7 @@ $ npm run start
 <br />
 
 # Debugging
+
 Minimal Vs Code debugging configuration.
 
 1. Start all
@@ -127,4 +129,40 @@ Bundle Analysing tools, 2 reports are generated.
 <br />
 <br />
 
-# Build 
+# Build
+
+
+
+# Scaffodling
+Create micro apps.
+
+## Templates
+Using `unknown for now` our generator with these templates.
+
+1. Federated Micro App
+
+## Aliases 
+Using generators to create new components, you can access these aliases when importing.
+
+| Imports      | descriptions      |
+| ------------ | ----------------- |
+| @/components | Shared components |
+| @/helpers    | Shared helpers    |
+
+```js
+import CrudChipList from "@/components/breadcrumb";
+```
+
+
+
+# Components
+
+Stateless component are in `shared/components` folder.
+
+## Storybook
+
+```sh
+$ npm run storybook
+```
+
+> Open on http://localhost:6006

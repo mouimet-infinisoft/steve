@@ -74,8 +74,8 @@
     "start:contacts": "\"cd apps/federated/contacts&& npm run build:dev:watch\"",
     "start:cases": "\"cd apps/federated/cases&& npm run build:dev:watch\"",
     "start:federation": "serve -l 5000 -s apps/federated",
-    "build": "node scripts/start.js",
-    "test": "node scripts/test.js"
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": [
@@ -168,5 +168,16 @@
         "remotes": {}
       }
     }
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "storybook-dark-mode": "^1.1.0"
   }
 }

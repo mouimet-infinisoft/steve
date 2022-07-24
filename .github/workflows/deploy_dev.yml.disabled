@@ -26,16 +26,10 @@ jobs:
         cache: 'npm'
     - name: 📥 Initialize workspace
       working-directory: ./backend
-      run: npm i
-    - name: 🚧 Configuration
-      working-directory: ./backend
-      run: firebase use bookt-dev --token $FirebaseToken --non-interactive
+      run: npm run ci
     - name: 🔨 Build
-      working-directory: ./backend
-      run: yarn run build
+      run: npm run ci:build
     - name: 🧪 Test
-      working-directory: ./backend
-      run: yarn test
+      run: npm run ci:test
     - name: 🚀 Deploy
-      working-directory: ./backend
-      run: firebase deploy --only functions,firestore --token $FirebaseToken --non-interactive 
+      run: npm run ci:deploy

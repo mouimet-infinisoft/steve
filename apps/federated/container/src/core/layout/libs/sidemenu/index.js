@@ -62,7 +62,7 @@ const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== "open"
 }));
 
 const lists = [
-  { label: "home", icon: <HomeTwoToneIcon /> },
+  { label: "", icon: <HomeTwoToneIcon /> },
   { label: "contacts", icon: <ContactsTwoToneIcon /> },
   { label: "messages", icon: <MessageTwoToneIcon /> },
   { label: "organizations", icon: <CorporateFareTwoToneIcon /> },

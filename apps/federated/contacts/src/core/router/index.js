@@ -19,7 +19,7 @@ const Feature = () => {
   return (
     <Routes>
       <Route path="*" element={<ListLayout />}>
-        <Route path=":id/*" element={<Details />}>
+        <Route path=":id" element={<Details />}>
           <Route path="contact" element={<Contact />} />
           <Route path="relations" element={<Relations />} />
           <Route path="extra" element={<ExtraFields />} />

@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@amityco/js-sdk": "^5.21.0",
     "@babel/core": "^7.16.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -59,6 +58,7 @@
     "semver": "^7.3.5",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
+    "surge": "^0.23.1",
     "tailwindcss": "^3.0.2",
     "terser-webpack-plugin": "^5.2.5",
     "uuid": "^8.3.2",
@@ -76,10 +76,11 @@
     "start:federation": "serve -l 5000 -s apps/federated",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "ci":"echo not implemented",
-    "ci:build":"echo not implemented",
-    "ci:test":"echo not implemented",
-    "ci:deploy":"echo not implemented"
+    "ci": "echo not implemented",
+    "ci:build": "echo not implemented",
+    "ci:test": "echo not implemented",
+    "ci:deploy": "echo not implemented",
+    "setup:developer": "bash shared/scripts/setup_developer.sh"
   },
   "eslintConfig": {
     "extends": [
@@ -174,6 +175,7 @@
     }
   },
   "devDependencies": {
+    "@nrwl/nx-cloud": "latest",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
@@ -182,6 +184,11 @@
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
+    "lerna": "^5.2.0",
+    "nx": "14.4.3",
     "storybook-dark-mode": "^1.1.0"
-  }
+  },
+  "workspaces": [
+    "apps/federated/*"
+  ]
 }

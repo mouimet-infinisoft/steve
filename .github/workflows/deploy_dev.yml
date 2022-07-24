@@ -10,8 +10,9 @@ jobs:
   pipeline:
     name: Pipeline
     runs-on: ubuntu-latest
-    # env:
-    #   FirebaseToken: ${{ secrets.FIREBASE_TOKEN_DEV }}
+    env:
+      SurgeDomain: ${{ secrets.SURGE_DOMAIN }}
+      SurgeToken: ${{ secrets.SURGE_TOKEN }}
     strategy:
       matrix:
         node-version: [16.x]
@@ -26,12 +27,11 @@ jobs:
         cache: 'npm'
     - name: 📥 Initialize workspace
       run: npm i
-    - run: npm install -g surge lerna
+    - run: npm install --location=global surge lerna
     - name: 🔨 Build
       run: lerna run build
     - name: 🧪 Test
       run: npm run ci:test
     - name: 🚀 Deploy
-      run: npm run ci:deploy
-    - run: surge ./apps/federated ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+    - run: surge ./apps/federated $SurgeDomain --token $SurgeToken
     

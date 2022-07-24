@@ -48,7 +48,6 @@ module.exports = merge(custom, common, {
         [`./${infinisoft.moduleFederation.component}`]: join(APPROOT, 'src', 'core'),
       },
       shared: {
-
         ...peerDependencies,
         "@infini-soft/store": { singleton: true, eager:true, requiredVersion: peerDependencies["@infini-soft/store"]},
         react: { singleton: true, eager:true, requiredVersion: peerDependencies.react },

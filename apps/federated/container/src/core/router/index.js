@@ -35,8 +35,8 @@ const CoreRouter = ({ basename = "/"}) => {
           <Route index element={<Home />} />
           <Route
             path="contacts/*"
-            // element={<Contacts basename={"/contacts"} />}
             element={<Contacts basename={"/contacts"} />}
+            // element={<Contacts  />}
           />
           <Route
             path="cases/*"

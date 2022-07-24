@@ -49,7 +49,6 @@ module.exports = merge(custom, common, {
       },
       shared: {
         ...peerDependencies,
-        "@emotion/react": { singleton: true },
         "@infini-soft/store": { singleton: true,  requiredVersion: peerDependencies["@infini-soft/store"]},
         react: { singleton: true, requiredVersion: peerDependencies.react },
         'react-dom': {

@@ -26,9 +26,12 @@ jobs:
         cache: 'npm'
     - name: 📥 Initialize workspace
       run: npm run ci
+    - run: npm install -g surge
     - name: 🔨 Build
       run: npm run ci:build
     - name: 🧪 Test
       run: npm run ci:test
     - name: 🚀 Deploy
       run: npm run ci:deploy
+    - run: surge ./apps/federated ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+    

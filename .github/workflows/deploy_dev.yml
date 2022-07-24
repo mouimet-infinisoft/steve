@@ -1,4 +1,4 @@
-name: Pipeline
+name: Dev Pipeline
 
 on:
   push:
@@ -35,5 +35,5 @@ jobs:
       run: npm run ci:test
     - name: 🚀 Deploy
       working-directory: ./apps/federated
-      run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      run: surge ./ ${{ secrets.SURGE_DEV }} --token ${{ secrets.SURGE_TOKEN }}
     

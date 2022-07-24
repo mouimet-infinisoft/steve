@@ -2,7 +2,7 @@ name: Pipeline
 
 on:
   push:
-    branches: [ ci ]
+    branches: [ dev ]
   pull_request:
     branches: [ dev ]
 

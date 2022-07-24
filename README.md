@@ -10,12 +10,9 @@
 
 > "I have not failed. I've just found 10,000 ways that won't work.", <br/> > <i>Thomas A. Edison & Martin Ouimet</i>
 
-
 # Setup Dev Environement
 
-`sh
-$ npm run setup:developer
-`
+`sh $ npm run setup:developer `
 
 # Environment Variables
 
@@ -133,22 +130,43 @@ Bundle Analysing tools, 2 reports are generated.
 | analyze:bundle:baseline | Run analysis as a comparison baseline |
 | analyze:bundle          | Run analysis                          |
 
+## Preview Channels
+
+There are 3 preview channels available. When you PR on one of these branch, it will automaticaly do following steps. Only federated apps are configured. (App under `apps/federated` folder)
+
+1. Pull code from github repo
+2. Provison runner machine
+3. Install Dependencies
+4. Build
+5. Deploy on preview
+
+| Branch  | URL                                 |
+| ------- | ----------------------------------- |
+| parking | https://fearful-language.surge.sh/`YOUR_APP`/artefacts/prod   |
+| edison  | https://abhorrent-teaching.surge.sh/`YOUR_APP`/artefacts/prod |
+| steve   | https://apathetic-able.surge.sh/`YOUR_APP`/artefacts/prod     |
+
+
+> ## Example
+> https://apathetic-able.surge.sh/contacts/artefacts/prod   
+
 <br />
 <br />
 
 # Build
 
-
-
 # Scaffodling
+
 Create micro apps.
 
 ## Templates
+
 Using `unknown for now` our generator with these templates.
 
 1. Federated Micro App
 
-## Aliases 
+## Aliases
+
 Using generators to create new components, you can access these aliases when importing.
 
 | Imports      | descriptions      |
@@ -159,6 +177,7 @@ Using generators to create new components, you can access these aliases when imp
 ```js
 import CrudChipList from "@/components/breadcrumb";
 ```
+
 # Components
 
 Stateless component are in `shared/components` folder.

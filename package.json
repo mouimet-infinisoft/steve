@@ -189,6 +189,6 @@
     "@nrwl/nx-cloud": "latest"
   },
   "workspaces": [
-    "packages/*"
+    "apps/federated/*"
   ]
 }

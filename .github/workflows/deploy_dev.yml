@@ -26,9 +26,9 @@ jobs:
         cache: 'npm'
     - name: 📥 Initialize workspace
       run: npm run ci
-    - run: npm install -g surge
+    - run: npm install -g surge lerna
     - name: 🔨 Build
-      run: npm run ci:build
+      run: lerna run ci:build
     - name: 🧪 Test
       run: npm run ci:test
     - name: 🚀 Deploy

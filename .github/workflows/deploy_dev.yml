@@ -31,8 +31,8 @@ jobs:
       run: npm install --location=global surge lerna
     - name: 🔨 Build
       run: lerna run build
-    - name: 🧪 Test
-      run: npm run ci:test
+    - name: 🧪 Analyze Bundle
+      run: lerna run analyze:bundle
     - name: 🚀 Deploy
       working-directory: ./apps/federated
       run: surge ./ ${{ secrets.SURGE_DEV }} --token ${{ secrets.SURGE_TOKEN }}

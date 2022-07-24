@@ -1,6 +1,8 @@
 name: Edison Preview
 
 on:
+  push:
+    branches: [ edison ]
   pull_request:
     branches: [ edison ]
 

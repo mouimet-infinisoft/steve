@@ -10,7 +10,7 @@
     "@infini-soft/store": "^0.1.24",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.89",
-    "@mui/material": "^5.8.7",
+    "@mui/material": "^5.9.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^5.16.4",
@@ -69,8 +69,12 @@
     "workbox-webpack-plugin": "^6.4.1"
   },
   "scripts": {
-    "start": "set NODE_ENV=development&& node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start": "set NODE_ENV=development&& concurrently \"npm run start:federation\" \"npm run start:cases\" \"npm run start:contacts\" \"npm run start:container\"",
+    "start:container": "\"cd apps/federated/container&& npm run start\"",
+    "start:contacts": "\"cd apps/federated/contacts&& npm run build:dev:watch\"",
+    "start:cases": "\"cd apps/federated/cases&& npm run build:dev:watch\"",
+    "start:federation": "serve -l 5000 -s apps/federated",
+    "build": "node scripts/start.js",
     "test": "node scripts/test.js"
   },
   "eslintConfig": {
@@ -148,5 +152,21 @@
     "presets": [
       "react-app"
     ]
+  },
+  "infinisoft": {
+    "moduleFederation": {
+      "title": "Container",
+      "category": "microapps",
+      "image": "https://www.kitchen.infini-soft.com/assets/components.png",
+      "component": "Container",
+      "dev": {
+        "remotes": {
+          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js"
+        }
+      },
+      "prod": {
+        "remotes": {}
+      }
+    }
   }
 }

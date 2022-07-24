@@ -1,4 +1,4 @@
-name: Dev Pipeline
+name: Pipeline
 
 on:
   push:
@@ -7,11 +7,11 @@ on:
     branches: [ dev ]
 
 jobs:
-  backend:
-    name: Backend - Development Environment
+  pipeline:
+    name: Pipeline
     runs-on: ubuntu-latest
-    env:
-      FirebaseToken: ${{ secrets.FIREBASE_TOKEN_DEV }}
+    # env:
+    #   FirebaseToken: ${{ secrets.FIREBASE_TOKEN_DEV }}
     strategy:
       matrix:
         node-version: [16.x]
@@ -25,7 +25,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: 📥 Initialize workspace
-      working-directory: ./backend
       run: npm run ci
     - name: 🔨 Build
       run: npm run ci:build

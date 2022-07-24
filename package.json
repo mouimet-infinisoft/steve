@@ -75,7 +75,7 @@
     "start:cases": "\"cd apps/federated/cases&& npm run build:dev:watch\"",
     "start:federation": "serve -l 5000 -s apps/federated",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook --docs"
   },
   "eslintConfig": {
     "extends": [

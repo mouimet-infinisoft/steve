@@ -14,7 +14,7 @@ const _defaultConfig = {
   src: defaultAvatar
 };
 
-const AvatarUpload = ({ src = _defaultConfig.src, save }) => {
+export const AvatarUpload = ({ src = _defaultConfig.src, save }) => {
   const onChange = (e) => {
     const file = new FileReader();
     if (e.target?.files?.[0]) {
@@ -46,4 +46,3 @@ const AvatarUpload = ({ src = _defaultConfig.src, save }) => {
   );
 };
 
-export default AvatarUpload;

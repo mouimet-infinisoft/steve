@@ -14,7 +14,8 @@ import React, { Suspense } from 'react';
   },
 };
 
-const Slider = (
+
+export const Slider = (
   { children, direction = 'left', styleProps = {}, ...props }
 ) => {
   return (
@@ -35,4 +36,7 @@ const Slider = (
   );
 };
 
-export default Slider
+
+
+
+

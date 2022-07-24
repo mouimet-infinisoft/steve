@@ -15,7 +15,6 @@ const { MinChunkSizePlugin } = require('webpack').optimize;
 const {peerDependencies, name, infinisoft} = require(PKGJSON);
 const { join } = require('path');
 const { MFLiveReloadPlugin } = require('@module-federation/fmr');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = merge(custom, common, {
   mode: 'development',
@@ -37,7 +36,6 @@ module.exports = merge(custom, common, {
       container: name,
       standalone: true
     }),
-    new ReactRefreshWebpackPlugin(),
     new MinChunkSizePlugin({
       minChunkSize: 10000,
     }),

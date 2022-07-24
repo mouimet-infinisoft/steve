@@ -14,7 +14,7 @@ const Contacts = React.lazy(() =>
   import(/* webpackChunkName: 'Contacts' */ "contacts/Contact")
 );
 
-const Feature = ({basename='/'}) => {
+const Feature = () => {
   const { log } = useMicroContext()
   const location = useLocation();
 
@@ -31,7 +31,7 @@ const Feature = ({basename='/'}) => {
       <Route path=":id" element={<RequestLayout />}>
         <Route index element={<Details />} />
         <Route path="Details" element={<Details />} />
-        <Route path="Individuals" element={<Contacts basename={basename} />} />
+        <Route path="Individuals" element={<Contacts />} />
         {/* <Route
           path="Individuals"
           element={<Individuals handleOnChange={undefined} />}

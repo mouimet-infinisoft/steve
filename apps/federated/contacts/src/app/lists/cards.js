@@ -11,9 +11,9 @@ const ContactCard = React.lazy(() =>
 export default function Cards({ list = [] }) {
   const { store } = useMicroContext();
   const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
-debugger
   return (
     <>
+    
       {list
         ?.filter((i) => i?.state === "active")
         ?.map((item) => (

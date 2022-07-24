@@ -5,6 +5,7 @@ import MicroContextProvider from "@/core/state/context";
 import Component from '@/components/component'
 
 function App() {
+
   return (
     <Component>
       <MicroContextProvider>

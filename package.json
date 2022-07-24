@@ -71,7 +71,7 @@
   "scripts": {
     "start": "set NODE_ENV=development&& concurrently \"npm run start:federation\" \"npm run start:cases\" \"npm run start:contacts\" \"npm run start:container\"",
     "start:container": "\"cd apps/federated/container&& npm run start\"",
-    "start:contacts": "\"cd apps/federated/container&& npm run build:dev:watch\"",
+    "start:contacts": "\"cd apps/federated/contacts&& npm run build:dev:watch\"",
     "start:cases": "\"cd apps/federated/cases&& npm run build:dev:watch\"",
     "start:federation": "serve -l 5000 -s apps/federated",
     "build": "node scripts/start.js",

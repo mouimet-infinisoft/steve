@@ -19,7 +19,6 @@
   "devDependencies": {
     "@babel/core": "^7.18.9",
     "@module-federation/fmr": "^0.0.7",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "babel-loader": "^8.2.5",
     "babel-plugin-lodash": "^3.3.4",
     "babel-plugin-named-asset-import": "^0.3.8",
@@ -47,7 +46,7 @@
   },
   "infinisoft": {
     "moduleFederation": {
-      "devport":8080,
+      "devport": 8080,
       "title": "Container",
       "category": "microapps",
       "image": "https://www.kitchen.infini-soft.com/assets/infinisoftticon.png",

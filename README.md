@@ -3,12 +3,13 @@
 # Environment Variables
 
 Webpack
-DEBUG_PATH      Outputs webpack configured path
+DEBUG_PATH      Outputs webpack configured paths on start.
 
 # Configuration
 
 ## config/index.js
-Feature name            Important and has impact on module federation
+Feature name        string              The feature name. Also source of events and important for moudle federation.
+verbose             boolean             Enable debug logging
 
 
 # Mono Repo

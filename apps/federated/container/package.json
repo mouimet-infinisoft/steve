@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "start": "node --inspect node_modules/webpack-dev-server/bin/webpack-dev-server.js -c config/webpack/webpack.config.dev.js --color --progress",
-    "build": "npm run build:dev",
+    "build": "npm run build:prod",
     "build:dev": "webpack build -c config/webpack/webpack.config.dev.js --color --progress",
     "build:dev:watch": "webpack build -c config/webpack/webpack.config.dev.js --color --progress --watch",
     "build:prod": "webpack build -c config/webpack/webpack.config.prod.js --color --progress",

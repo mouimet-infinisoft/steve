@@ -25,10 +25,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: 📥 Initialize workspace
-      run: npm run ci
+      run: npm run i
     - run: npm install -g surge lerna
     - name: 🔨 Build
-      run: lerna run ci:build
+      run: lerna run build
     - name: 🧪 Test
       run: npm run ci:test
     - name: 🚀 Deploy

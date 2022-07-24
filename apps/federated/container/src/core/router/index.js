@@ -7,8 +7,9 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Layout from "../layout";
 import React from "react";
 import { config } from "@/config/";
-import { useMicroContext, } from "../state";
+import { useMicroContext } from "../state";
 import NoResult from "@/components/no-result";
+import Home from "../../home";
 
 const Cases = React.lazy(() =>
   import(/* webpackChunkName: 'Cases' */ "cases/Case")
@@ -27,14 +28,17 @@ const Router = () => {
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        {/* <Route path="home/*" element={<Home />} /> */}
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
         <Route
           path="contacts/*"
           // element={<Contacts basename={"/contacts"} />}
           element={<Contacts basename={location?.basename ?? "/"} />}
         />
-        <Route path="cases/*" element={<Cases basename={"/cases"} />} />
+        <Route
+          path="cases/*"
+          element={<Cases basename={location?.basename ?? "/"} />}
+        />
         {/* <Route path="messages/*" element={<Messages />} />
         <Route path="organizations/*" element={<Organizations />} />
         <Route path="community/*" element={<Community />} />

@@ -58,7 +58,10 @@
         }
       },
       "prod": {
-        "remotes": {}
+        "remotes": {
+          "contacts": "contacts@https://apathetic-able.surge.sh/contacts/artefacts/prod/remoteEntry.js",
+          "cases": "cases@https://apathetic-able.surge.sh/cases/artefacts/prod/remoteEntry.js"
+        }
       }
     },
     "tag": "microapp"

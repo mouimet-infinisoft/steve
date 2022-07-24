@@ -10,6 +10,7 @@
     "build:prod": "webpack build -c config/webpack/webpack.config.prod.js --color --progress",
     "analyze:bundle:baseline": "cross-env ANALYZEBASELINE=true& webpack build -c config/webpack/webpack.analyze.js --color --progress",
     "analyze:bundle": "webpack build -c config/webpack/webpack.analyze.js --color --progress",
+    "deploy:preview:one":"",
     "clean": "rimraf node_modules dist artefacts *.lock *.log",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -55,7 +56,9 @@
         }
       },
       "prod": {
-        "remotes": {}
+        "remotes": {
+          "contacts": "contacts@https://apathetic-able.surge.sh/contacts/artefacts/prod/remoteEntry.js"
+        }
       }
     },
     "tag": "microapp"

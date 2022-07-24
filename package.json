@@ -76,10 +76,11 @@
     "start:federation": "serve -l 5000 -s apps/federated",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "ci":"echo not implemented",
-    "ci:build":"echo not implemented",
-    "ci:test":"echo not implemented",
-    "ci:deploy":"echo not implemented"
+    "ci": "echo not implemented",
+    "ci:build": "echo not implemented",
+    "ci:test": "echo not implemented",
+    "ci:deploy": "echo not implemented",
+    "setup:developer": "bash shared/scripts/setup_developer.sh"
   },
   "eslintConfig": {
     "extends": [

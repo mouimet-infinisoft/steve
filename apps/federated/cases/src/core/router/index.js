@@ -15,7 +15,7 @@ const Contacts = React.lazy(() =>
 );
 
 const Feature = () => {
-  const { log } = useMicroContext()
+  const { log } = useMicroContext();
   const location = useLocation();
 
   if (config?.verbose) {
@@ -24,11 +24,11 @@ const Feature = () => {
 
   return (
     <Routes>
-      <Route element={<ListLayout />}>
+      <Route path="*" element={<ListLayout />}>
         <Route index element={<List />} />
       </Route>
 
-      <Route path=":id" element={<RequestLayout />}>
+      <Route path=":id/*" element={<RequestLayout />}>
         <Route index element={<Details />} />
         <Route path="Details" element={<Details />} />
         <Route path="Individuals" element={<Contacts />} />

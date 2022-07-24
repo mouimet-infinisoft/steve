@@ -1,0 +1,9 @@
+**/config/
+**/mock/
+**/node_modules/
+**/src/
+.surgeignore
+*.json
+*.md
+**/dev/
+container/

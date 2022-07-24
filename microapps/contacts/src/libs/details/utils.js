@@ -1,1 +1,0 @@
-export const removeIdAndKeys = (list) => list.map(({id, key, ...rest}) => rest);

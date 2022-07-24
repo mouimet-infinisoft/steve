@@ -9,7 +9,7 @@ import ListLayout from "../layout/listlayout";
 import Details from "@/app/details";
 import { BrowserRouter as Router } from "react-router-dom";
 
-const CoreRouter = ({ basename }) => {
+const CoreRouter = ({basename}) => {
   const { log } = useMicroContext();
 
   if (config?.verbose) {
@@ -22,6 +22,7 @@ const CoreRouter = ({ basename }) => {
       <Routes>
         <Route path="*" element={<ListLayout />}>
           <Route path=":id" element={<Details />}>
+            <Route index element={<Contact />} />
             <Route path="contact" element={<Contact />} />
             <Route path="relations" element={<Relations />} />
             <Route path="extra" element={<ExtraFields />} />

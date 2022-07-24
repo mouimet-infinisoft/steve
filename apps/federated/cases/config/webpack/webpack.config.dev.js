@@ -28,7 +28,8 @@ module.exports = merge(custom, common, {
     hot: false,
     liveReload: true,
     port: infinisoft.moduleFederation.devport,
-    open: "/"
+    open: "/",
+    historyApiFallback: true
   },
   plugins: [
     new MFLiveReloadPlugin({
@@ -48,11 +49,11 @@ module.exports = merge(custom, common, {
       },
       shared: {
         ...peerDependencies,
-        "@infini-soft/store": { singleton: true, eager:true, requiredVersion: peerDependencies["@infini-soft/store"]},
-        react: { singleton: true, eager:true, requiredVersion: peerDependencies.react },
+        "@emotion/react": { singleton: true },
+        "@infini-soft/store": { singleton: true,  requiredVersion: peerDependencies["@infini-soft/store"]},
+        react: { singleton: true, requiredVersion: peerDependencies.react },
         'react-dom': {
           singleton: true,
-          eager:true, 
           requiredVersion: peerDependencies['react-dom'],
         },
       },

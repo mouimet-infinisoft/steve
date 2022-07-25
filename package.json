@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@amityco/js-sdk": "^5.21.0",
     "@babel/core": "^7.16.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
@@ -59,6 +58,7 @@
     "semver": "^7.3.5",
     "source-map-loader": "^3.0.0",
     "style-loader": "^3.3.1",
+    "surge": "^0.23.1",
     "tailwindcss": "^3.0.2",
     "terser-webpack-plugin": "^5.2.5",
     "uuid": "^8.3.2",
@@ -70,12 +70,25 @@
   },
   "scripts": {
     "start": "set NODE_ENV=development&& concurrently \"npm run start:federation\" \"npm run start:cases\" \"npm run start:contacts\" \"npm run start:container\"",
+    "start:prod": "set NODE_ENV=production&& concurrently \"npm run start:federation\" \"npm run start:cases:prod\" \"npm run start:contacts:prod\" \"npm run start:container:prod\"",
     "start:container": "\"cd apps/federated/container&& npm run start\"",
+    "start:container:prod": "\"cd apps/federated/container&& npm run start:prod\"",
     "start:contacts": "\"cd apps/federated/contacts&& npm run build:dev:watch\"",
+    "start:contacts:prod": "\"cd apps/federated/contacts&& npm run build:prod:watch\"",
     "start:cases": "\"cd apps/federated/cases&& npm run build:dev:watch\"",
+    "start:cases:prod": "\"cd apps/federated/cases&& npm run build:prod:watch\"",
     "start:federation": "serve -l 5000 -s apps/federated",
     "storybook": "start-storybook -p 6006",
+<<<<<<< HEAD
     "build-storybook": "build-storybook --docs"
+=======
+    "build-storybook": "build-storybook",
+    "ci": "echo not implemented",
+    "ci:build": "echo not implemented",
+    "ci:test": "echo not implemented",
+    "ci:deploy": "echo not implemented",
+    "setup:developer": "bash shared/scripts/setup_developer.sh"
+>>>>>>> dev
   },
   "eslintConfig": {
     "extends": [
@@ -153,23 +166,8 @@
       "react-app"
     ]
   },
-  "infinisoft": {
-    "moduleFederation": {
-      "title": "Container",
-      "category": "microapps",
-      "image": "https://www.kitchen.infini-soft.com/assets/components.png",
-      "component": "Container",
-      "dev": {
-        "remotes": {
-          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js"
-        }
-      },
-      "prod": {
-        "remotes": {}
-      }
-    }
-  },
   "devDependencies": {
+    "@nrwl/nx-cloud": "latest",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
@@ -178,6 +176,12 @@
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
+    "lerna": "^5.2.0",
+    "nx": "14.4.3",
     "storybook-dark-mode": "^1.1.0"
-  }
+  },
+  "workspaces": [
+    "apps/federated/*",
+    "apps/micro/*"
+  ]
 }

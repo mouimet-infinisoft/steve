@@ -34,7 +34,7 @@ module.exports = merge({}, common, {
     new ModuleFederationPlugin({
       name,
       filename: "remoteEntry.js",
-      remotes: infinisoft.moduleFederation.dev.remotes,
+      remotes: infinisoft.moduleFederation.prod.remotes,
       exposes: {
         [`./${infinisoft.moduleFederation.component}`]: join(
           APPROOT,
@@ -44,19 +44,20 @@ module.exports = merge({}, common, {
       },
       shared: {
         ...peerDependencies,
+        "@emotion/react": { singleton: true },
         "@infini-soft/store": {
           singleton: true,
-          eager: false,
+          eager:true,
           requiredVersion: peerDependencies["@infini-soft/store"]
         },
         react: {
           singleton: true,
-          eager: false,
+          eager:true,
           requiredVersion: peerDependencies.react
         },
         "react-dom": {
           singleton: true,
-          eager: false,
+          eager:true,
           requiredVersion: peerDependencies["react-dom"]
         }
       }

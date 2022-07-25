@@ -79,7 +79,7 @@ console.log(`
       console.log(`Reports are ready ${this.dest}`);
       console.log(`Opening summary in browser...`);
       exec(`start ${this.dest}`)
-    }, 2000);
+    }, 500);
   };
 }
 

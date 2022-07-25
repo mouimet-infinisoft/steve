@@ -1,12 +1,11 @@
 import NoResult from "@/components/no-result";
 import { usePagination, useSubscribe } from "@/core/hooks";
 import React from "react";
-import {config} from '@/config'
+import { config } from "@/config";
 import Table from "./table";
 
-
 const Lists = (props) => {
-  const {  pageDataList = [], AppPagination } = usePagination({
+  const { pageDataList = [], AppPagination } = usePagination({
     feature: config.feature.name,
     itemPerPage: 8
   });

@@ -10,9 +10,9 @@ const TimeLine = ({ events = {} }) => {
   if (!_events ||  _events?.length<= 0) {
     return <Empty />;
   }
-
+console.log(_events)
   return (
-    <Box overflow="auto" p={2}>
+    <Box overflow="auto" p={2} width={"100%"}>
       <MUITimeline>
         {_events?.map?.(([id, { timeline, details }]) => {
           return (
@@ -20,7 +20,6 @@ const TimeLine = ({ events = {} }) => {
             <Item {...timeline}/>
           </Link>
         )}
-        
         )}
       </MUITimeline>
     </Box>

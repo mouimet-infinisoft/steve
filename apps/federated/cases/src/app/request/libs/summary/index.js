@@ -19,7 +19,7 @@ const Origin = React.lazy(() =>
 
 export default function Summary() {
   const { pathname } = useLocation();
-  const route = matchPath("/Cases/:selectedId/Summary", pathname);
+  const route = matchPath(":selectedId/*", pathname);
 
   const { item } = useItem({
     id: route?.params?.selectedId,

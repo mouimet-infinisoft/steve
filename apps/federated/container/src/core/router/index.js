@@ -1,4 +1,7 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
 // import Cases from "@/features/cases";
 // import Messages from "@/features/messages";
 // import Home from "@/app/index";
@@ -6,7 +9,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 // import Community from "@/features/community";
 import Layout from "../layout";
 import React from "react";
-import { config } from "@/config/";
+import { config } from "@/config/index";
 import { useMicroContext } from "../state";
 import NoResult from "@/components/no-result";
 import Home from "../../home";
@@ -18,35 +21,35 @@ const Contacts = React.lazy(() =>
   import(/* webpackChunkName: 'Contacts' */ "contacts/Contact")
 );
 
-const Router = () => {
+const CoreRouter = ({ basename = "/"}) => {
   const { log } = useMicroContext();
-  const location = useLocation();
 
   if (config?.verbose) {
-    log(`${config?.feature?.name} Router location = `, location);
+    log(`${config?.feature?.name} Basename = `, basename);
+    log(`${config?.feature?.name} Router location = `, window.location.pathname);
   }
 
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route
-          path="contacts/*"
-          // element={<Contacts basename={"/contacts"} />}
-          element={<Contacts basename={location?.basename ?? "/"} />}
-        />
-        <Route
-          path="cases/*"
-          element={<Cases basename={location?.basename ?? "/"} />}
-        />
-        {/* <Route path="messages/*" element={<Messages />} />
+      <Routes>
+        <Route path="*" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route
+            path="contacts/*"
+            element={<Contacts basename={"/contacts"} />}
+            // element={<Contacts  />}
+          />
+          <Route
+            path="cases/*"
+            element={<Cases basename={window.location.pathname} />}
+          />
+          {/* <Route path="messages/*" element={<Messages />} />
         <Route path="organizations/*" element={<Organizations />} />
         <Route path="community/*" element={<Community />} />
         <Route index element={<Home />} /> */}
-        <Route path="*" element={<NoResult />} />
-      </Route>
-    </Routes>
+          <Route path="*" element={<NoResult />} />
+        </Route>
+      </Routes>
   );
 };
 
-export default Router;
+export default CoreRouter;

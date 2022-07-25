@@ -9,11 +9,12 @@ import { config } from "@/config/index";
 
 export default function Details() {
   const { pathname } = useLocation();
-  const route = matchPath("/cases/:selectedId/Details", pathname);
+  const route = matchPath(":selectedId/*", pathname);
   const { item, listMutatorsFactory, InputMutator} = useItem({
     id: route?.params?.selectedId,
     feature: config.feature.name
   });
+
   const CrudList = ({ name, label, placeholder, variant = "inside" }) => (
     <CrudChipList
       inputComponentProps={{

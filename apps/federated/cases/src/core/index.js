@@ -1,19 +1,19 @@
 import "@/core/theme/css/App.css";
-import { MemoryRouter } from "react-router-dom";
-import Router from "@/core/router";
+import CoreRouter from "@/core/router";
 import MicroContextProvider from "@/core/state/context";
 import Component from "@/components/component";
+import { BrowserRouter as Router } from "react-router-dom";
 
-function App({ basename }) {
+function Core() {
   return (
     <Component>
       <MicroContextProvider>
-        <MemoryRouter basename={basename}>
-          <Router />
-        </MemoryRouter>
+        {/* <Router basename={basename}> */}
+        <CoreRouter basename={window.location.pathname} />
+        {/* </Router> */}
       </MicroContextProvider>
     </Component>
   );
 }
 
-export default App;
+export default Core;

@@ -17,7 +17,6 @@ const menus = [
 ];
 
 export default function IconMenu() {
-  const id = useParams()?.id;
   const path = useLocation().pathname;
 
   return (

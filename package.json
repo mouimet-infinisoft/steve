@@ -162,22 +162,6 @@
       "react-app"
     ]
   },
-  "infinisoft": {
-    "moduleFederation": {
-      "title": "Container",
-      "category": "microapps",
-      "image": "https://www.kitchen.infini-soft.com/assets/components.png",
-      "component": "Container",
-      "dev": {
-        "remotes": {
-          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js"
-        }
-      },
-      "prod": {
-        "remotes": {}
-      }
-    }
-  },
   "devDependencies": {
     "@nrwl/nx-cloud": "latest",
     "@storybook/addon-actions": "^6.5.9",
@@ -193,6 +177,7 @@
     "storybook-dark-mode": "^1.1.0"
   },
   "workspaces": [
-    "apps/federated/*"
+    "apps/federated/*",
+    "apps/micro/*"
   ]
 }

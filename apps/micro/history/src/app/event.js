@@ -20,7 +20,6 @@ const ScrollContainer = React.lazy(() =>
 );
 const Event = ({ events = {} }) => {
   const state = useLocation();
-  console.log(state)
   return (
     <Box
       width={1}
@@ -29,6 +28,7 @@ const Event = ({ events = {} }) => {
     >
       <ScrollContainer title={"item.name"} subtitle={"item.email"} subtitle2={"item?.__meta__?.action"} description={new Date().toDateString("en-US")}>
         <Telephones title={"Telephones"} list={[{label:"labell", tag:"tag"}]} />
+        <AddressAndOtherValues title="Address" description={"item?.address"} />
         <AddressAndOtherValues title="Address" description={"item?.address"} />
         <AddressAndOtherValues title="Address" description={"item?.address"} />
       </ScrollContainer>

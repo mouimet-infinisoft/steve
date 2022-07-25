@@ -3,16 +3,17 @@ import { default as MUITimeline } from "@mui/lab/Timeline";
 import Box from "@mui/system/Box";
 import { Link } from "react-router-dom";
 import Empty from "./empty";
+import { useTheme } from "@mui/material";
 
 const TimeLine = ({ events = {} }) => {
+  const theme = useTheme();
   const _events = Object.entries(events);
 
   if (!_events ||  _events?.length<= 0) {
     return <Empty />;
   }
-console.log(_events)
   return (
-    <Box overflow="auto" p={2} width={"100%"}>
+    <Box overflow="auto"  height={theme.spacing(28)} p={2} width={"100%"}>
       <MUITimeline>
         {_events?.map?.(([id, { timeline, details }]) => {
           return (

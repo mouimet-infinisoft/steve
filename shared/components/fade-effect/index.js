@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 
-const FadeInOutEffect = ({ children }) => (
+export const FadeInOutEffect = ({ children }) => (
     <AnimatePresence>
       <motion.div initial={{ opacity: 0, scale: 0.5 }}
         exit={{ opacity: 0 }}
@@ -11,4 +11,3 @@ const FadeInOutEffect = ({ children }) => (
       </motion.div>
     </AnimatePresence>
   )
-export default FadeInOutEffect;  

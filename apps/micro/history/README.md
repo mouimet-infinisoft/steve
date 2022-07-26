@@ -12,7 +12,6 @@ Display history infinite scroll timeline and click to see details.
 | isComplete | boolean            | Flag true if no more events  |
 | isEmpty    | React.Node         | Empty React Component        |
 
-
 ## Event Schema
 ---
 

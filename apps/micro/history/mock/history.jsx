@@ -1,14 +1,14 @@
 import { generateId } from "@/helpers/generateid.js";
 import React from "react";
-import AccessTimeTwoToneIcon from "@mui/icons-material/AccessTimeTwoTone";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import UpdateIcon from '@mui/icons-material/Update';
+
 const actionsIcons = {
   update: <UpdateIcon />,
   delete: <DeleteForeverIcon />,
-  create: <NoteAddIcon />
+  create: <NoteAddIcon />,
 }
 const generateEvents = (count) =>
   new Array(count)

@@ -8,10 +8,28 @@ export default {
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     argTypes: {
         label: {
+            description: 'Typography',
+            table: {
+                defaultValue: {
+                    summary: 'body1',
+                }
+            }
         },
         tag: {
+            description: 'Typography',
+            table: {
+                defaultValue: {
+                    summary: 'body2',
+                }
+            }
         },
         value: {
+            description: 'Typography',
+            table: {
+                defaultValue: {
+                    summary: 'body2',
+                }
+            }
         }
     },
 };
@@ -22,7 +40,9 @@ const Template = (args) => <HeaderAndSubtitle {...args} />;
 export const HeadSub = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 HeadSub.args = {
-
+    label: 'Label',
+    tag: 'Tag / ',
+    value: 'Value'   
 }
 
 

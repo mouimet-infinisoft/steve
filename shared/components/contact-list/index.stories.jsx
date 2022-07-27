@@ -8,7 +8,22 @@ export default {
   component: ContactListItem,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-
+    name: {
+      description: 'List Item Text Name (primary)',
+      table: {
+        defaultValue: {
+          summary: 'Add a name'
+        }
+      }
+    },
+    address: {
+      description: 'List Item Text Address (secondary)',
+      table: {
+        defaultValue: {
+          summary: 'Add an address'
+        }
+      }
+    }
   },
 };
 
@@ -18,6 +33,7 @@ const Template = (args) => <ContactListItem {...args} />;
 export const Contact = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Contact.args = {
-
+  name: 'Add a name',
+  address: 'Add an address'
 };
 

@@ -9,13 +9,15 @@ export default {
 
 
 const Template = (args) => (
-  <Jumbotron {...args}></Jumbotron>
+  <div style={{ backgroundColor: 'black', color: '#1EA7FD', width: '100%' }}>
+  <Jumbotron {...args} />
+  </div>
 
 );
 
 export const Jumbo = Template.bind({});
 Jumbo.args = {
-  title: "JUMBOTRON"
+  title: "JUMBOTRON",
 }
 
 

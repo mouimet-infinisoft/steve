@@ -2,7 +2,7 @@
 import Avatar from "@mui/material/Avatar"
 import Divider from "@mui/material/Divider"
 import Box from "@mui/system/Box"
-import HeaderAndSubtitle from "../header-subtitle";
+import {HeaderAndSubtitle} from "../header-subtitle";
 import { IconButton, Typography, useTheme } from "@mui/material"
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
@@ -13,7 +13,7 @@ export const ScrollContainer = ({ title, subtitle, subtitle2, description, child
             <Box display="flex" alignItems="center">
                 <IconButton
                     sx={{ display: "inline-flex", padding: 0, marginLeft: -1, marginRight: 1 }}
-                    disableRipple= {true}
+                    disableRipple
                     to={-1}
                 >
                     <ArrowBackIcon color="primary" />

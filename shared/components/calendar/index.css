@@ -10,7 +10,7 @@
 }
 button.react-calendar__tile {
   background-color: transparent;
-  color: white;
+  color: rgb(189, 99, 241);
   border-width: 0;
   padding: 0.5rem;
 }

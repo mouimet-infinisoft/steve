@@ -1,5 +1,5 @@
 import notready from "./not.gif";
-const NotImplemented = () => (
+export const NotImplemented = () => (
   <div style={{ textAlign: "center" }}>
     <h2>Not Implemented</h2>
     <img
@@ -10,4 +10,3 @@ const NotImplemented = () => (
   </div>
 );
 
-export default NotImplemented;

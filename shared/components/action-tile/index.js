@@ -47,6 +47,6 @@ ActionTile.propTypes = {
   /**
    * Icon content
    */
-  icon: PropTypes.string,
+  icon: PropTypes.ReactNode,
 };
 

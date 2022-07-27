@@ -15,11 +15,6 @@ export default {
       },
       description: 'Slider direction',
     },
-    styleProps: {
-        control: {
-            type: 'object',
-        }
-    }
   },
   parameters: {
     docs: {
@@ -32,7 +27,7 @@ export default {
 
 const Template = (args) => (
   <Slider {...args}>
-    <div style={{ backgroundColor: 'pink', width: '200px', height: '200px' }}>
+    <div style={{ color: "blue", border: "1px solid blue", backgroundColor: "pink", display: "flex", width: 250, height: 250, justifyContent: "center", alignItems: "center" }}>
       Hello
     </div>
   </Slider>
@@ -40,7 +35,7 @@ const Template = (args) => (
 
 export const Left = Template.bind({});
 Left.args = {
-  direction: 'left',
+  direction: 'left'
 };
 
 Left.parameters = {

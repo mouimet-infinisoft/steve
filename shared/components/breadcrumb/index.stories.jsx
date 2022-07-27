@@ -22,7 +22,6 @@ const Template = (args) => <MietteDePain {...args} />;
 export const MDP = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 MDP.args = {
-  last: true,
   itemLabel: {}
 };
 

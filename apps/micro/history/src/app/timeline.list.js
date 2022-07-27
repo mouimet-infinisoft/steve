@@ -2,15 +2,14 @@ import Item from "./item";
 import { default as MUITimeline } from "@mui/lab/Timeline";
 import Box from "@mui/system/Box";
 import { Link } from "react-router-dom";
-import Empty from "./empty";
+import DefaultEmpty from "./empty";
 
-const TimeLine = ({ events = {} }) => {
+const TimeLine = ({ events = {}, Empty = DefaultEmpty  }) => {
   const _events = Object.entries(events);
 
-  if (!_events ||  _events?.length<= 0) {
+  if (!_events || _events?.length <= 0) {
     return <Empty />;
   }
-
   return (
     <Box overflow="auto" p={2}>
       <MUITimeline>
@@ -20,7 +19,6 @@ const TimeLine = ({ events = {} }) => {
             <Item {...timeline}/>
           </Link>
         )}
-        
         )}
       </MUITimeline>
     </Box>

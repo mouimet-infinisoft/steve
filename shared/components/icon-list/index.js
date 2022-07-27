@@ -5,7 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
 
-const IconListItem = ({
+export const IconListItem = ({
   icon = <Avatar alt="avatar" />,
   title,
   subtitle,
@@ -13,14 +13,15 @@ const IconListItem = ({
   ...props
 }) => {
   return (
-    <ListItem alignItems="flex-start" key={key}>
+    
+    <ListItem alignItems="flex-start" key={key} {...props}>
       <ListItemAvatar>{icon}</ListItemAvatar>
       <ListItemText primary={title} secondary={subtitle} />
     </ListItem>
   );
 };
 
-export default function IconList({ items }) {
+export function IconList({ items }) {
   return (
     <List sx={{ width: "100%", bgcolor: "background.paper" }}>
       {items.map((props, index) => (

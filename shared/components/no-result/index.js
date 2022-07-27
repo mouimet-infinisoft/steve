@@ -1,5 +1,5 @@
 import notready from "./nothing.gif";
-const NoResult = () => (
+export const NoResult = () => (
   <div style={{ textAlign: "center", width: '500px' }}>
     <h2>No Results</h2>
     <img
@@ -10,4 +10,3 @@ const NoResult = () => (
   </div>
 );
 
-export default NoResult;

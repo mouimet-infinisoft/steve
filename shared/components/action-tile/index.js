@@ -1,9 +1,17 @@
-import { Box, Card, CardActionArea, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Card from '@mui/material/Card';
+import CardActionArea from '@mui/material/CardActionArea';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+// import { Link } from 'react-router-dom';
 
-const ActionTile = ({ title, description, to, icon }) => {
+/**
+ * Action tile component route to features pages
+ */
+export const ActionTile = ({ title, description, to, icon, ...props }) => {
   return (
-    <Card sx={{ width: 350, height: 120 }} to={to} component={Link}>
+    <Card sx={{ width: 350, height: 120 }} to={to} {...props}>
       <CardActionArea sx={{ width: 350, height: 125, display: "flex", gap: 2 }}>
         <Box
           sx={(theme) => ({
@@ -23,5 +31,22 @@ const ActionTile = ({ title, description, to, icon }) => {
   );
 };
 
+ActionTile.propTypes = {
+  /**
+   * Is the title on the page
+   */
+  title: PropTypes.string,
+  /**
+   * Small description
+   */
+  description: PropTypes.string,
+  /**
+   * Where is directed?
+   */
+  to: PropTypes.string,
+  /**
+   * Icon content
+   */
+  icon: PropTypes.ReactNode,
+};
 
-export default ActionTile;

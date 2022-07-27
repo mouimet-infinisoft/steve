@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import { InputAdornment, TextField } from "@mui/material";
 import SearchTwoToneIcon from "@mui/icons-material/SearchTwoTone";
 
-export default function Search({ handleOnChange, InputProps="medium" }) {
+export function Search({ handleOnChange, InputProps="medium" }) {
   return (
     <Box>
       <TextField

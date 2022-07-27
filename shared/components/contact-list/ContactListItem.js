@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import PhoneAndroidTwoToneIcon from "@mui/icons-material/PhoneAndroidTwoTone";
 import MessageTwoToneIcon from "@mui/icons-material/MessageTwoTone";
 
-export default function ContactListItem({ id, avatar, name, address, email, handleClick }) {
+export function ContactListItem({ id, avatar, name, address, email, handleClick }) {
   return (
     <ListItem
       key={id}

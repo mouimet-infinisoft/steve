@@ -1,13 +1,13 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Link from "@mui/material/Link";
+// import Link from "@mui/material/Link";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
+// import ExpandLess from "@mui/icons-material/ExpandLess";
+// import ExpandMore from "@mui/icons-material/ExpandMore";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+// import { Link as RouterLink } from "react-router-dom";
 import HomeTwoToneIcon from "@mui/icons-material/HomeTwoTone";
 
 const breadcrumbNameMap = {
@@ -29,7 +29,7 @@ function ListItemLink(props) {
 
   return (
     <li>
-      <ListItem button component={RouterLink} to={to} {...other}>
+      <ListItem button to={to} {...other}>
         <ListItemText
           primary={primary}
           primaryTypographyProps={{ textTransform: "capitalize" }}
@@ -45,10 +45,10 @@ ListItemLink.propTypes = {
   to: PropTypes.string.isRequired
 };
 
-const LinkRouter = (props) => <Link {...props} component={RouterLink} />;
+// const LinkRouter = (props) => <Link {...props} component={RouterLink} />;
 
-const MietteDePain = ({ itemLabel }) => {
-  const location = useLocation();
+export const MietteDePain = ({ itemLabel }) => {
+  // const location = useLocation();
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
@@ -59,9 +59,9 @@ const MietteDePain = ({ itemLabel }) => {
         ".MuiBreadcrumbs-ol": { alignItems: "flex-start" }
       }}
     >
-      <LinkRouter underline="hover" color="inherit" to="/">
+      {/* <LinkRouter underline="hover" color="inherit" to="/"> */}
         <HomeTwoToneIcon sx={{ width: "1.4rem", height: "1.4rem" }} />
-      </LinkRouter>
+      {/* </LinkRouter> */}
       {pathnames.map((value, index) => {
         const last = index === pathnames.length - 1;
         const to = `/${pathnames.slice(0, index + 1).join("/")}`;
@@ -71,15 +71,16 @@ const MietteDePain = ({ itemLabel }) => {
             {itemLabel?.key === value ? itemLabel?.value : value}
           </Typography>
         ) : (
-          <LinkRouter underline="hover" color="inherit" to={to} key={to}>
+          // <LinkRouter underline="hover" color="inherit" to={to} key={to}>
             <Typography color="text.secondary" textTransform="capitalize">
               {itemLabel?.key === value ? itemLabel?.value : value}
             </Typography>
-          </LinkRouter>
+          // </LinkRouter>
         );
       })}
     </Breadcrumbs>
   );
 };
 
-export default MietteDePain;
+
+

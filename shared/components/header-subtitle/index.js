@@ -1,7 +1,7 @@
 import Typography from "@mui/material/Typography"
 import Box from "@mui/system/Box"
 
-const HeaderAndSubtitle = (props) => (
+export const HeaderAndSubtitle = (props) => (
     <Box {...props}>
         <Typography variant="body1" color="text.primary" textTransform={"capitalize"} textAlign="start">
             {props.label}
@@ -14,5 +14,3 @@ const HeaderAndSubtitle = (props) => (
         </Typography>
     </Box>
 )
-
-export default HeaderAndSubtitle;

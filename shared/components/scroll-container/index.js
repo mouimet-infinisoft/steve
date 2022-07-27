@@ -2,12 +2,11 @@
 import Avatar from "@mui/material/Avatar"
 import Divider from "@mui/material/Divider"
 import Box from "@mui/system/Box"
-import HeaderAndSubtitle from "../header-subtitle";
+import {HeaderAndSubtitle} from "../header-subtitle";
 import { IconButton, Typography, useTheme } from "@mui/material"
-import { Link } from "react-router-dom";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const ScrollContainer = ({ title, subtitle, subtitle2, description, children }) => {
+export const ScrollContainer = ({ title, subtitle, subtitle2, description, children }) => {
     const theme = useTheme();
     return (
         <>
@@ -15,7 +14,6 @@ const ScrollContainer = ({ title, subtitle, subtitle2, description, children }) 
                 <IconButton
                     sx={{ display: "inline-flex", padding: 0, marginLeft: -1, marginRight: 1 }}
                     disableRipple
-                    component={Link}
                     to={-1}
                 >
                     <ArrowBackIcon color="primary" />
@@ -35,4 +33,3 @@ const ScrollContainer = ({ title, subtitle, subtitle2, description, children }) 
         </>
     )
 }
-export default ScrollContainer

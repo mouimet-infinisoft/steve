@@ -3,6 +3,7 @@ const {
   withStorybookModuleFederation,
 } = require('storybook-module-federation');
 const pkg = require('../package.json');
+const { MFLiveReloadPlugin } = require("@module-federation/fmr");
 
 const WORKSPACEROOT = resolve(process.cwd());
 // const APPROOT = join(WORKSPACEROOT, "apps", "micro", "histroy");
@@ -61,6 +62,17 @@ module.exports = withStorybookModuleFederation({
       experiments: {
         topLevelAwait: true
       },
+      devServer: {
+        ...config.devServer,
+        hot: false,
+        liveReload: true
+      },
+      plugins: [
+        ...config.plugins,
+        new MFLiveReloadPlugin({
+          standalone: true
+        }),
+      ],
       resolve: {
         ...config.resolve,
         alias: {

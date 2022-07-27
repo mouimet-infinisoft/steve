@@ -1,8 +1,7 @@
 import { generateId } from "@/helpers/generateid.js";
 import React from "react";
 import AccessTimeTwoToneIcon from "@mui/icons-material/AccessTimeTwoTone";
-
-import History from "./src/core/index.js";
+import History from './src/core'
 
 const argTypes = {
   title: "Microapps/History",

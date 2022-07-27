@@ -4,7 +4,7 @@
  * www.infini-soft.com
  */
 
-import {useMicroState } from "@/core/state";
+import {useMicroState } from "../state";
 
 /**
  * CRUD Item in list

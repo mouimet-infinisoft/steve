@@ -1,4 +1,4 @@
-import { useMicroContext } from "@/core/state";
+import { useMicroContext } from "../state";
 import { useEffect } from "react";
 
 /**

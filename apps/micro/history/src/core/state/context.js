@@ -1,9 +1,9 @@
-import { config } from "@/config/index";
+import { config } from "../../../config";
 import { Store } from "@infini-soft/store";
 import React, { startTransition, useCallback, useEffect } from "react";
 import { CssBaseline } from "@mui/material";
-import AppThemeProvider from "@/core/theme/components/provider";
-import { list } from "@/core/services/crud/list";
+import AppThemeProvider from "../theme/components/provider";
+import { list } from "../services/crud/list";
 
 const initializeStore = () =>
   new Promise(async (resolve) => {

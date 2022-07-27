@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
-import { useMicroContext } from "@/core/state";
-import { config } from "@/config/index";
-import ListLayout from "@/core/layout";
-import { BrowserRouter as Router } from "react-router-dom";
-import TimeLine from "@/app/timeline.list";
-import Event from "@/app/event";
+import { useMicroContext } from "../state";
+import { config } from "../../../config";
+import ListLayout from "../layout";
+import { MemoryRouter as Router } from "react-router-dom";
+import TimeLine from "../../app/timeline.list";
+import Event from "../../app/event";
 
 const CoreRouter = ({basename, ...props}) => {
   const { log } = useMicroContext();

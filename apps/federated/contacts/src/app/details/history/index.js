@@ -27,7 +27,7 @@ const icon = {
   undefined: <CalendarTodayTwoToneIcon />
 };
 
-const ContactHistory = () => {
+const ContactHistory = ({basename}) => {
   const selectedId = useMicroState((s) => s[config.feature.name].selectedId);
 
   const selectedUserHistory = featurehistory().filter(

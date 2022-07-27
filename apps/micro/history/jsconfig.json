@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "lib": ["dom"],
+    "sourceMap": true,
+    "jsx": "preserve",
+    "checkJs": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/config/*": ["./config/*"],
+      "@/mock/*": ["./mock/*"],
+      "@/components/*": ["../../../shared/components/*"],
+      "@/helpers/*": ["../../../shared/helpers/*"],
+      "@/*": ["src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "../../../shared/helpers/**/*",
+    "../../../shared/components/**/*",
+    "core.stories.jsx"
+  ],
+  "exclude": ["/template", "node_modules", "**/node_modules/*"]
+}

@@ -1,6 +1,8 @@
 name: Edison Preview
 
 on:
+  push:
+    branches: [ edison ]
   pull_request:
     branches: [ edison ]
 
@@ -26,8 +28,8 @@ jobs:
       run: npm install --location=global surge lerna
     - name: 🔨 Build
       run: lerna run build
-    - name: 🧪 Test
-      run: npm run ci:test
+    - name: 🧪 Analyze Bundle
+      run: lerna run analyze:bundle
     - name: 🚀 Deploy
       working-directory: ./apps/federated
       run: surge ./ ${{ secrets.SURGE_EDISON }} --token ${{ secrets.SURGE_TOKEN }}

@@ -22,7 +22,7 @@ const Header = ({ title, sx = {}, ...props }) => {
   };
 
   const pathname = useLocation()?.pathname;
-  const query = matchPath(`${config.feature.name}/:id/*`, pathname);
+  const query = matchPath(`:id/*`, pathname);
   const item = useMicroState(
     (s) => s?.[config.feature.name]?.list?.[query?.params?.id]
   );

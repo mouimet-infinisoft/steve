@@ -6,9 +6,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useMicroContext } from "@/core/state";
+import { onSelect } from "@/core/services";
 
 export default function BasicTable({ list }) {
+  const navigate = useNavigate();
+  const { store } = useMicroContext();
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -25,9 +30,12 @@ export default function BasicTable({ list }) {
           {list?.map((row) => (
             <TableRow
               key={row?.id}
+              id={row?.id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              to={row.id}
-              component={Link}
+              onClick={() => {
+                navigate(row.id);
+                onSelect({ id: row?.id, store });
+              }}
             >
               <TableCell component="th" scope="row">
                 {row.reference}

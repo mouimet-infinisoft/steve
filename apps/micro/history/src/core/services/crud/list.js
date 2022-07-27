@@ -1,4 +1,4 @@
-import featurelist from "@/mock/list";
+import featurelist from "../../../../mock/list";
 
 export const list = () =>
   new Promise((resolve, reject) => {

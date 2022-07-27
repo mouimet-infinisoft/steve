@@ -1,4 +1,4 @@
-import { config } from "@/config/index";
+import { config } from "../../../../config";
 
 export const onUnSelect = ({ store }) => () => {
   store.emit(`${config.feature.name}.unselect`);

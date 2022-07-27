@@ -1,5 +1,5 @@
 import React from "react";
-import * as themes from "@/core/theme";
+import * as themes from "..";
 import { ThemeProvider } from "@mui/material/styles";
 
 const AppThemeProvider = ({ children, mode='dark' }) => {

@@ -174,10 +174,24 @@
     "@storybook/testing-library": "^0.0.13",
     "lerna": "^5.2.0",
     "nx": "14.4.3",
-    "storybook-dark-mode": "^1.1.0"
+    "storybook-dark-mode": "^1.1.0",
+    "storybook-module-federation": "^0.6.2"
   },
   "workspaces": [
     "apps/federated/*",
     "apps/micro/*"
-  ]
+  ],
+  "infinisoft": {
+    "tag": "root",
+    "moduleFederation": {
+      "dev": {
+        "remotes": {
+          "contacts": "contacts@http://localhost:5000/contacts/artefacts/dev/remoteEntry.js"
+        }
+      },
+      "prod": {
+        "remotes": {}
+      }
+    }
+  }
 }

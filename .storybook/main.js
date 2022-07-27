@@ -1,4 +1,9 @@
 const { join, resolve } = require("path");
+const {
+  withStorybookModuleFederation,
+} = require('storybook-module-federation');
+const pkg = require('../package.json');
+const { MFLiveReloadPlugin } = require("@module-federation/fmr");
 
 const WORKSPACEROOT = resolve(process.cwd());
 // const APPROOT = join(WORKSPACEROOT, "apps", "micro", "histroy");
@@ -11,7 +16,25 @@ const SHARED = join(WORKSPACEROOT, "shared");
 const SHARED_COMPONENTS = join(SHARED, "components");
 const SHARED_HELPERS = join(SHARED, "helpers");
 
-module.exports = {
+module.exports = withStorybookModuleFederation({
+  name: 'storybook',
+  // remotes: pkg.infinisoft.moduleFederation.dev.remotes,
+  name: 'history',
+  filename: 'remoteEntry.js',
+  exposes: {
+    [`./History`]: resolve("apps", "micro", "history", 'src', 'core'),
+  },
+  shared: {
+    react: {
+      singleton: true,
+      eager: true,
+    },
+    'react-dom': {
+      singleton: true,
+      eager: true,
+    },
+  },
+})({
   stories: [
     "../docs/stories/**/*.stories.mdx",
     "../shared/components/**/*.stories.mdx",
@@ -28,7 +51,7 @@ module.exports = {
   ],
   framework: "@storybook/react",
   core: {
-    builder: "@storybook/builder-webpack5"
+    builder: "webpack5"
   },
   webpackFinal: async (config) => {
     console.log(`alias ` + config.resolve.alias);
@@ -39,21 +62,32 @@ module.exports = {
       experiments: {
         topLevelAwait: true
       },
+      devServer: {
+        ...config.devServer,
+        hot: false,
+        liveReload: true
+      },
+      plugins: [
+        ...config.plugins,
+        new MFLiveReloadPlugin({
+          standalone: true
+        }),
+      ],
       resolve: {
         ...config.resolve,
         alias: {
           ...config.resolve.alias,
-          "@/config": join(APPROOT, "config"),
-          "@/mock": join(APPROOT, "mock"),
-          "@/app": join(APPROOT, "app"),
+          "@/config": resolve(process.cwd(), "config"),
+          "@/mock": resolve(process.cwd(), "mock"),
+          "@/app": resolve(process.cwd(), "app"),
           "@/core/theme/css/App.css": join("theme", "css", "App.css"),
-          "@/core/router": join(APPROOT, "core", "router"),
-          "@/core": join(APPROOT, "core"),
-          "@/services": join(APPROOT, "services"),
+          "@/core/router": resolve(process.cwd(), "src", "core", "router"),
+          "@/core": resolve(process.cwd(), "core"),
+          "@/services": resolve(process.cwd(), "services"),
           "@/components": SHARED_COMPONENTS,
           "@/helpers": SHARED_HELPERS
         }
       }
     };
   }
-};
+});

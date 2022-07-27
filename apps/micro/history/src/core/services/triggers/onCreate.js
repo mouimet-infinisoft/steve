@@ -1,5 +1,5 @@
-import { config } from "@/config/index";
-import { generateId } from "@/core/helpers";
+import { config } from "../../../../config";
+import { generateId } from "../../helpers";
 
 
 export const onCreate = (store, post) => () => {

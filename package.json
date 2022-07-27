@@ -79,16 +79,12 @@
     "start:cases:prod": "\"cd apps/federated/cases&& npm run build:prod:watch\"",
     "start:federation": "serve -l 5000 -s apps/federated",
     "storybook": "start-storybook -p 6006",
-<<<<<<< HEAD
-    "build-storybook": "build-storybook --docs"
-=======
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook --docs",
     "ci": "echo not implemented",
     "ci:build": "echo not implemented",
     "ci:test": "echo not implemented",
     "ci:deploy": "echo not implemented",
     "setup:developer": "bash shared/scripts/setup_developer.sh"
->>>>>>> dev
   },
   "eslintConfig": {
     "extends": [

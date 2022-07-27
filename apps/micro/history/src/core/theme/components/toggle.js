@@ -3,7 +3,7 @@ import IconButton from '@mui/material/IconButton';
 import { useTheme,  } from '@mui/material/styles';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import { useMicroContext } from '@/core/state';
+import { useMicroContext } from '../../state';
 
 function ThemeToggleSwitch() {
   const theme = useTheme();

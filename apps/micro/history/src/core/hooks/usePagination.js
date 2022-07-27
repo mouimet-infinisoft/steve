@@ -1,6 +1,6 @@
 import { Pagination } from "@mui/material";
 import React, { startTransition } from "react";
-import { useMicroState } from "@/core/state";
+import { useMicroState } from "../state";
 
 
 export const usePagination = ({ feature, itemPerPage }) => {

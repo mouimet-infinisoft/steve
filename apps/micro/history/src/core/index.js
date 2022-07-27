@@ -1,6 +1,6 @@
-import "@/core/theme/css/App.css";
-import CoreRouter from "@/core/router";
-import MicroContextProvider from "@/core/state/context";
+// import "@/core/theme/css/App.css";
+import CoreRouter from "./router";
+import MicroContextProvider from "./state/context";
 import Component from "@/components/component";
 
 function Core(props) {

@@ -4,7 +4,7 @@
  * www.infini-soft.com
  */
 
-import { useMicroContext, useMicroState } from "@/core/state";
+import { useMicroContext, useMicroState } from "../state";
 import { useCallback } from "react";
 
 /**

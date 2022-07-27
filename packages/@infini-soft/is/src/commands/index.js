@@ -1,11 +1,4 @@
-const version = require("./version");
-const debug = require("./debug");
-const banner = require("./banner");
-const usage = require("./usage");
-
+const hello = require('./hello')
 module.exports = {
-  "--debug": debug,
-  "--version": version,
-  banner,
-  usage
-};
+    hello
+}

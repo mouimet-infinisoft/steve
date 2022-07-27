@@ -17,3 +17,4 @@
    -  Replace tokens
    
 3. Sync Config
+4. add/remove/search micro

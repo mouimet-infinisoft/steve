@@ -10,6 +10,7 @@ Display history infinite scroll timeline and click to see details.
 | events     | Map<string, Event> | Events                       |
 | next()     | Function           | Call back to get more events |
 | isComplete | boolean            | Flag true if no more events  |
+| isEmpty    | React.Node         | Empty React Component        |
 
 ## Event Schema
 ---

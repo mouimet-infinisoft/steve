@@ -1,21 +1,22 @@
 import Box from "@mui/material/Box";
-import * as React from "react";
 import { useLocation } from "react-router-dom";
-import Empty from "./empty";
+import DefaultEmpty from "./empty";
+import * as React from "react";
 
-const Event = () => {
-  const {state} = useLocation();
-
-  console.log(state);
+const Event = ({ events = {}, Empty = DefaultEmpty  }) => {
+  const { state } = useLocation();
 
   if (!state) {
-    return <Empty />;
+    return <Empty />
   }
 
   return (
-    <Box display="flex" height="inherit">
-      {/* {details} */}
-      DETAILS
+    <Box
+      width={1}
+      display="flex"
+      flexDirection="column"
+    >
+      Details
     </Box>
   );
 };

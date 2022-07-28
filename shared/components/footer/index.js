@@ -6,7 +6,6 @@
  import React from 'react';
 
 
- const Footer = (props) => {
- return <footer>Steve footer</footer>;
+ export const Footer = (props) => {
+ return <footer {...props}>FOOTER</footer>;
  }
- export default Footer

@@ -27,7 +27,7 @@ const Telephones = React.lazy(() =>
   )
 );
 
-export default function ContactCard({
+export function ContactCard({
   id,
   name,
   email,

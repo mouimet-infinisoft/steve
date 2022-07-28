@@ -19,5 +19,4 @@ const AvatarTitleDescription = ({avatar, subtitle, description}) => (
     }
   />
 );
-
 export default AvatarTitleDescription;
